@@ -1,0 +1,327 @@
+fileFormatVersion: 2
+guid: c719d0690ac0837749bac4f73f9b4c44
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2441070719779507712
+    second: SkeletonDash_0
+  - first:
+      213: 7810359909741218816
+    second: SkeletonDash_1
+  - first:
+      213: 6682868799462817792
+    second: SkeletonDash_2
+  - first:
+      213: 3102273348570018816
+    second: SkeletonDash_3
+  - first:
+      213: 7311143458710207488
+    second: SkeletonDash_4
+  - first:
+      213: 3713740971701368832
+    second: SkeletonDash_5
+  - first:
+      213: 5915364470464852992
+    second: SkeletonDash_6
+  - first:
+      213: 6740239216363270144
+    second: SkeletonDash_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 4096
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 140
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SkeletonDash_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 759
+        height: 602
+      alignment: 9
+      pivot: {x: 0.58762, y: 0.09967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 840f548196f96090f6e063b237ceaa12
+      internalID: 2441070719779507712
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDash_1
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 0
+        width: 759
+        height: 602
+      alignment: 9
+      pivot: {x: 0.58762, y: 0.09967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4ba29a9cb43309f18afa7dfb5ea2b5d
+      internalID: 7810359909741218816
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDash_2
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 0
+        width: 759
+        height: 602
+      alignment: 9
+      pivot: {x: 0.58762, y: 0.09967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb4bbe3e6087ecc9c792139c89be1405
+      internalID: 6682868799462817792
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDash_3
+      rect:
+        serializedVersion: 2
+        x: 2277
+        y: 0
+        width: 759
+        height: 602
+      alignment: 9
+      pivot: {x: 0.58762, y: 0.09967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d85d7601b93a7b337b6148a76dd18a3
+      internalID: 3102273348570018816
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDash_4
+      rect:
+        serializedVersion: 2
+        x: 3036
+        y: 0
+        width: 759
+        height: 602
+      alignment: 9
+      pivot: {x: 0.58762, y: 0.09967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e00288ebd94f5c6b2a1ea2e439937ab
+      internalID: 7311143458710207488
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDash_5
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 0
+        width: 759
+        height: 602
+      alignment: 9
+      pivot: {x: 0.58762, y: 0.09967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d97db591ee1335129e2c50d37c5d95
+      internalID: 3713740971701368832
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDash_6
+      rect:
+        serializedVersion: 2
+        x: 4554
+        y: 0
+        width: 759
+        height: 602
+      alignment: 9
+      pivot: {x: 0.58762, y: 0.09967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04d2d9f18d0a988df171a0861c30ff81
+      internalID: 5915364470464852992
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDash_7
+      rect:
+        serializedVersion: 2
+        x: 5313
+        y: 0
+        width: 759
+        height: 602
+      alignment: 9
+      pivot: {x: 0.58762, y: 0.09967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e948d4e919ec2ee92e78e3ca07238d9
+      internalID: 6740239216363270144
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    outline: []
+    customData:
+    physicsShape: []
+    bones: []
+    spriteID:
+    internalID: 0
+    vertices: []
+    indices:
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SkeletonDash_0: 2441070719779507712
+      SkeletonDash_1: 7810359909741218816
+      SkeletonDash_2: 6682868799462817792
+      SkeletonDash_3: 3102273348570018816
+      SkeletonDash_4: 7311143458710207488
+      SkeletonDash_5: 3713740971701368832
+      SkeletonDash_6: 5915364470464852992
+      SkeletonDash_7: 6740239216363270144
+  mipmapLimitGroupName:
+  pSDRemoveMatte: 0
+  userData:
+  assetBundleName:
+  assetBundleVariant:

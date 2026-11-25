@@ -1,0 +1,327 @@
+fileFormatVersion: 2
+guid: 40393446e63a82a9073e2daaa344b3e1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3461254157506095104
+    second: SkeletonDashForward_0
+  - first:
+      213: 5128369328465482752
+    second: SkeletonDashForward_1
+  - first:
+      213: 1091049460923381632
+    second: SkeletonDashForward_2
+  - first:
+      213: 4885645586266640384
+    second: SkeletonDashForward_3
+  - first:
+      213: 7006936458791782400
+    second: SkeletonDashForward_4
+  - first:
+      213: 4997910874042801152
+    second: SkeletonDashForward_5
+  - first:
+      213: 4333221005852473344
+    second: SkeletonDashForward_6
+  - first:
+      213: 5486281802920540160
+    second: SkeletonDashForward_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 4096
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 140
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SkeletonDashForward_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 827
+        height: 583
+      alignment: 9
+      pivot: {x: 0.43652, y: 0.05832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b887aa04323d9032e04ceb9e820de66
+      internalID: 3461254157506095104
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDashForward_1
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 0
+        width: 827
+        height: 583
+      alignment: 9
+      pivot: {x: 0.43652, y: 0.05832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0376cfb8d83885118bb0fe16f5135759
+      internalID: 5128369328465482752
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDashForward_2
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 0
+        width: 827
+        height: 583
+      alignment: 9
+      pivot: {x: 0.43652, y: 0.05832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c5ef094e08faf064164c18e05df08a4
+      internalID: 1091049460923381632
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDashForward_3
+      rect:
+        serializedVersion: 2
+        x: 2481
+        y: 0
+        width: 827
+        height: 583
+      alignment: 9
+      pivot: {x: 0.43652, y: 0.05832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61503a17cb9c628e940791bb17e12759
+      internalID: 4885645586266640384
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDashForward_4
+      rect:
+        serializedVersion: 2
+        x: 3308
+        y: 0
+        width: 827
+        height: 583
+      alignment: 9
+      pivot: {x: 0.43652, y: 0.05832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e49070dbec82d9aefa35b710d1aebe48
+      internalID: 7006936458791782400
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDashForward_5
+      rect:
+        serializedVersion: 2
+        x: 4135
+        y: 0
+        width: 827
+        height: 583
+      alignment: 9
+      pivot: {x: 0.43652, y: 0.05832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8c7e9264eaad480677392ac3c722d00
+      internalID: 4997910874042801152
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDashForward_6
+      rect:
+        serializedVersion: 2
+        x: 4962
+        y: 0
+        width: 827
+        height: 583
+      alignment: 9
+      pivot: {x: 0.43652, y: 0.05832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b5e1f2ec0e6e885ef35670ed9a8b13e
+      internalID: 4333221005852473344
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonDashForward_7
+      rect:
+        serializedVersion: 2
+        x: 5789
+        y: 0
+        width: 827
+        height: 583
+      alignment: 9
+      pivot: {x: 0.43652, y: 0.05832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99a181af9f35770419bbdbcf25beeaf7
+      internalID: 5486281802920540160
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    outline: []
+    customData:
+    physicsShape: []
+    bones: []
+    spriteID:
+    internalID: 0
+    vertices: []
+    indices:
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SkeletonDashForward_0: 3461254157506095104
+      SkeletonDashForward_1: 5128369328465482752
+      SkeletonDashForward_2: 1091049460923381632
+      SkeletonDashForward_3: 4885645586266640384
+      SkeletonDashForward_4: 7006936458791782400
+      SkeletonDashForward_5: 4997910874042801152
+      SkeletonDashForward_6: 4333221005852473344
+      SkeletonDashForward_7: 5486281802920540160
+  mipmapLimitGroupName:
+  pSDRemoveMatte: 0
+  userData:
+  assetBundleName:
+  assetBundleVariant:
