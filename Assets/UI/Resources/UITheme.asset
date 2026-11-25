@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5f6f292856b0a408782d7ad7a79507, type: 3}
+  m_Name: UITheme
+  m_EditorClassIdentifier: Assembly-CSharp::UITheme
+  buttonFont: {fileID: 12800000, guid: 7633e961852669f4e8b822b244120c5f, type: 3}
+  titleFont: {fileID: 12800000, guid: 7633e961852669f4e8b822b244120c5f, type: 3}
+  buttonNormal: {r: 0.8, g: 0.72, b: 0.64, a: 0.85}
+  buttonSelected: {r: 1, g: 0.8, b: 0.48, a: 1}
+  buttonOutline: {r: 0.25, g: 0.03, b: 0.02, a: 0.9}
+  decoColor: {r: 1, g: 0.55, b: 0.22, a: 1}
+  buttonSelectedScale: 1.12
+  titleColor: {r: 1, g: 0.62, b: 0.3, a: 1}
+  hintColor: {r: 0.8, g: 0.65, b: 0.55, a: 0.55}
+  pauseOverlay: {r: 0.03, g: 0, b: 0.01, a: 0.65}
+  menuTitle: {fileID: 21300000, guid: 3a4d05cf31354414195698fe8443762a, type: 3}
+  menuVignette: {fileID: 21300000, guid: d913137b36b0f054e9598a973cdc19d1, type: 3}
+  pausePanel: {fileID: 21300000, guid: fbf3183010b8c834181fb8af091b0452, type: 3}
+  pauseTitle: {fileID: 0}
+  buttonDeco: {fileID: 0}
+  buttonBackground: {fileID: 0}

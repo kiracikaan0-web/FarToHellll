@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 /// perdeyle calar; boylece art arda savurmalar ayni duyulmaz.
 ///
 /// Sahneye eklemeye gerek yok: oyun baslarken PlayerMovement olan objeye kendini ekler.
-/// Ileride saldiri animasyonu/scripti yazdiginda o scriptten veya bir Animation Event'ten
-/// PlaySwing() cagirabilirsin; o zaman "Play On Input" kutusunu kapat.
+/// Player'da PlayerCombat varsa sesi o tetikler ve "Play On Input" otomatik kapanir.
+/// Istersen bir Animation Event'ten de PlaySwing() cagirabilirsin.
 /// </summary>
 public class SwordSwingSound : MonoBehaviour
 {
@@ -28,12 +28,23 @@ public class SwordSwingSound : MonoBehaviour
     private float nextSwingTime;
     private int lastIndex = -1;
 
+    /// <summary>False yapilirsa ses tusa basinca degil, sadece PlaySwing() cagrilinca calar (PlayerCombat bunu yapar).</summary>
+    public bool PlayOnInput
+    {
+        get => playOnInput;
+        set => playOnInput = value;
+    }
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void Init()
     {
         AttachToPlayer();
-        SceneManager.sceneLoaded += (scene, mode) => AttachToPlayer();
+        // Domain Reload kapaliyken her Play'de tekrar eklenmesin diye once cikar
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
+    private static void OnSceneLoaded(Scene scene, LoadSceneMode mode) => AttachToPlayer();
 
     private static void AttachToPlayer()
     {
