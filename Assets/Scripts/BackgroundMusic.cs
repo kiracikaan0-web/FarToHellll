@@ -46,12 +46,17 @@ public class BackgroundMusic : MonoBehaviour
         source.loop = true;
         source.playOnAwake = false;
         source.spatialBlend = 0f;
-        source.volume = volume;
+        ApplyVolume();
+        GameSettings.Changed += ApplyVolume; // Ayarlar > Muzik degisince
         source.Play();
     }
 
-    private void OnValidate()
+    private void ApplyVolume()
     {
-        if (source != null) source.volume = volume;
+        if (source != null) source.volume = volume * GameSettings.MusicVolume;
     }
+
+    private void OnDestroy() => GameSettings.Changed -= ApplyVolume;
+
+    private void OnValidate() => ApplyVolume();
 }

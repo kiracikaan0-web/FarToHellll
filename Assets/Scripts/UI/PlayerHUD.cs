@@ -22,6 +22,10 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private RectTransform staminaBar;
     [SerializeField] private RectTransform staminaFill;
     [SerializeField] private Image[] barBacks;
+    [Tooltip("Sise gostergesi (bos birakilirsa oyun basinda barlarin altina kendiliginden olusturulur)")]
+    [SerializeField] private RectTransform flaskRoot;
+    [SerializeField] private Image flaskIcon;
+    [SerializeField] private Text flaskCount;
 
     [Header("Bar uzunlugu")]
     [Tooltip("Acik: bar uzunlugu maksimum cana/staminaya gore degisir")]
@@ -44,6 +48,8 @@ public class PlayerHUD : MonoBehaviour
 
     private Health health;
     private PlayerStamina stamina;
+    private PlayerFlask flask;
+    private Sprite flaskFull, flaskEmpty;
     private Image healthFillImg, chipImg, staminaFillImg;
     private Color staminaColor, staminaEmptyColor;
     private float shownHealth = 1f, shownChip = 1f, shownStamina = 1f;
@@ -109,12 +115,73 @@ public class PlayerHUD : MonoBehaviour
             stamina.Failed += OnStaminaFailed;
             shownStamina = stamina.Normalized;
         }
+        flask = player.GetComponent<PlayerFlask>();
+        if (flask != null)
+        {
+            if (flaskRoot == null) BuildFlaskWidget();
+            flask.Changed += OnFlaskChanged;
+            OnFlaskChanged(flask.Charges, flask.MaxCharges);
+        }
+    }
+
+    private void OnFlaskChanged(int charges, int max)
+    {
+        if (flaskCount != null) flaskCount.text = "×" + charges;
+        if (flaskIcon != null)
+        {
+            if (flaskFull == null) flaskFull = Resources.Load<Sprite>("FlaskIcon");
+            if (flaskEmpty == null) flaskEmpty = Resources.Load<Sprite>("FlaskIconEmpty");
+            var sprite = charges > 0 ? flaskFull : flaskEmpty;
+            if (sprite != null) flaskIcon.sprite = sprite;
+            flaskIcon.enabled = flaskIcon.sprite != null;
+        }
+        if (flaskRoot != null) flaskRoot.gameObject.SetActive(max > 0);
+    }
+
+    /// <summary>Sise gostergesini kodla olusturur (HUD prefabini yeniden kurmaya gerek kalmasin).</summary>
+    private void BuildFlaskWidget()
+    {
+        var parent = healthBar != null ? healthBar.parent as RectTransform : transform as RectTransform;
+        var t = theme != null ? theme : UITheme.Default;
+
+        var root = new GameObject("Flask", typeof(RectTransform)).GetComponent<RectTransform>();
+        root.SetParent(parent, false);
+        root.anchorMin = root.anchorMax = root.pivot = new Vector2(0f, 1f);
+        root.anchoredPosition = new Vector2(-6f, -58f);
+        root.sizeDelta = new Vector2(160f, 56f);
+
+        var icon = new GameObject("Icon", typeof(RectTransform)).AddComponent<Image>();
+        icon.rectTransform.SetParent(root, false);
+        icon.rectTransform.anchorMin = icon.rectTransform.anchorMax = icon.rectTransform.pivot = new Vector2(0f, 0.5f);
+        icon.rectTransform.sizeDelta = new Vector2(52f, 52f);
+        icon.rectTransform.anchoredPosition = Vector2.zero;
+        icon.preserveAspect = true;
+        icon.raycastTarget = false;
+
+        var txt = new GameObject("Count", typeof(RectTransform)).AddComponent<Text>();
+        txt.rectTransform.SetParent(root, false);
+        txt.rectTransform.anchorMin = txt.rectTransform.anchorMax = txt.rectTransform.pivot = new Vector2(0f, 0.5f);
+        txt.rectTransform.sizeDelta = new Vector2(100f, 50f);
+        txt.rectTransform.anchoredPosition = new Vector2(54f, -2f);
+        txt.font = t != null && t.buttonFont != null ? t.buttonFont : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        txt.fontSize = 34;
+        txt.alignment = TextAnchor.MiddleLeft;
+        txt.color = t != null ? t.buttonSelected : Color.white;
+        txt.raycastTarget = false;
+        var sh = txt.gameObject.AddComponent<Shadow>();
+        sh.effectColor = new Color(0f, 0f, 0f, 0.8f);
+        sh.effectDistance = new Vector2(2f, -2f);
+
+        flaskRoot = root;
+        flaskIcon = icon;
+        flaskCount = txt;
     }
 
     private void Unbind()
     {
         if (health != null) health.Changed -= OnHealthChanged;
         if (stamina != null) stamina.Failed -= OnStaminaFailed;
+        if (flask != null) flask.Changed -= OnFlaskChanged;
     }
 
     private void OnHealthChanged(int current, int max)

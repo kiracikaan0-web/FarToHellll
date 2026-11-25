@@ -58,6 +58,7 @@ public class MainMenu : MonoBehaviour
             return;
         }
         busy = true;
+        Checkpoint.ClearProgress(); // yeni oyun: kontrol noktalari sifirdan
         StartCoroutine(LoadGame());
     }
 

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b518684cadefb8a4f9c18bdc33a179ff, type: 3}
+  m_Name: GameFeelSettings
+  m_EditorClassIdentifier: Assembly-CSharp::GameFeelSettings
+  hitStop: 0
+  cameraShake: 1
+  hitParticles: 1
+  hitSounds: 1
+  hitStopEnemyHit: 0.03
+  hitStopEnemyKill: 0.12
+  hitStopPlayerHurt: 0.08
+  shakeEnemyHit: {x: 0.1, y: 0.12}
+  shakeEnemyKill: {x: 0.22, y: 0.25}
+  shakePlayerHurt: {x: 0.3, y: 0.22}
+  particlesEnemyHit: 8
+  particlesEnemyKill: 18
+  particlesPlayerHurt: 10
+  enemyParticleColor: {r: 0.95, g: 0.86, b: 0.68, a: 1}
+  playerParticleColor: {r: 0.75, g: 0.88, b: 1, a: 1}
+  hitVolume: 0.8
+  hurtVolume: 0.9
+  deathVolume: 0.8

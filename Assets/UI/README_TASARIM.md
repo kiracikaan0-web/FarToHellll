@@ -17,6 +17,7 @@ Bu dosyayı Unity'de seçince Inspector'da tüm kutuları görürsün. Yeni bir 
 | **Button Deco** | Seçili butonun iki yanındaki süs | 64 × 64 px, şeffaf PNG | Boş bırakılırsa küçük elmas çizilir |
 | **Button Background** | Butonun arka planı | 600 × 100 px, şeffaf PNG | Boş bırakılırsa buton arka plansız, sadece yazı |
 | **Hud Bar Frame** | Can ve stamina barlarının çerçevesi | ~420 × 34 px, şeffaf PNG, **9-slice** (Sprite Editor'de kenar çiz) | Boş bırakılırsa ince çizgi kullanılır. Bar uzayınca çerçeve de bozulmadan uzar |
+| **Death Title** | Ölünce ekranın ortasında çıkan "ÖLDÜN" yazısı | ~1100 × 260 px, şeffaf PNG | Boş bırakılırsa yazı fontla yazılır |
 
 ## Font ve renkler
 
@@ -26,6 +27,7 @@ Bu dosyayı Unity'de seçince Inspector'da tüm kutuları görürsün. Yeni bir 
 - **Title Color / Hint Color:** başlık ve alt bilgi yazıları.
 - **Pause Overlay:** duraklatınca oyunun üstüne gelen karartmanın rengi ve şeffaflığı.
 - **Hud Health / Hud Health Chip / Hud Stamina:** can barı, hasar alınca geride kalan sarı "kayıp" barı ve stamina barı renkleri. **Hud Stamina Empty:** stamina yetmeyince yanıp sönen renk. **Hud Bar Back / Border:** barların boş kısmı ve kenar çizgisi.
+- **Death Text Color / Death Band Color:** "ÖLDÜN" yazısının ve arkasındaki siyah bandın rengi. **Banner Color:** kontrol noktası yakılınca çıkan "ATEŞ YAKILDI" yazısının rengi.
 
 ## Görsel import ayarları
 
@@ -39,6 +41,7 @@ Yeni bir PNG ekleyince Inspector'da şunları yap:
 - Görseller: `Assets/UI/`
 - Fontlar: `Assets/Fonts/`
 - Oyun içi arka plan katmanları: `Assets/Sprites/Background/` (aynı adla değiştirmen yeterli)
+- Kontrol noktası (sunak, alev, kor, parıltı): `Assets/Sprites/Checkpoint/` (aynı adla ve benzer boyutta değiştirmen yeterli; geçici çizimler)
 
 ## Menüleri baştan kurmak
 
@@ -46,5 +49,6 @@ Unity menüsünden:
 - **Tools → FarToHell → Ana Menu Kur**
 - **Tools → FarToHell → Duraklatma Menusu Kur**
 - **Tools → FarToHell → Can ve Stamina Kur** (HUD barları)
+- **Tools → FarToHell → Olum Ekrani Kur**
 
 Bunlar menüleri temadaki görsellerle yeniden oluşturur. UITheme dosyasına dokunmazlar, yani senin görsellerin korunur.

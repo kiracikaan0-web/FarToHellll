@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -55,6 +56,9 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
     [Tooltip("Geri adimin stamina maliyeti")]
     [SerializeField, Min(0f)] private float backstepStaminaCost = 12f;
 
+    [Tooltip("Dash ve geri adim sirasinda dusmanlarin icinden gecilsin mi?")]
+    [SerializeField] private bool dashThroughEnemies = true;
+
     [Header("Hasar alinca")]
     [Tooltip("Vurulunca kontrolun kilitli kaldigi sure (sn)")]
     [SerializeField, Min(0f)] private float hurtStunDuration = 0.3f;
@@ -100,11 +104,23 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
     public bool IsInvulnerable => isDashing && dashInvulnerable;
     /// <summary>Saldiri gibi durumlarda yurumeyi/ziplamayi/dash'i kilitler (PlayerCombat kullanir).</summary>
     public bool MovementLocked { get; set; }
+    /// <summary>Yurume hizi carpani (ornegin sise icerken yavaslama).</summary>
+    public float SpeedMultiplier { get; set; } = 1f;
+    /// <summary>Yurunebilir ama ziplama/dash/saldiri yapilamaz (ornegin sise icerken).</summary>
+    public bool ActionLock { get; set; }
 
     private Health health;
     private PlayerStamina stamina;
     private bool isHurt;
     private float hurtEndTime;
+
+    // Dash ile dusmandan gecis: dash boyunca carpismasi kapatilan (oyuncu, dusman) collider ciftleri
+    private Collider2D[] bodyColliders;
+    private readonly List<Collider2D> ignoredEnemyColliders = new List<Collider2D>();
+
+    // Dusmanin kafasindan kaydirma: kisa sure yatay hizi disaridan belirler
+    private float pushUntil;
+    private float pushVelocityX;
 
     public bool IsDead => health != null && health.IsDead;
     public bool IsHurt => isHurt;
@@ -117,10 +133,14 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        var cols = new List<Collider2D>();
+        foreach (var c in GetComponents<Collider2D>()) if (!c.isTrigger) cols.Add(c);
+        bodyColliders = cols.ToArray();
         health = GetComponent<Health>();
         if (health == null) health = gameObject.AddComponent<Health>();
         stamina = GetComponent<PlayerStamina>();
         if (stamina == null) stamina = gameObject.AddComponent<PlayerStamina>();
+        if (GetComponent<PlayerFlask>() == null) gameObject.AddComponent<PlayerFlask>();
         // Fizik 50 Hz'de, ekran 60+ Hz'de calisir. Interpolation olmadan karakter kareler arasinda
         // ziplayarak ilerler ve kamera takip ederken titrer/bulanik gorunur.
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
@@ -231,7 +251,8 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
             if (spriteRenderer != null) spriteRenderer.color = Color.Lerp(start, end, t / fade);
             yield return null;
         }
-        if (!restartSceneOnDeath) yield break;
+        // Olum ekrani varsa yeniden dogmayi o yonetir (OLDUN yazisi, kontrol noktasi)
+        if (!restartSceneOnDeath || DeathScreen.Instance != null) yield break;
         yield return new WaitForSeconds(Mathf.Max(0f, deathRestartDelay - fade));
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -253,6 +274,8 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
 
         if (isDashing && Time.time >= dashEndTime)
             isDashing = false;
+        if (!isDashing && ignoredEnemyColliders.Count > 0)
+            RestoreEnemyCollisions();
 
         HandleDash();
         HandleJump();
@@ -265,7 +288,7 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
         if (jumpAction.WasPressedThisFrame())
             lastJumpPressedTime = Time.time;
 
-        bool canJump = !isDashing && !ControlsLocked;
+        bool canJump = !isDashing && !ControlsLocked && !ActionLock;
         bool buffered = Time.time - lastJumpPressedTime <= jumpBufferTime;
         bool coyote = Time.time - lastGroundedTime <= coyoteTime;
 
@@ -284,7 +307,7 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
     private void HandleDash()
     {
         if (!dashAction.WasPressedThisFrame()) return;
-        if (isDashing || ControlsLocked || Time.time < nextDashTime) return;
+        if (isDashing || ControlsLocked || ActionLock || Time.time < nextDashTime) return;
         if (!isGrounded && !allowAirDash) return;
 
         bool forward = horizontal != 0f;
@@ -310,6 +333,7 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
 
         isDashing = true;
         nextDashTime = dashEndTime + dashCooldown;
+        if (dashThroughEnemies) IgnoreEnemyCollisions();
     }
 
     private void HandleFacing()
@@ -336,12 +360,53 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
             rb.linearVelocity = new Vector2(Mathf.MoveTowards(rb.linearVelocity.x, 0f, 30f * Time.fixedDeltaTime), rb.linearVelocity.y);
         else if (isHurt)
             return; // geri itilme hizi korunur
+        else if (Time.time < pushUntil)
+            rb.linearVelocity = new Vector2(pushVelocityX, Mathf.Min(rb.linearVelocity.y, 0f)); // dusmanin kafasindan kay
         else if (isDashing)
             rb.linearVelocity = new Vector2(dashDirection * currentDashSpeed, rb.linearVelocity.y);
         else if (MovementLocked)
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         else
-            rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(horizontal * moveSpeed * SpeedMultiplier, rb.linearVelocity.y);
+    }
+
+    /// <summary>Dusmanin kafasina basinca EnemyBody cagirir: oyuncu yana dogru kayip duser.</summary>
+    public void PushOffEnemyHead(float direction, float speed)
+    {
+        if (IsDead || isDashing) return;
+        pushVelocityX = Mathf.Sign(direction == 0f ? -FacingDirection : direction) * speed;
+        pushUntil = Time.time + 0.12f;
+    }
+
+    private void IgnoreEnemyCollisions()
+    {
+        foreach (var enemy in EnemyBody.All)
+        {
+            if (enemy == null) continue;
+            foreach (var ec in enemy.Colliders)
+            {
+                if (ec == null || ignoredEnemyColliders.Contains(ec)) continue;
+                foreach (var mine in bodyColliders) Physics2D.IgnoreCollision(mine, ec, true);
+                ignoredEnemyColliders.Add(ec);
+            }
+        }
+    }
+
+    /// <summary>Dash bitince: icinden cikilan dusmanlarla carpismayi geri ac (hala icindeyse cikana kadar bekle).</summary>
+    private void RestoreEnemyCollisions()
+    {
+        for (int i = ignoredEnemyColliders.Count - 1; i >= 0; i--)
+        {
+            var ec = ignoredEnemyColliders[i];
+            if (ec == null) { ignoredEnemyColliders.RemoveAt(i); continue; }
+            bool overlapping = false;
+            if (ec.enabled && ec.gameObject.activeInHierarchy)
+                foreach (var mine in bodyColliders)
+                    if (mine.enabled && mine.Distance(ec).isOverlapped) { overlapping = true; break; }
+            if (overlapping) continue;
+            foreach (var mine in bodyColliders) Physics2D.IgnoreCollision(mine, ec, false);
+            ignoredEnemyColliders.RemoveAt(i);
+        }
     }
 
     private void UpdateAnimator()

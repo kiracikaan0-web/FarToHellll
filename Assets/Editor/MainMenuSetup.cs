@@ -13,7 +13,7 @@ using UnityEngine.UI;
 /// Unity menusu: Tools > FarToHell > Ana Menu Kur
 ///
 ///  - Assets/Scenes/MainMenu.unity sahnesini olusturur (varsa sorup yeniden kurar)
-///  - Hareketli cehennem arka plani, baslik logosu, BASLA / CIKIS butonlari, karartma gecisi
+///  - Hareketli cehennem arka plani, baslik logosu, BASLA / AYARLAR / CIKIS butonlari, ayarlar paneli, karartma gecisi
 ///  - Gorseller, fontlar ve renkler UI Theme'den gelir: Assets/UI/Resources/UITheme.asset
 ///  - Build Settings'i ayarlar: 0 = MainMenu, 1 = oyun sahnesi (circle)
 /// </summary>
@@ -71,8 +71,13 @@ public static class MainMenuSetup
         var vig = UIBuildUtil.CreateThemedImage("Vignette", canvasRT, theme, UITheme.Slot.MenuVignette, hideIfEmpty: true);
         UIBuildUtil.Stretch(vig.rectTransform);
 
+        // Baslik ve butonlar tek grupta (ayarlar acilinca birlikte gizlenir)
+        var mainRT = UIBuildUtil.CreateRect("Main", canvasRT);
+        UIBuildUtil.Stretch(mainRT);
+        var mainGroup = mainRT.gameObject.AddComponent<CanvasGroup>();
+
         // Baslik
-        var titleImg = UIBuildUtil.CreateThemedImage("Title", canvasRT, theme, UITheme.Slot.MenuTitle);
+        var titleImg = UIBuildUtil.CreateThemedImage("Title", mainRT, theme, UITheme.Slot.MenuTitle);
         titleImg.preserveAspect = true;
         var trt = titleImg.rectTransform;
         trt.anchorMin = trt.anchorMax = trt.pivot = new Vector2(0.5f, 1f);
@@ -82,12 +87,17 @@ public static class MainMenuSetup
         titleImg.gameObject.AddComponent<UIPulse>();
 
         // Butonlar
-        var list = UIBuildUtil.CreateVerticalList("Buttons", canvasRT, new Vector2(600f, 260f), new Vector2(0f, -150f), 18f);
+        var list = UIBuildUtil.CreateVerticalList("Buttons", mainRT, new Vector2(600f, 340f), new Vector2(0f, -170f), 18f);
         var startBtn = UIBuildUtil.CreateMenuButton(list, "BASLA_Button", "BAŞLA", theme);
+        var settingsBtn = UIBuildUtil.CreateMenuButton(list, "AYARLAR_Button", "AYARLAR", theme);
         var quitBtn = UIBuildUtil.CreateMenuButton(list, "CIKIS_Button", "ÇIKIŞ", theme);
         UnityEventTools.AddPersistentListener(startBtn.onClick, menu.StartGame);
         UnityEventTools.AddPersistentListener(quitBtn.onClick, menu.QuitGame);
-        UIBuildUtil.LinkVertical(startBtn, quitBtn);
+        UIBuildUtil.LinkVertical(startBtn, settingsBtn, quitBtn);
+
+        // Ayarlar paneli
+        var settings = SettingsMenuBuilder.Build(canvasRT, theme, mainGroup, settingsBtn);
+        UnityEventTools.AddPersistentListener(settingsBtn.onClick, settings.Open);
 
         // Alt bilgi
         var hint = UIBuildUtil.CreateThemedText("Hint", canvasRT, theme, ThemedText.Role.Hint,
@@ -103,6 +113,10 @@ public static class MainMenuSetup
         vrt.anchorMin = vrt.anchorMax = vrt.pivot = new Vector2(1f, 0f);
         vrt.sizeDelta = new Vector2(300f, 50f);
         vrt.anchoredPosition = new Vector2(-30f, 30f);
+
+        // Alt bilgi ayarlar panelinin ustunde kalmasin diye siralama
+        hint.transform.SetAsLastSibling();
+        version.transform.SetAsLastSibling();
 
         // Karartma paneli (en ustte)
         var fadeImg = UIBuildUtil.CreateImage("Fader", canvasRT, null, Color.black);

@@ -32,6 +32,8 @@ public class PauseMenu : MonoBehaviour
     [Tooltip("Duraklatildiginda genel ses seviyesi")]
     [SerializeField, Range(0f, 1f)] private float pausedVolume = 0.4f;
     [SerializeField] private InputAction pauseAction = new InputAction("Pause", InputActionType.Button);
+    [Tooltip("Duraklatma icindeki ayarlar paneli (kurulum menusu baglar)")]
+    [SerializeField] private SettingsMenu settings;
 
     private Coroutine fadeRoutine;
     private bool leaving;
@@ -110,6 +112,8 @@ public class PauseMenu : MonoBehaviour
         if (leaving) return;
         if (pauseAction.WasPressedThisFrame())
         {
+            // Ayarlar aciksa ESC once ayarlari kapatir (SettingsMenu kendisi yapar), oyuna donmez
+            if (settings != null && (settings.IsOpen || settings.LastCloseFrame == Time.frameCount)) return;
             if (IsPaused) Resume();
             else Pause();
         }
@@ -120,7 +124,7 @@ public class PauseMenu : MonoBehaviour
         if (IsPaused || leaving) return;
         IsPaused = true;
         Time.timeScale = 0f;
-        AudioListener.volume = pausedVolume;
+        GameSettings.SetMasterDuck(pausedVolume); // ayarlardaki genel sesin uzerine kisar
         SetVisible(true, false);
 
         if (firstSelected != null && EventSystem.current != null)
@@ -133,6 +137,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         if (!IsPaused || leaving) return;
+        if (settings != null) settings.CloseImmediate();
         RestoreGame();
         SetVisible(false, false);
         if (EventSystem.current != null) EventSystem.current.SetSelectedGameObject(null);
@@ -174,7 +179,7 @@ public class PauseMenu : MonoBehaviour
         IsPaused = false;
         resumeFrame = Time.frameCount;
         Time.timeScale = 1f;
-        AudioListener.volume = 1f;
+        GameSettings.SetMasterDuck(1f);
     }
 
     private void SetVisible(bool visible, bool instant)

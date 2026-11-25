@@ -93,6 +93,6 @@ public class SwordSwingSound : MonoBehaviour
         lastIndex = index;
 
         source.pitch = Random.Range(pitchRange.x, pitchRange.y);
-        source.PlayOneShot(swingClips[index], volume);
+        source.PlayOneShot(swingClips[index], volume * GameSettings.SfxVolume); // Ayarlar > Efektler
     }
 }

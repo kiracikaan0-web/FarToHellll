@@ -54,6 +54,14 @@ public class Health : MonoBehaviour
     /// <summary>(mevcut, maksimum) degisince.</summary>
     public event Action<int, int> Changed;
 
+    /// <summary>Herhangi bir Health hasar alinca (GameFeel gibi genel sistemler icin).</summary>
+    public static event Action<Health, DamageInfo> AnyDamaged;
+    /// <summary>Herhangi bir Health olunce.</summary>
+    public static event Action<Health> AnyDied;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStatics() { AnyDamaged = null; AnyDied = null; }
+
     public int Current { get; private set; }
     public int Max => maxHealth;
     public float Normalized => maxHealth > 0 ? (float)Current / maxHealth : 0f;
@@ -69,7 +77,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         Current = maxHealth;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>(); // gorsel alt objede de olabilir (dusmanlar)
         if (spriteRenderer != null) baseColor = spriteRenderer.color;
         blockers = GetComponents<IDamageBlocker>();
     }
@@ -88,6 +96,7 @@ public class Health : MonoBehaviour
         Flash();
 
         Damaged?.Invoke(info);
+        AnyDamaged?.Invoke(this, info);
         OnDamaged?.Invoke();
         Changed?.Invoke(Current, maxHealth);
 
@@ -95,6 +104,7 @@ public class Health : MonoBehaviour
         {
             IsDead = true;
             Died?.Invoke();
+            AnyDied?.Invoke(this);
             OnDeath?.Invoke();
         }
         return true;

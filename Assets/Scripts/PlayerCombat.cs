@@ -104,7 +104,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (state == AttackState.None)
             {
-                if (Time.time >= nextAttackTime && !movement.IsDashing && !movement.IsHurt && !movement.IsDead &&
+                if (Time.time >= nextAttackTime && !movement.IsDashing && !movement.IsHurt && !movement.IsDead && !movement.ActionLock &&
                     movement.Stamina.TrySpend(attackStaminaCost))
                     StartAttack(AttackState.Attack);
             }

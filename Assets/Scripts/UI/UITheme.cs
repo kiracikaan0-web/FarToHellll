@@ -19,7 +19,8 @@ public class UITheme : ScriptableObject
         PauseTitle,     // Duraklatma basligi gorseli (bos birakilirsa yazi kullanilir)
         ButtonDeco,     // Secili butonun yanindaki sus (bos = elmas)
         ButtonBackground, // Buton arka plani (bos = gorunmez)
-        HudBarFrame     // Can/stamina barinin cercevesi (bos = ince cizgi)
+        HudBarFrame,    // Can/stamina barinin cercevesi (bos = ince cizgi)
+        DeathTitle      // "OLDUN" gorseli (bos = yazi)
     }
 
     [Header("Fontlar")]
@@ -48,6 +49,11 @@ public class UITheme : ScriptableObject
     public Color hudBarBack = new Color(0.05f, 0.01f, 0.02f, 0.75f);
     public Color hudBarBorder = new Color(0.55f, 0.40f, 0.28f, 0.9f);
 
+    [Header("Olum ekrani ve bantlar")]
+    public Color deathTextColor = new Color(0.72f, 0.06f, 0.05f, 1f);
+    public Color deathBandColor = new Color(0f, 0f, 0f, 0.8f);
+    public Color bannerColor = new Color(1f, 0.80f, 0.45f, 1f);
+
     [Header("Gorseller")]
     public Sprite menuTitle;
     public Sprite menuVignette;
@@ -56,6 +62,7 @@ public class UITheme : ScriptableObject
     public Sprite buttonDeco;
     public Sprite buttonBackground;
     public Sprite hudBarFrame;
+    public Sprite deathTitle;
 
     public Sprite Get(Slot slot)
     {
@@ -68,6 +75,7 @@ public class UITheme : ScriptableObject
             case Slot.ButtonDeco: return buttonDeco;
             case Slot.ButtonBackground: return buttonBackground;
             case Slot.HudBarFrame: return hudBarFrame;
+            case Slot.DeathTitle: return deathTitle;
         }
         return null;
     }
@@ -98,6 +106,8 @@ public class UITheme : ScriptableObject
             foreach (var t in FindObjectsByType<ThemedText>(FindObjectsInactive.Include)) t.Apply();
             foreach (var b in FindObjectsByType<MenuButtonFX>(FindObjectsInactive.Include)) b.ApplyTheme();
             foreach (var h in FindObjectsByType<PlayerHUD>(FindObjectsInactive.Include)) h.ApplyTheme();
+            foreach (var d in FindObjectsByType<DeathScreen>(FindObjectsInactive.Include)) d.ApplyTheme();
+            foreach (var r in FindObjectsByType<SettingsRow>(FindObjectsInactive.Include)) r.ApplyTheme();
         };
     }
 #endif

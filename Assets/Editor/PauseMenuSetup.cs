@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ESC ile acilan duraklatma menusunu prefab olarak olusturur ve acik sahneye koyar.
+/// ESC ile acilan duraklatma menusunu (Devam Et, Ayarlar, Ana Menu, Cikis) prefab olarak olusturur.
 /// Unity menusu: Tools > FarToHell > Duraklatma Menusu Kur
 ///
 ///  - Assets/UI/Resources/PauseMenu.prefab (varsa sorup yeniden kurar)
@@ -81,6 +81,7 @@ public static class PauseMenuSetup
         var prt = panel.rectTransform;
         prt.anchorMin = prt.anchorMax = prt.pivot = new Vector2(0.5f, 0.5f);
         prt.sizeDelta = new Vector2(820f, 760f);
+        var panelGroup = panel.gameObject.AddComponent<CanvasGroup>(); // ayarlar acilinca gizlenir
 
         // Baslik: temada gorsel varsa o, yoksa yazi
         var titleText = UIBuildUtil.CreateThemedText("TitleText", prt, theme, ThemedText.Role.Title, "DURAKLATILDI", 76);
@@ -104,14 +105,15 @@ public static class PauseMenuSetup
         tir.anchoredPosition = new Vector2(0f, -150f);
 
         // Butonlar
-        var list = UIBuildUtil.CreateVerticalList("Buttons", prt, new Vector2(600f, 330f), new Vector2(0f, -55f), 8f);
+        var list = UIBuildUtil.CreateVerticalList("Buttons", prt, new Vector2(600f, 370f), new Vector2(0f, -45f), 6f);
         var resume = UIBuildUtil.CreateMenuButton(list, "DevamEt_Button", "DEVAM ET", theme, 54);
+        var settingsBtn = UIBuildUtil.CreateMenuButton(list, "Ayarlar_Button", "AYARLAR", theme, 54);
         var toMenu = UIBuildUtil.CreateMenuButton(list, "AnaMenu_Button", "ANA MENÜ", theme, 54);
         var quit = UIBuildUtil.CreateMenuButton(list, "Cikis_Button", "ÇIKIŞ", theme, 54);
         UnityEventTools.AddPersistentListener(resume.onClick, menu.Resume);
         UnityEventTools.AddPersistentListener(toMenu.onClick, menu.GoToMainMenu);
         UnityEventTools.AddPersistentListener(quit.onClick, menu.QuitGame);
-        UIBuildUtil.LinkVertical(resume, toMenu, quit);
+        UIBuildUtil.LinkVertical(resume, settingsBtn, toMenu, quit);
 
         // Alt bilgi
         var hint = UIBuildUtil.CreateThemedText("Hint", prt, theme, ThemedText.Role.Hint, "ESC  ile devam et", 26);
@@ -120,9 +122,14 @@ public static class PauseMenuSetup
         hrt.sizeDelta = new Vector2(700f, 40f);
         hrt.anchoredPosition = new Vector2(0f, 95f);
 
+        // Ayarlar paneli (ana menudekiyle ayni)
+        var settings = SettingsMenuBuilder.Build(root, theme, panelGroup, settingsBtn);
+        UnityEventTools.AddPersistentListener(settingsBtn.onClick, settings.Open);
+
         var so = new SerializedObject(menu);
         so.FindProperty("root").objectReferenceValue = group;
         so.FindProperty("firstSelected").objectReferenceValue = resume;
+        so.FindProperty("settings").objectReferenceValue = settings;
         so.ApplyModifiedPropertiesWithoutUndo();
 
         // Editorde kapali dursun ki sahneyi kapatmasin

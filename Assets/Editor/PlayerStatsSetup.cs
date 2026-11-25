@@ -96,7 +96,7 @@ public static class PlayerStatsSetup
     }
 
     /// <summary>Acik sahnede Player yoksa oyun sahnesini acar.</summary>
-    private static PlayerMovement FindPlayerOpeningSceneIfNeeded()
+    internal static PlayerMovement FindPlayerOpeningSceneIfNeeded()
     {
         var player = Object.FindAnyObjectByType<PlayerMovement>();
         if (player != null) return player;
