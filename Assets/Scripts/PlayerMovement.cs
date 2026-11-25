@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Hareket")]
@@ -23,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        if (groundCheck == null)
+            Debug.LogWarning($"{name}: PlayerMovement'ta Ground Check atanmamış, zıplama çalışmaz.", this);
     }
 
     private void OnEnable()
@@ -41,7 +45,8 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = moveAction.ReadValue<Vector2>().x;
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        isGrounded = groundCheck != null &&
+                     Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         if (jumpAction.WasPressedThisFrame() && isGrounded)
         {
