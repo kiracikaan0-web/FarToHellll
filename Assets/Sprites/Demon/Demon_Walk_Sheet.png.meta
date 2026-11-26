@@ -1,0 +1,716 @@
+fileFormatVersion: 2
+guid: e73c8d85b4a27b348be7943526576886
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1666724929294081088
+    second: Demon_Walk_Sheet_0
+  - first:
+      213: -4286333858760489705
+    second: Demon_Walk_Sheet_1
+  - first:
+      213: 5878453463309121359
+    second: Demon_Walk_Sheet_2
+  - first:
+      213: -649838339360137704
+    second: Demon_Walk_Sheet_3
+  - first:
+      213: -8690208598589044278
+    second: Demon_Walk_Sheet_4
+  - first:
+      213: 2436575285367293429
+    second: Demon_Walk_Sheet_5
+  - first:
+      213: -2410632252834436380
+    second: Demon_Walk_Sheet_6
+  - first:
+      213: -8099259319546387023
+    second: Demon_Walk_Sheet_7
+  - first:
+      213: 3130529958301560960
+    second: Demon_Walk_Sheet_8
+  - first:
+      213: -5126558931315936440
+    second: Demon_Walk_Sheet_9
+  - first:
+      213: -6062050798202008125
+    second: Demon_Walk_Sheet_10
+  - first:
+      213: -5725535814373500692
+    second: Demon_Walk_Sheet_11
+  - first:
+      213: -3367705166282489668
+    second: Demon_Walk_Sheet_12
+  - first:
+      213: -8813550440307817299
+    second: Demon_Walk_Sheet_13
+  - first:
+      213: -4114490990961223433
+    second: Demon_Walk_Sheet_14
+  - first:
+      213: -1452849108939189681
+    second: Demon_Walk_Sheet_15
+  - first:
+      213: -1118099247476829278
+    second: Demon_Walk_0
+  - first:
+      213: -4409361824072731080
+    second: Demon_Walk_1
+  - first:
+      213: 2774215844775184364
+    second: Demon_Walk_2
+  - first:
+      213: -3657202139934329803
+    second: Demon_Walk_3
+  - first:
+      213: -387968910167844477
+    second: Demon_Walk_4
+  - first:
+      213: 8068112433105133457
+    second: Demon_Walk_5
+  - first:
+      213: 3846320818159258741
+    second: Demon_Walk_6
+  - first:
+      213: -2206983610916351964
+    second: Demon_Walk_7
+  - first:
+      213: -873100694928534542
+    second: Demon_Walk_8
+  - first:
+      213: 7227692155738762849
+    second: Demon_Walk_9
+  - first:
+      213: 4004304383540736436
+    second: Demon_Walk_10
+  - first:
+      213: -4708162526960617260
+    second: Demon_Walk_11
+  - first:
+      213: 6505671148451258042
+    second: Demon_Walk_12
+  - first:
+      213: 5728622100271231678
+    second: Demon_Walk_13
+  - first:
+      213: 4944721427900311919
+    second: Demon_Walk_14
+  - first:
+      213: 7017674593010905211
+    second: Demon_Walk_15
+  - first:
+      213: -2627867133345853948
+    second: Demon_Walk_16
+  - first:
+      213: -2393197770150861335
+    second: Demon_Walk_17
+  - first:
+      213: -3710585523894265590
+    second: Demon_Walk_18
+  - first:
+      213: -1974886471928873756
+    second: Demon_Walk_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 140
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Demon_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a3138a88a6bb70f0800000000000000
+      internalID: -1118099247476829278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 836f9f568cccec2c0800000000000000
+      internalID: -4409361824072731080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce7c516cc9eff7620800000000000000
+      internalID: 2774215844775184364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 2241
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5347a69c7020f3dc0800000000000000
+      internalID: -3657202139934329803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 389dc8de458ad9af0800000000000000
+      internalID: -387968910167844477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 3735
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19fd42fd281b7ff60800000000000000
+      internalID: 8068112433105133457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 4482
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c829ac760e06530800000000000000
+      internalID: 3846320818159258741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_7
+      rect:
+        serializedVersion: 2
+        x: 5229
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 420d83659183f51e0800000000000000
+      internalID: -2206983610916351964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_8
+      rect:
+        serializedVersion: 2
+        x: 5976
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f353a93b8f12e3f0800000000000000
+      internalID: -873100694928534542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_9
+      rect:
+        serializedVersion: 2
+        x: 6723
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16eafa0c8bbed4460800000000000000
+      internalID: 7227692155738762849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_10
+      rect:
+        serializedVersion: 2
+        x: 7470
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b13c710f95229730800000000000000
+      internalID: 4004304383540736436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_11
+      rect:
+        serializedVersion: 2
+        x: 8217
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8f4bb602f39aeb0800000000000000
+      internalID: -4708162526960617260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_12
+      rect:
+        serializedVersion: 2
+        x: 8964
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abed1f4e079c84a50800000000000000
+      internalID: 6505671148451258042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_13
+      rect:
+        serializedVersion: 2
+        x: 9711
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb27e1bd277208f40800000000000000
+      internalID: 5728622100271231678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_14
+      rect:
+        serializedVersion: 2
+        x: 10458
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f69a24fb0fd2f9440800000000000000
+      internalID: 4944721427900311919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_15
+      rect:
+        serializedVersion: 2
+        x: 11205
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b70f2b17cd9c36160800000000000000
+      internalID: 7017674593010905211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_16
+      rect:
+        serializedVersion: 2
+        x: 11952
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e0ff7e3c0f78bd0800000000000000
+      internalID: -2627867133345853948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_17
+      rect:
+        serializedVersion: 2
+        x: 12699
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5a6e8ce47a9ced0800000000000000
+      internalID: -2393197770150861335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_18
+      rect:
+        serializedVersion: 2
+        x: 13446
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a095393202a518cc0800000000000000
+      internalID: -3710585523894265590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Walk_19
+      rect:
+        serializedVersion: 2
+        x: 14193
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec74f8973bc794e0800000000000000
+      internalID: -1974886471928873756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Demon_Walk_0: -1118099247476829278
+      Demon_Walk_1: -4409361824072731080
+      Demon_Walk_10: 4004304383540736436
+      Demon_Walk_11: -4708162526960617260
+      Demon_Walk_12: 6505671148451258042
+      Demon_Walk_13: 5728622100271231678
+      Demon_Walk_14: 4944721427900311919
+      Demon_Walk_15: 7017674593010905211
+      Demon_Walk_16: -2627867133345853948
+      Demon_Walk_17: -2393197770150861335
+      Demon_Walk_18: -3710585523894265590
+      Demon_Walk_19: -1974886471928873756
+      Demon_Walk_2: 2774215844775184364
+      Demon_Walk_3: -3657202139934329803
+      Demon_Walk_4: -387968910167844477
+      Demon_Walk_5: 8068112433105133457
+      Demon_Walk_6: 3846320818159258741
+      Demon_Walk_7: -2206983610916351964
+      Demon_Walk_8: -873100694928534542
+      Demon_Walk_9: 7227692155738762849
+      Demon_Walk_Sheet_0: -1666724929294081088
+      Demon_Walk_Sheet_1: -4286333858760489705
+      Demon_Walk_Sheet_10: -6062050798202008125
+      Demon_Walk_Sheet_11: -5725535814373500692
+      Demon_Walk_Sheet_12: -3367705166282489668
+      Demon_Walk_Sheet_13: -8813550440307817299
+      Demon_Walk_Sheet_14: -4114490990961223433
+      Demon_Walk_Sheet_15: -1452849108939189681
+      Demon_Walk_Sheet_2: 5878453463309121359
+      Demon_Walk_Sheet_3: -649838339360137704
+      Demon_Walk_Sheet_4: -8690208598589044278
+      Demon_Walk_Sheet_5: 2436575285367293429
+      Demon_Walk_Sheet_6: -2410632252834436380
+      Demon_Walk_Sheet_7: -8099259319546387023
+      Demon_Walk_Sheet_8: 3130529958301560960
+      Demon_Walk_Sheet_9: -5126558931315936440
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

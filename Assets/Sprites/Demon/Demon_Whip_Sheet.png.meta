@@ -1,0 +1,688 @@
+fileFormatVersion: 2
+guid: 859c4051c82dbf7418628945301d731e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4746560909175239994
+    second: Demon_Whip_Sheet_0
+  - first:
+      213: 8175577757709174245
+    second: Demon_Whip_Sheet_1
+  - first:
+      213: 7819167324560742164
+    second: Demon_Whip_Sheet_2
+  - first:
+      213: 1450108965037572913
+    second: Demon_Whip_Sheet_3
+  - first:
+      213: -3942010864091635415
+    second: Demon_Whip_Sheet_4
+  - first:
+      213: -7448356181009653798
+    second: Demon_Whip_Sheet_5
+  - first:
+      213: -2271729056098127511
+    second: Demon_Whip_Sheet_6
+  - first:
+      213: -4626731215141771119
+    second: Demon_Whip_Sheet_7
+  - first:
+      213: -9220316560365398459
+    second: Demon_Whip_Sheet_8
+  - first:
+      213: -1588867254776117690
+    second: Demon_Whip_Sheet_9
+  - first:
+      213: -1439642023791768152
+    second: Demon_Whip_Sheet_10
+  - first:
+      213: -7884050127900563434
+    second: Demon_Whip_Sheet_11
+  - first:
+      213: 8928201592683562269
+    second: Demon_Whip_Sheet_12
+  - first:
+      213: 4810362220132996746
+    second: Demon_Whip_Sheet_13
+  - first:
+      213: 4889157366190825387
+    second: Demon_Whip_Sheet_14
+  - first:
+      213: -2619534466494598003
+    second: Demon_Whip_Sheet_15
+  - first:
+      213: 1732217408466487340
+    second: Demon_Whip_Sheet_16
+  - first:
+      213: 4690329662092694244
+    second: Demon_Whip_Sheet_17
+  - first:
+      213: -5066192099917222662
+    second: Demon_Whip_Sheet_18
+  - first:
+      213: 6672545448414201930
+    second: Demon_Whip_Sheet_19
+  - first:
+      213: 7545409862996838420
+    second: Demon_Whip_Sheet_20
+  - first:
+      213: -7802369491316323421
+    second: Demon_Whip_Sheet_21
+  - first:
+      213: 8402539560685193017
+    second: Demon_Whip_0
+  - first:
+      213: -3917802272628259273
+    second: Demon_Whip_1
+  - first:
+      213: 6237917123107214029
+    second: Demon_Whip_2
+  - first:
+      213: -687609282650203270
+    second: Demon_Whip_3
+  - first:
+      213: -6073518082999873579
+    second: Demon_Whip_4
+  - first:
+      213: -2581539069156646276
+    second: Demon_Whip_5
+  - first:
+      213: -3813545298617886257
+    second: Demon_Whip_6
+  - first:
+      213: 7075391250268849368
+    second: Demon_Whip_7
+  - first:
+      213: 1438581184030490026
+    second: Demon_Whip_8
+  - first:
+      213: -2848751080554572336
+    second: Demon_Whip_9
+  - first:
+      213: -8183337751647113296
+    second: Demon_Whip_10
+  - first:
+      213: -941786042889280313
+    second: Demon_Whip_11
+  - first:
+      213: 5163607740580439691
+    second: Demon_Whip_12
+  - first:
+      213: 4480887065770335014
+    second: Demon_Whip_13
+  - first:
+      213: 3436621746224419975
+    second: Demon_Whip_14
+  - first:
+      213: 1260721633929708603
+    second: Demon_Whip_15
+  - first:
+      213: -7927852478910747442
+    second: Demon_Whip_16
+  - first:
+      213: 5712907541747735780
+    second: Demon_Whip_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 140
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Demon_Whip_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 937cecd3631db9470800000000000000
+      internalID: 8402539560685193017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_1
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73646c7279b21a9c0800000000000000
+      internalID: -3917802272628259273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_2
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc2d125d298819650800000000000000
+      internalID: 6237917123107214029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_3
+      rect:
+        serializedVersion: 2
+        x: 2241
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7b9f53200f1576f0800000000000000
+      internalID: -687609282650203270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_4
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df81ed7b7786bba0800000000000000
+      internalID: -6073518082999873579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_5
+      rect:
+        serializedVersion: 2
+        x: 3735
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c722029e4e78c2cd0800000000000000
+      internalID: -2581539069156646276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_6
+      rect:
+        serializedVersion: 2
+        x: 4482
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc9150581c0931bc0800000000000000
+      internalID: -3813545298617886257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_7
+      rect:
+        serializedVersion: 2
+        x: 5229
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d48e27ead6d03260800000000000000
+      internalID: 7075391250268849368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_8
+      rect:
+        serializedVersion: 2
+        x: 5976
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aadb2b607fdd6f310800000000000000
+      internalID: 1438581184030490026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_9
+      rect:
+        serializedVersion: 2
+        x: 6723
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d5d80e4cf33778d0800000000000000
+      internalID: -2848751080554572336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_10
+      rect:
+        serializedVersion: 2
+        x: 7470
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bfa70c0ca1fe6e80800000000000000
+      internalID: -8183337751647113296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_11
+      rect:
+        serializedVersion: 2
+        x: 8217
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c4e923759a1ee2f0800000000000000
+      internalID: -941786042889280313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_12
+      rect:
+        serializedVersion: 2
+        x: 8964
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8621c0d1e1d8a740800000000000000
+      internalID: 5163607740580439691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_13
+      rect:
+        serializedVersion: 2
+        x: 9711
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62b12e9ab0f4f2e30800000000000000
+      internalID: 4480887065770335014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_14
+      rect:
+        serializedVersion: 2
+        x: 10458
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 784d61b254551bf20800000000000000
+      internalID: 3436621746224419975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_15
+      rect:
+        serializedVersion: 2
+        x: 11205
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b34c70f75abfe7110800000000000000
+      internalID: 1260721633929708603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_16
+      rect:
+        serializedVersion: 2
+        x: 11952
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecc23da8c2c9af190800000000000000
+      internalID: -7927852478910747442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Whip_17
+      rect:
+        serializedVersion: 2
+        x: 12699
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec16841423584f40800000000000000
+      internalID: 5712907541747735780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Demon_Whip_0: 8402539560685193017
+      Demon_Whip_1: -3917802272628259273
+      Demon_Whip_10: -8183337751647113296
+      Demon_Whip_11: -941786042889280313
+      Demon_Whip_12: 5163607740580439691
+      Demon_Whip_13: 4480887065770335014
+      Demon_Whip_14: 3436621746224419975
+      Demon_Whip_15: 1260721633929708603
+      Demon_Whip_16: -7927852478910747442
+      Demon_Whip_17: 5712907541747735780
+      Demon_Whip_2: 6237917123107214029
+      Demon_Whip_3: -687609282650203270
+      Demon_Whip_4: -6073518082999873579
+      Demon_Whip_5: -2581539069156646276
+      Demon_Whip_6: -3813545298617886257
+      Demon_Whip_7: 7075391250268849368
+      Demon_Whip_8: 1438581184030490026
+      Demon_Whip_9: -2848751080554572336
+      Demon_Whip_Sheet_0: 4746560909175239994
+      Demon_Whip_Sheet_1: 8175577757709174245
+      Demon_Whip_Sheet_10: -1439642023791768152
+      Demon_Whip_Sheet_11: -7884050127900563434
+      Demon_Whip_Sheet_12: 8928201592683562269
+      Demon_Whip_Sheet_13: 4810362220132996746
+      Demon_Whip_Sheet_14: 4889157366190825387
+      Demon_Whip_Sheet_15: -2619534466494598003
+      Demon_Whip_Sheet_16: 1732217408466487340
+      Demon_Whip_Sheet_17: 4690329662092694244
+      Demon_Whip_Sheet_18: -5066192099917222662
+      Demon_Whip_Sheet_19: 6672545448414201930
+      Demon_Whip_Sheet_2: 7819167324560742164
+      Demon_Whip_Sheet_20: 7545409862996838420
+      Demon_Whip_Sheet_21: -7802369491316323421
+      Demon_Whip_Sheet_3: 1450108965037572913
+      Demon_Whip_Sheet_4: -3942010864091635415
+      Demon_Whip_Sheet_5: -7448356181009653798
+      Demon_Whip_Sheet_6: -2271729056098127511
+      Demon_Whip_Sheet_7: -4626731215141771119
+      Demon_Whip_Sheet_8: -9220316560365398459
+      Demon_Whip_Sheet_9: -1588867254776117690
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
