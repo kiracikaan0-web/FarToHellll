@@ -15,15 +15,18 @@ using UnityEngine.UI;
 ///  - Assets/Scenes/MainMenu.unity sahnesini olusturur (varsa sorup yeniden kurar)
 ///  - Hareketli cehennem arka plani, baslik logosu, BASLA / AYARLAR / CIKIS butonlari, ayarlar paneli, karartma gecisi
 ///  - Gorseller, fontlar ve renkler UI Theme'den gelir: Assets/UI/Resources/UITheme.asset
-///  - Build Settings'i ayarlar: 0 = MainMenu, 1 = oyun sahnesi (circle)
+///  - Build Settings'i ayarlar: 0 = MainMenu, 1 = oyun sahnesi (Map1)
 /// </summary>
 public static class MainMenuSetup
 {
     private const string ScenePath = "Assets/Scenes/MainMenu.unity";
-    private const string GameScenePath = "Assets/circle.unity";
+    private const string GameScenePath = "Assets/Scenes/Map1.unity";
 
     [MenuItem("Tools/FarToHell/Ana Menu Kur")]
-    public static void Setup()
+    public static void Setup() => Build(true);
+
+    /// <summary>Ana menuyu kurar. interactive=false iken soru sormaz, mevcut sahnenin ustune yazar.</summary>
+    public static bool Build(bool interactive)
     {
         var theme = UIBuildUtil.GetOrCreateTheme();
         if (theme.menuTitle == null || theme.menuVignette == null || theme.buttonFont == null)
@@ -31,15 +34,15 @@ public static class MainMenuSetup
             EditorUtility.DisplayDialog("Ana Menu Kur",
                 "UI Theme'de baslik, vignette veya font eksik:\n" + UIBuildUtil.ThemePath, "Tamam");
             Selection.activeObject = theme;
-            return;
+            return false;
         }
 
-        if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
-            return;
+        if (interactive && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            return false;
 
-        if (System.IO.File.Exists(ScenePath) &&
+        if (interactive && System.IO.File.Exists(ScenePath) &&
             !EditorUtility.DisplayDialog("Ana Menu Kur", ScenePath + " zaten var. Bastan kurulsun mu?", "Evet", "Vazgec"))
-            return;
+            return false;
 
         var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -55,7 +58,7 @@ public static class MainMenuSetup
         camGO.AddComponent<MenuCameraDrift>();
 
         // --- Arka plan (oyundakiyle ayni katmanlar) ---
-        if (BackgroundSetup.BuildBackground(cam) == null) return;
+        if (BackgroundSetup.BuildBackground(cam) == null) return false;
 
         // --- EventSystem (yeni Input System ile) ---
         var esGO = new GameObject("EventSystem");
@@ -137,12 +140,14 @@ public static class MainMenuSetup
         UpdateBuildSettings();
 
         Selection.activeGameObject = canvas.gameObject;
+        if (!interactive) return true;
         EditorUtility.DisplayDialog("Ana Menu Kur",
             "Ana menu hazir: " + ScenePath + "\n\n" +
             "Build Settings: 0 = MainMenu, 1 = " + System.IO.Path.GetFileNameWithoutExtension(GameScenePath) + "\n\n" +
             "Play'e basip dene. BASLA oyuna gecer, CIKIS Play modunu kapatir (derlenmis oyunda oyundan cikar).\n\n" +
             "Gorselleri degistirmek icin: " + UIBuildUtil.ThemePath,
             "Tamam");
+        return true;
     }
 
     private static void UpdateBuildSettings()

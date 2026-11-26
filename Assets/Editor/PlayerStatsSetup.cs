@@ -11,12 +11,12 @@ using UnityEngine.UI;
 ///     - Player'a Health ve PlayerStamina ekler (Inspector'dan ayarlayabilmen icin) ve sahneyi kaydeder
 ///   Tools > FarToHell > Test Hasar Bolgesi Ekle
 ///     - Oyuncunun yanina kirmizi bir hasar kutusu koyar (hasar almayi denemek icin)
-/// Player'in oldugu sahne acik degilse Assets/circle.unity'yi kendisi acar.
+/// Player'in oldugu sahne acik degilse Assets/Scenes/Map1.unity'yi kendisi acar.
 /// </summary>
 public static class PlayerStatsSetup
 {
     private const string HudPrefabPath = "Assets/UI/Resources/PlayerHUD.prefab";
-    private const string GameScenePath = "Assets/circle.unity";
+    private const string GameScenePath = "Assets/Scenes/Map1.unity";
 
     [MenuItem("Tools/FarToHell/Can ve Stamina Kur")]
     public static void Setup()

@@ -155,7 +155,7 @@ public static class PlayerAnimatorSetup
     {
         var player = Object.FindAnyObjectByType<PlayerMovement>();
         if (player == null)
-            return "Acik sahnede PlayerMovement olan obje yok. Player'in oldugu sahneyi (circle) acip bu menuyu tekrar calistir.";
+            return "Acik sahnede PlayerMovement olan obje yok. Player'in oldugu sahneyi (Map1) acip bu menuyu tekrar calistir.";
 
         GameObject go = player.gameObject;
         Undo.SetCurrentGroupName("Player Animator Kur");

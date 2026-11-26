@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     [Tooltip("Basla'ya basinca acilacak sahnenin adi (Build Settings'te ekli olmali).")]
-    [SerializeField] private string gameSceneName = "circle";
+    [SerializeField] private string gameSceneName = "Map1";
     [SerializeField] private Button firstSelected;
     [Tooltip("Ekrani karartan siyah panelin CanvasGroup'u")]
     [SerializeField] private CanvasGroup fader;
