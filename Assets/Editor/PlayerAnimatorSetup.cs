@@ -30,6 +30,7 @@ public static class PlayerAnimatorSetup
     private const string DashForwardPath = "Assets/Sprites/SkeletonDashForward/SkeletonDashForward.anim";
     private const string AttackPath = "Assets/Sprites/SkeletonAttack/SkeletonAttack.anim";
     private const string SlashPath = "Assets/Sprites/SkeletonSlash/SkeletonSlash.anim";
+    private const string ClimbPath = "Assets/Sprites/SkeletonClimb/SkeletonClimb.anim";
 
     [MenuItem("Tools/FarToHell/Player Animator Kur")]
     public static void Setup()
@@ -42,6 +43,7 @@ public static class PlayerAnimatorSetup
         var dashForward = LoadClip(DashForwardPath);
         var attack = LoadClip(AttackPath);
         var slash = LoadClip(SlashPath);
+        var climb = LoadClip(ClimbPath); // istege bagli: yoksa Climb state eklenmez
         Sprite idleSprite = AssetDatabase.LoadAllAssetsAtPath(IdleSpritePath).OfType<Sprite>().FirstOrDefault();
 
         if (walk == null || rise == null || fall == null || dash == null || dashForward == null ||
@@ -87,6 +89,7 @@ public static class PlayerAnimatorSetup
         var sSlash = AddState(sm, "Slash", slash, 350, 150);
         var sDashForward = AddState(sm, "DashForward", dashForward, 50, 300);
         var sDash = AddState(sm, "Dash", dash, 350, 300);
+        AnimatorState sClimb = climb != null ? AddState(sm, "Climb", climb, 650, 0) : null;
         sm.defaultState = sIdle;
 
         // Yer hareketleri
@@ -106,6 +109,7 @@ public static class PlayerAnimatorSetup
         // Aksiyonlar kodla (animator.Play) baslatilir, bitince Idle'a doner.
         foreach (var action in new[] { sAttack, sSlash, sDash, sDashForward })
             ExitTransition(action, sIdle);
+        if (sClimb != null) ExitTransition(sClimb, sIdle);
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
@@ -115,6 +119,34 @@ public static class PlayerAnimatorSetup
         Selection.activeObject = controller;
         EditorUtility.DisplayDialog("Player Animator Kur",
             "Controller hazir: " + ControllerPath + "\n\n" + sceneResult, "Tamam");
+    }
+
+    /// <summary>Var olan controller'i bozmadan sadece Climb (kenara tutunup tirmanma) state'ini ekler.</summary>
+    [MenuItem("Tools/FarToHell/Tirmanma Animasyonunu Ekle")]
+    public static void AddClimbState()
+    {
+        var controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(ControllerPath);
+        if (controller == null) { EditorUtility.DisplayDialog("Tirmanma", ControllerPath + " yok. Once Tools > FarToHell > Player Animator Kur.", "Tamam"); return; }
+        var climb = LoadClip(ClimbPath);
+        if (climb == null) { EditorUtility.DisplayDialog("Tirmanma", "Klip bulunamadi: " + ClimbPath, "Tamam"); return; }
+        SetLoop(climb, false);
+
+        var sm = controller.layers[0].stateMachine;
+        var states = sm.states.Select(s => s.state).ToList();
+        var idle = states.FirstOrDefault(s => s.name == "Idle");
+        var existing = states.FirstOrDefault(s => s.name == "Climb");
+        if (existing != null)
+        {
+            existing.motion = climb;
+        }
+        else
+        {
+            var sClimb = AddState(sm, "Climb", climb, 650, 0);
+            if (idle != null) ExitTransition(sClimb, idle);
+        }
+        EditorUtility.SetDirty(controller);
+        AssetDatabase.SaveAssets();
+        EditorUtility.DisplayDialog("Tirmanma", "Climb state'i " + (existing != null ? "guncellendi" : "eklendi") + ": " + ControllerPath, "Tamam");
     }
 
     // ---------------- Sahne ----------------

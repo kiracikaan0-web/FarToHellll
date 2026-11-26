@@ -1,0 +1,1885 @@
+fileFormatVersion: 2
+guid: e6b96a1383611185fe12c0160a95a11c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1593757399443129856
+    second: SmoothTile_r0_c0
+  - first:
+      213: 2840051450240776704
+    second: SmoothTile_r0_c1
+  - first:
+      213: 8023411621549973504
+    second: SmoothTile_r0_c2
+  - first:
+      213: 5359214492537354240
+    second: SmoothTile_r0_c4
+  - first:
+      213: 5098943109727347712
+    second: SmoothTile_r0_c5
+  - first:
+      213: 7658309245887162368
+    second: SmoothTile_r0_c7
+  - first:
+      213: 6292354895071950848
+    second: SmoothTile_r0_c8
+  - first:
+      213: 8093771626443149312
+    second: SmoothTile_r0_c9
+  - first:
+      213: 7480488828180665344
+    second: SmoothTile_r0_c10
+  - first:
+      213: 8610983879915788288
+    second: SmoothTile_r0_c11
+  - first:
+      213: 6496018706434732032
+    second: SmoothTile_r0_c12
+  - first:
+      213: 1121996188774014336
+    second: SmoothTile_r1_c0
+  - first:
+      213: 2187235808484045824
+    second: SmoothTile_r1_c1
+  - first:
+      213: 1688285662814681856
+    second: SmoothTile_r1_c2
+  - first:
+      213: 7978993996442803200
+    second: SmoothTile_r1_c4
+  - first:
+      213: 2771031620539200512
+    second: SmoothTile_r1_c5
+  - first:
+      213: 6663972303845928960
+    second: SmoothTile_r1_c7
+  - first:
+      213: 1448325987687759872
+    second: SmoothTile_r1_c8
+  - first:
+      213: 7027095229310985216
+    second: SmoothTile_r1_c9
+  - first:
+      213: 7358968964383234048
+    second: SmoothTile_r1_c10
+  - first:
+      213: 7388165514633152512
+    second: SmoothTile_r1_c11
+  - first:
+      213: 8799923521226808320
+    second: SmoothTile_r1_c12
+  - first:
+      213: 4079548483934115840
+    second: SmoothTile_r2_c0
+  - first:
+      213: 8126355639113153536
+    second: SmoothTile_r2_c1
+  - first:
+      213: 1474872842628641280
+    second: SmoothTile_r2_c2
+  - first:
+      213: 8604330721572112384
+    second: SmoothTile_r2_c4
+  - first:
+      213: 1993754991572279296
+    second: SmoothTile_r2_c5
+  - first:
+      213: 8942767814376662016
+    second: SmoothTile_r2_c7
+  - first:
+      213: 3914662442872520704
+    second: SmoothTile_r2_c8
+  - first:
+      213: 4829425362439889920
+    second: SmoothTile_r2_c9
+  - first:
+      213: 5980480893636879360
+    second: SmoothTile_r2_c10
+  - first:
+      213: 2459160987421768704
+    second: SmoothTile_r2_c11
+  - first:
+      213: 5869503254001935360
+    second: SmoothTile_r2_c12
+  - first:
+      213: 4513623559410032640
+    second: SmoothTile_r3_c7
+  - first:
+      213: 6673671910228755456
+    second: SmoothTile_r3_c8
+  - first:
+      213: 6706787124714119168
+    second: SmoothTile_r3_c9
+  - first:
+      213: 7515686155113203712
+    second: SmoothTile_r3_c10
+  - first:
+      213: 8004482560366004224
+    second: SmoothTile_r3_c11
+  - first:
+      213: 7421202481095031808
+    second: SmoothTile_r4_c0
+  - first:
+      213: 5873134894374106112
+    second: SmoothTile_r4_c1
+  - first:
+      213: 7344342556445628416
+    second: SmoothTile_r4_c2
+  - first:
+      213: 3392942249807729664
+    second: SmoothTile_r4_c4
+  - first:
+      213: 5308984638748358656
+    second: SmoothTile_r4_c5
+  - first:
+      213: 8629079637069366272
+    second: SmoothTile_r4_c7
+  - first:
+      213: 6257638942220937216
+    second: SmoothTile_r4_c8
+  - first:
+      213: 4782433999900297216
+    second: SmoothTile_r4_c9
+  - first:
+      213: 8381033636374692864
+    second: SmoothTile_r4_c10
+  - first:
+      213: 1452446756839831552
+    second: SmoothTile_r4_c11
+  - first:
+      213: 3721785688733652992
+    second: SmoothTile_r5_c0
+  - first:
+      213: 6030764478903481344
+    second: SmoothTile_r5_c1
+  - first:
+      213: 6833239869292493824
+    second: SmoothTile_r5_c2
+  - first:
+      213: 6577523266930534400
+    second: SmoothTile_r5_c5
+  - first:
+      213: 8089463560747863040
+    second: SmoothTile_r5_c6
+  - first:
+      213: 6553779330777444352
+    second: SmoothTile_r5_c7
+  - first:
+      213: 2683247841790572544
+    second: SmoothTile_r5_c8
+  - first:
+      213: 5568886611119790080
+    second: SmoothTile_r5_c9
+  - first:
+      213: 1361621295789376512
+    second: SmoothTile_r5_c10
+  - first:
+      213: 8001009933235106816
+    second: SmoothTile_r5_c11
+  - first:
+      213: 4099069278660701696
+    second: SmoothTile_r6_c0
+  - first:
+      213: 3369836988474318336
+    second: SmoothTile_r6_c1
+  - first:
+      213: 6931924645224922112
+    second: SmoothTile_r6_c2
+  - first:
+      213: 7221315269337592832
+    second: SmoothTile_r6_c5
+  - first:
+      213: 1945920624565558272
+    second: SmoothTile_r6_c6
+  - first:
+      213: 3067727971550274560
+    second: SmoothTile_r6_c7
+  - first:
+      213: 3703307196741919744
+    second: SmoothTile_r6_c8
+  - first:
+      213: 4939202673598388224
+    second: SmoothTile_r6_c9
+  - first:
+      213: 5365286918730855424
+    second: SmoothTile_r6_c10
+  - first:
+      213: 4513738223401247232
+    second: SmoothTile_r6_c11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 4096
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SmoothTile_r0_c0
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1230
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 777a8f358812c97a38add46c23727822
+      internalID: 1593757399443129856
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r0_c1
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 1230
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdb6ce7132fbfe604694088d69a92fc9
+      internalID: 2840051450240776704
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r0_c2
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 1230
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 327cb42242425bca5b7145ad8828483b
+      internalID: 8023411621549973504
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r0_c4
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 1230
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 050863d168e65cfe3390687e15431f5b
+      internalID: 5359214492537354240
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r0_c5
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1230
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36be0f4c9a014fcb268b11d8679b12f8
+      internalID: 5098943109727347712
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r0_c7
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 1230
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36a2988fe553bfbff704f5f50b1f1048
+      internalID: 7658309245887162368
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r0_c8
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 1230
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 194fbdfab128cf63c1c035f892b2c019
+      internalID: 6292354895071950848
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r0_c9
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 1230
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed0faca0935baddeafc2358debec872c
+      internalID: 8093771626443149312
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r0_c10
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1230
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ce23a3a605c932bcd3a205cd68b643f
+      internalID: 7480488828180665344
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r0_c11
+      rect:
+        serializedVersion: 2
+        x: 2292
+        y: 1230
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4435e496b271267a0ce5423c897670f3
+      internalID: 8610983879915788288
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r0_c12
+      rect:
+        serializedVersion: 2
+        x: 2484
+        y: 1230
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83ba2a86ccd680372be9b2e51cc77b9e
+      internalID: 6496018706434732032
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r1_c0
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1038
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a9df65bbb476e7762e393f8a1cd65b
+      internalID: 1121996188774014336
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r1_c1
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 1038
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06b895af0e5a7de2b58b817bf4c46acd
+      internalID: 2187235808484045824
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r1_c2
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 1038
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aa6903b5480fcb3b10c98ef761cfb89
+      internalID: 1688285662814681856
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r1_c4
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 1038
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67bf48593f0c4c612255f1288dac6d7b
+      internalID: 7978993996442803200
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r1_c5
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1038
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8732bedd2f85d228e0f64082df1387a3
+      internalID: 2771031620539200512
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r1_c7
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 1038
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b3b8fbb3ac79090a62a45240e867b6a
+      internalID: 6663972303845928960
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r1_c8
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 1038
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a95c3107fbf70a781099a3a8d4d5f8c
+      internalID: 1448325987687759872
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r1_c9
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 1038
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ab9f6c35cc757abb43038f110e2df76
+      internalID: 7027095229310985216
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r1_c10
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1038
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c907d3535b02d0073140963bd72513
+      internalID: 7358968964383234048
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r1_c11
+      rect:
+        serializedVersion: 2
+        x: 2292
+        y: 1038
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e197e942b5d5b4bd915847e864f78ec3
+      internalID: 7388165514633152512
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r1_c12
+      rect:
+        serializedVersion: 2
+        x: 2484
+        y: 1038
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9f5678f1c4410bae96214f742b4d4a7
+      internalID: 8799923521226808320
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r2_c0
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 846
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b6993f94d9ab8445ecf8c502a1f6703
+      internalID: 4079548483934115840
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r2_c1
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 846
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d48ad6e9fb8f4ddc4ed8fffe2fbc11
+      internalID: 8126355639113153536
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r2_c2
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 846
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 305fe0c7dbd0af4756216efe30d9a16a
+      internalID: 1474872842628641280
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r2_c4
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 846
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a97100d5b1c0c2a52a4a4b0b13d8315a
+      internalID: 8604330721572112384
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r2_c5
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 846
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0fa1a56c6099b329cab1dbe4cfdf640
+      internalID: 1993754991572279296
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r2_c7
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 846
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cdcb7ffa224fd530bbdefdc7a4ffe45
+      internalID: 8942767814376662016
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r2_c8
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 846
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21a627de97b35326eb41d610e97a332
+      internalID: 3914662442872520704
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r2_c9
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 846
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc8ae20ba9b46dae2c56faa35b3c85ef
+      internalID: 4829425362439889920
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r2_c10
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 846
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ba4cc15c1d97b9b53b829264dc98db7
+      internalID: 5980480893636879360
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r2_c11
+      rect:
+        serializedVersion: 2
+        x: 2292
+        y: 846
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67f68f2cbb4c5cc31aac4156b5c65a87
+      internalID: 2459160987421768704
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r2_c12
+      rect:
+        serializedVersion: 2
+        x: 2484
+        y: 846
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8a486dd089f0cc8fb1a1d92ac91f23d
+      internalID: 5869503254001935360
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r3_c7
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 654
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ea8dc6a15f68d960142dc71a36059fa
+      internalID: 4513623559410032640
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r3_c8
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 654
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b1c04b36fda8ce99bc135a3937f7e46
+      internalID: 6673671910228755456
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r3_c9
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 654
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7270bf696320f879c51d327f370c757
+      internalID: 6706787124714119168
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r3_c10
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 654
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 820247e852f483b42b6f13e9dcf181c0
+      internalID: 7515686155113203712
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r3_c11
+      rect:
+        serializedVersion: 2
+        x: 2292
+        y: 654
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84d4e9f3e76dd88b51a02e08bcbb8a2a
+      internalID: 8004482560366004224
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r4_c0
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 462
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aec6ff95ba16d776abafa7c63f79dd1
+      internalID: 7421202481095031808
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r4_c1
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 462
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 121fa3cd6a58930509f3859987436118
+      internalID: 5873134894374106112
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r4_c2
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 462
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6219faac05f68cd7bbdc9cfc6a27a22
+      internalID: 7344342556445628416
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r4_c4
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 462
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80984192e8224245769d1e7cd4bdc55
+      internalID: 3392942249807729664
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r4_c5
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 462
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa09e10d6aae815e2cb8e52aa035e1bd
+      internalID: 5308984638748358656
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r4_c7
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 462
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18487922da5c31481635a631887fc1e6
+      internalID: 8629079637069366272
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r4_c8
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 462
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7cebc0e93e7a6330bc391104ff25d94
+      internalID: 6257638942220937216
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r4_c9
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 462
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 142ab57d7b09b49698ddac6f9b0c6392
+      internalID: 4782433999900297216
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r4_c10
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 462
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8808043c97fd270dd12e040f40b94a4d
+      internalID: 8381033636374692864
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r4_c11
+      rect:
+        serializedVersion: 2
+        x: 2292
+        y: 462
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1bd2017e7236c7e5b9d1634cc2f4144
+      internalID: 1452446756839831552
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r5_c0
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 270
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 992112670029897fd09b518e93d7bead
+      internalID: 3721785688733652992
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r5_c1
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 270
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cb514f12ec46e425fbb0a67d245259e
+      internalID: 6030764478903481344
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r5_c2
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 270
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e0c791db457b6f70c5758cf41067b1f
+      internalID: 6833239869292493824
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r5_c5
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 270
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1ee5ec40f8b32295c74273aefbfe74c
+      internalID: 6577523266930534400
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r5_c6
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 270
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b90ed3fb01f73f8e2cac6a25506a8f74
+      internalID: 8089463560747863040
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r5_c7
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 270
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c84ba669d125e015a2144158c064b1f
+      internalID: 6553779330777444352
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r5_c8
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 270
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd05bbc3aff5aa4164cacbbe2ffa1982
+      internalID: 2683247841790572544
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r5_c9
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 270
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d24428ef42628dc82052bf1c7cddf59d
+      internalID: 5568886611119790080
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r5_c10
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 270
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 406c51cb7e8090ae70e8bddd56fb64ac
+      internalID: 1361621295789376512
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r5_c11
+      rect:
+        serializedVersion: 2
+        x: 2292
+        y: 270
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d808e58ee7638d25c354df4c4523fc7
+      internalID: 8001009933235106816
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r6_c0
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 78
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e53de04f1245ba78ba2cd705556fee7
+      internalID: 4099069278660701696
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r6_c1
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 78
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd80324806dada0ecbb5a827457daa72
+      internalID: 3369836988474318336
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r6_c2
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 78
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8305ff1e5d4c24d4224567d415f20b3d
+      internalID: 6931924645224922112
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r6_c5
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 78
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b5d4f6e01d67172794fbace4d86ab72
+      internalID: 7221315269337592832
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r6_c6
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 78
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c22883cea5ae82ae691513f60b667e73
+      internalID: 1945920624565558272
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r6_c7
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 78
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f8ca5bc6b47ad3eb6eae7264504ff08
+      internalID: 3067727971550274560
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r6_c8
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 78
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81319c38421de9f2ccdeada22aa901e2
+      internalID: 3703307196741919744
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r6_c9
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 78
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b2ac18ba67bc8f96f650b848488614
+      internalID: 4939202673598388224
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r6_c10
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 78
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5144903d87ccaa78d16b74e378325b02
+      internalID: 5365286918730855424
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmoothTile_r6_c11
+      rect:
+        serializedVersion: 2
+        x: 2292
+        y: 78
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867e00f88f973652fd2f6d1a24fb31b8
+      internalID: 4513738223401247232
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    outline: []
+    customData:
+    physicsShape: []
+    bones: []
+    spriteID:
+    internalID: 0
+    vertices: []
+    indices:
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SmoothTile_r0_c0: 1593757399443129856
+      SmoothTile_r0_c1: 2840051450240776704
+      SmoothTile_r0_c2: 8023411621549973504
+      SmoothTile_r0_c4: 5359214492537354240
+      SmoothTile_r0_c5: 5098943109727347712
+      SmoothTile_r0_c7: 7658309245887162368
+      SmoothTile_r0_c8: 6292354895071950848
+      SmoothTile_r0_c9: 8093771626443149312
+      SmoothTile_r0_c10: 7480488828180665344
+      SmoothTile_r0_c11: 8610983879915788288
+      SmoothTile_r0_c12: 6496018706434732032
+      SmoothTile_r1_c0: 1121996188774014336
+      SmoothTile_r1_c1: 2187235808484045824
+      SmoothTile_r1_c2: 1688285662814681856
+      SmoothTile_r1_c4: 7978993996442803200
+      SmoothTile_r1_c5: 2771031620539200512
+      SmoothTile_r1_c7: 6663972303845928960
+      SmoothTile_r1_c8: 1448325987687759872
+      SmoothTile_r1_c9: 7027095229310985216
+      SmoothTile_r1_c10: 7358968964383234048
+      SmoothTile_r1_c11: 7388165514633152512
+      SmoothTile_r1_c12: 8799923521226808320
+      SmoothTile_r2_c0: 4079548483934115840
+      SmoothTile_r2_c1: 8126355639113153536
+      SmoothTile_r2_c2: 1474872842628641280
+      SmoothTile_r2_c4: 8604330721572112384
+      SmoothTile_r2_c5: 1993754991572279296
+      SmoothTile_r2_c7: 8942767814376662016
+      SmoothTile_r2_c8: 3914662442872520704
+      SmoothTile_r2_c9: 4829425362439889920
+      SmoothTile_r2_c10: 5980480893636879360
+      SmoothTile_r2_c11: 2459160987421768704
+      SmoothTile_r2_c12: 5869503254001935360
+      SmoothTile_r3_c7: 4513623559410032640
+      SmoothTile_r3_c8: 6673671910228755456
+      SmoothTile_r3_c9: 6706787124714119168
+      SmoothTile_r3_c10: 7515686155113203712
+      SmoothTile_r3_c11: 8004482560366004224
+      SmoothTile_r4_c0: 7421202481095031808
+      SmoothTile_r4_c1: 5873134894374106112
+      SmoothTile_r4_c2: 7344342556445628416
+      SmoothTile_r4_c4: 3392942249807729664
+      SmoothTile_r4_c5: 5308984638748358656
+      SmoothTile_r4_c7: 8629079637069366272
+      SmoothTile_r4_c8: 6257638942220937216
+      SmoothTile_r4_c9: 4782433999900297216
+      SmoothTile_r4_c10: 8381033636374692864
+      SmoothTile_r4_c11: 1452446756839831552
+      SmoothTile_r5_c0: 3721785688733652992
+      SmoothTile_r5_c1: 6030764478903481344
+      SmoothTile_r5_c2: 6833239869292493824
+      SmoothTile_r5_c5: 6577523266930534400
+      SmoothTile_r5_c6: 8089463560747863040
+      SmoothTile_r5_c7: 6553779330777444352
+      SmoothTile_r5_c8: 2683247841790572544
+      SmoothTile_r5_c9: 5568886611119790080
+      SmoothTile_r5_c10: 1361621295789376512
+      SmoothTile_r5_c11: 8001009933235106816
+      SmoothTile_r6_c0: 4099069278660701696
+      SmoothTile_r6_c1: 3369836988474318336
+      SmoothTile_r6_c2: 6931924645224922112
+      SmoothTile_r6_c5: 7221315269337592832
+      SmoothTile_r6_c6: 1945920624565558272
+      SmoothTile_r6_c7: 3067727971550274560
+      SmoothTile_r6_c8: 3703307196741919744
+      SmoothTile_r6_c9: 4939202673598388224
+      SmoothTile_r6_c10: 5365286918730855424
+      SmoothTile_r6_c11: 4513738223401247232
+  mipmapLimitGroupName:
+  pSDRemoveMatte: 0
+  userData:
+  assetBundleName:
+  assetBundleVariant:

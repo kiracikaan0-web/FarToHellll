@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 /// <summary>
 /// Oyuncu hareketi: yurume, ziplama, dash (ileri yuvarlanma) ve backstep (geri adim).
@@ -22,6 +23,8 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
 {
     [Header("Hareket")]
     [SerializeField] private float moveSpeed = 5f;
+    [Tooltip("Kosarken yurume hizinin kac kati (ileri dash'ten sonra Shift basili tutulunca kosar)")]
+    [SerializeField, Min(1f)] private float runSpeedMultiplier = 1.8f;
     [SerializeField] private float jumpForce = 10f;
     [Tooltip("Ziplama tusu erken birakilirsa yukselis hizi bu oranla kesilir (kisa ziplama).")]
     [SerializeField, Range(0f, 1f)] private float jumpCutMultiplier = 0.5f;
@@ -29,6 +32,9 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
     [SerializeField] private float coyoteTime = 0.1f;
     [Tooltip("Yere degmeden hemen once basilan ziplamanin hatirlanma suresi (sn).")]
     [SerializeField] private float jumpBufferTime = 0.1f;
+
+    [Tooltip("Karakterin collider'i surtunmesiz olsun: duvara/tilemap'e carpinca yapisip kalmaz, kayarak devam eder.")]
+    [SerializeField] private bool noFriction = true;
 
     [Header("Gorsel")]
     [Tooltip("Sprite'lar saga bakacak sekilde cizildiyse isaretle. Iskelet sprite'lari sola bakiyor, o yuzden kapali.")]
@@ -58,6 +64,34 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
 
     [Tooltip("Dash ve geri adim sirasinda dusmanlarin icinden gecilsin mi?")]
     [SerializeField] private bool dashThroughEnemies = true;
+
+    [Header("Kenara Tutunma / Tirmanma")]
+    [Tooltip("Havadayken bir duvarin ust kosesine yetisince otomatik tutunup tirmansin mi?")]
+    [SerializeField] private bool ledgeClimb = true;
+    [Tooltip("Tutunmak icin duvara dogru yon tusuna basili tutmak gereksin mi?")]
+    [SerializeField] private bool ledgeNeedsInput = true;
+    [Tooltip("Sadece tilemap'teki kare duvar/zemin bloklarina tutun. Platformlar, merdivenler ve sekilli parcalarda tutunma olmaz.")]
+    [SerializeField] private bool ledgeOnlyBlockTiles = true;
+    [Tooltip("Kare blok olmasa da tutunulabilecek tile'larin adlari (Project'teki tile asset adi).")]
+    [SerializeField] private string[] ledgeGrabTileNames = { "platforms_2", "platforms_3", "Platform_Red" };
+    [Tooltip("Kenar, ayaktan bu araliktaysa tutunulur (karakter boyunun orani).")]
+    [SerializeField, Range(0f, 1.5f)] private float ledgeMinHeight = 0.45f;
+    [SerializeField, Range(0f, 1.5f)] private float ledgeMaxHeight = 1.0f;
+    [Tooltip("Duvari aramak icin collider'in onune bakilan mesafe")]
+    [SerializeField, Min(0f)] private float ledgeReach = 0.35f;
+    [Tooltip("Kenarin hemen onunde en az bu kadar (birim) bosluk olmali. Merdiven ve rampalarda tutunmayi engeller.")]
+    [SerializeField, Min(0f)] private float ledgeMinDrop = 1.5f;
+    [Tooltip("Tirmanma bitince ayaklarin koseden iceri girdigi mesafe (olcek 1 icin, birim). Tirmanma animasyonunun son karesine gore.")]
+    [SerializeField] private float climbEndInset = 0.846f;
+    [Tooltip("Animator'daki tirmanma state'inin adi")]
+    [SerializeField] private string climbStateName = "Climb";
+    [Tooltip("Klip bulunamazsa kullanilan tirmanma suresi (sn)")]
+    [SerializeField, Min(0.05f)] private float climbFallbackDuration = 0.6f;
+    [Tooltip("Tirmanma kareleri (SkeletonClimb_0..6). Doluysa Animator yerine dogrudan bu kareler oynatilir.")]
+    [SerializeField] private Sprite[] climbFrames;
+    [SerializeField, Min(1f)] private float climbFps = 12f;
+    [Tooltip("Tutunma basladiginda Console'a bilgi yazsin (sorun ararken)")]
+    [SerializeField] private bool ledgeDebugLog = true;
 
     [Header("Hasar alinca")]
     [Tooltip("Vurulunca kontrolun kilitli kaldigi sure (sn)")]
@@ -96,6 +130,11 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
     private float nextDashTime;
     private float dashDirection;
     private float currentDashSpeed;
+    private bool lastDashForward;
+    private bool airDashUsed;      // bu ziplamada havada dash atildi mi
+    private bool dashInAir;        // suanki dash havada mi basladi
+    private bool isRunning;
+    public bool IsRunning => isRunning;
 
     /// <summary>1 = saga, -1 = sola bakiyor.</summary>
     public int FacingDirection { get; private set; } = 1;
@@ -122,10 +161,17 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
     private float pushUntil;
     private float pushVelocityX;
 
+    // Kenara tutunma
+    private bool isClimbing;
+    private float nextLedgeTime;
+    private Coroutine climbRoutine;
+    private RigidbodyType2D bodyTypeBeforeClimb;
+    public bool IsClimbing => isClimbing;
+
     public bool IsDead => health != null && health.IsDead;
     public bool IsHurt => isHurt;
-    /// <summary>Saldiri, sersemleme ya da olum yuzunden kontrol kilitli mi?</summary>
-    public bool ControlsLocked => MovementLocked || isHurt || IsDead;
+    /// <summary>Saldiri, sersemleme, tirmanma ya da olum yuzunden kontrol kilitli mi?</summary>
+    public bool ControlsLocked => MovementLocked || isHurt || IsDead || isClimbing;
     /// <summary>Health bunu sorar: dash sirasinda hasar alinmaz.</summary>
     public bool BlocksDamage => IsInvulnerable;
     public PlayerStamina Stamina => stamina;
@@ -136,6 +182,14 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
         var cols = new List<Collider2D>();
         foreach (var c in GetComponents<Collider2D>()) if (!c.isTrigger) cols.Add(c);
         bodyColliders = cols.ToArray();
+        // Surtunme olunca havadayken duvara/tilemap'e dogru basili tutan karakter oraya yapisip kalir.
+        // Yatay hiz zaten her karede koddan verildigi icin surtunmesiz malzeme yerde kaymaya yol acmaz.
+        if (noFriction)
+        {
+            var slippery = new PhysicsMaterial2D("PlayerNoFriction") { friction = 0f, bounciness = 0f };
+            rb.sharedMaterial = slippery;
+            foreach (var c in bodyColliders) c.sharedMaterial = slippery;
+        }
         health = GetComponent<Health>();
         if (health == null) health = gameObject.AddComponent<Health>();
         stamina = GetComponent<PlayerStamina>();
@@ -216,6 +270,8 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
     private void OnDamaged(DamageInfo info)
     {
         if (health.IsDead) return;
+        StopClimb(false);
+        isRunning = false;
         isDashing = false;
         isHurt = true;
         hurtEndTime = Time.time + hurtStunDuration;
@@ -230,6 +286,8 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
 
     private void OnDied()
     {
+        StopClimb(false);
+        isRunning = false;
         isDashing = false;
         isHurt = false;
         MovementLocked = false;
@@ -264,23 +322,241 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
         if (IsDead) { UpdateAnimator(); return; }
 
         if (isHurt && Time.time >= hurtEndTime) isHurt = false;
+        if (isClimbing) return; // tirmanma bitene kadar kontrol yok, animator'u Climb state'i yonetir
 
         horizontal = moveAction.ReadValue<Vector2>().x;
         if (Mathf.Abs(horizontal) < 0.1f) horizontal = 0f;
 
         isGrounded = groundCheck != null &&
                      Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        if (isGrounded) lastGroundedTime = Time.time;
+        if (isGrounded) { lastGroundedTime = Time.time; airDashUsed = false; }
 
         if (isDashing && Time.time >= dashEndTime)
+        {
             isDashing = false;
+            // ileri dash bittiginde Shift hala basili ve yon tusu basiliysa kosmaya gec
+            if (lastDashForward && dashAction.IsPressed() && horizontal != 0f && !ControlsLocked && !ActionLock)
+                isRunning = true;
+        }
+        // Shift ya da yon tusu birakilinca (veya kontrol kilitlenince) kosu biter
+        if (isRunning && (!dashAction.IsPressed() || horizontal == 0f || ControlsLocked || ActionLock))
+            isRunning = false;
         if (!isDashing && ignoredEnemyColliders.Count > 0)
             RestoreEnemyCollisions();
 
         HandleDash();
         HandleJump();
         HandleFacing();
+        if (TryGrabLedge()) return;
         UpdateAnimator();
+    }
+
+    // ---------------- Kenara tutunma ----------------
+
+    /// <summary>Havadayken onumuzdeki duvarin ust kosesi uygun yukseklikteyse tutunup tirmanmayi baslatir.</summary>
+    private bool TryGrabLedge()
+    {
+        if (!ledgeClimb || isGrounded || isDashing || ControlsLocked || ActionLock) return false;
+        // yukselirken de tutunur: ziplarken kenar tutunma araligina girdiginde karakter hala yukseliyor olur,
+        // beklersek kenarin ustune cikip normal sekilde konar (tirmanma hic oynamaz)
+        if (Time.time < nextLedgeTime) return false;
+        if (ledgeNeedsInput && (horizontal == 0f || (horizontal > 0f ? 1 : -1) != FacingDirection)) return false;
+        if (!TryGetBodyBounds(out Bounds body)) return false;
+
+        int dir = FacingDirection;
+        float feet = body.min.y, h = body.size.y, halfW = body.extents.x;
+        float lowY = feet + ledgeMinHeight * h, highY = feet + ledgeMaxHeight * h;
+        Vector2 front = new Vector2(dir, 0f);
+        float reach = halfW + ledgeReach;
+
+        // 1) bas hizasinda onumuz bos olmali (kenarin ustu acik)
+        if (Physics2D.Raycast(new Vector2(body.center.x, highY), front, reach, groundLayer).collider != null)
+            return LedgeReject("bas hizasinda onu kapali (kenar henuz cok yuksekte)");
+        // 2) govdenin hemen onunde, yukaridan asagi bakip tutunma araliginda bir ust yuzey ara.
+        //    Boylece altinda duvar olmayan ince, havada duran platformlarin kenari da bulunur.
+        float probeX = body.center.x + dir * reach;
+        Debug.DrawLine(new Vector3(probeX, highY), new Vector3(probeX, lowY), Color.yellow, 0.1f);
+        RaycastHit2D top = Physics2D.Raycast(new Vector2(probeX, highY), Vector2.down, highY - lowY, groundLayer);
+        if (top.collider == null || top.collider.isTrigger || top.distance < 0.01f)
+            return LedgeReject("onunde tutunma araliginda ust yuzey yok");
+        // 3) yuzeyin hemen altindan yana bakip kenarin (kosenin) x'ini bul
+        RaycastHit2D wall = Physics2D.Raycast(new Vector2(body.center.x, top.point.y - 0.3f), front, reach + 0.1f, groundLayer);
+        if (wall.collider == null || wall.collider.isTrigger)
+            return LedgeReject("yuzeyin kenari bulunamadi");
+        // rampa / merdiven: kenarin yani dik, ustu duz olmali; egimli yuzeylerde tutunma, karakter ustunde yurusun
+        if (top.normal.y < 0.9f || Mathf.Abs(wall.normal.x) < 0.8f)
+            return LedgeReject("egimli yuzey (rampa/merdiven)");
+        probeX = wall.point.x + dir * 0.08f;
+        // sadece tilemap'teki kare bloklarin (Grid collider) ve listedeki tile'larin koselerine tutun
+        if (ledgeOnlyBlockTiles && !IsBlockTile(top.collider, new Vector2(probeX, top.point.y - 0.05f)))
+            return LedgeReject("tile tutunulabilir degil (" + DescribeTileAt(top.collider, new Vector2(probeX, top.point.y - 0.05f)) + ")");
+        // 4) yukarida ayakta duracak kadar bos yer olmali
+        float scale = Mathf.Abs(transform.lossyScale.x);
+        Vector2 corner = new Vector2(wall.point.x, top.point.y);
+        // gercek kenarin hemen onunde bosluk vardir; merdiven/rampada az asagida bir sonraki basamak olur
+        Vector2 outside = new Vector2(corner.x - dir * 0.35f, corner.y + 0.05f);
+        Debug.DrawLine(outside, outside + Vector2.down * ledgeMinDrop, Color.cyan, 0.5f);
+        if (Physics2D.Raycast(outside, Vector2.down, ledgeMinDrop, groundLayer).collider != null)
+            return LedgeReject("kenarin onunde bosluk yok (merdiven/rampa)");
+        Vector2 standFeet = corner + new Vector2(dir * climbEndInset * scale, 0f);
+        Vector2 boxSize = new Vector2(body.size.x * 0.9f, h * 0.95f);
+        if (Physics2D.OverlapBox(standFeet + new Vector2(0f, h * 0.5f + 0.05f), boxSize, 0f, groundLayer) != null)
+            return LedgeReject("kenarin ustunde ayakta duracak yer yok");
+
+        climbRoutine = StartCoroutine(ClimbRoutine(corner, standFeet));
+        return true;
+    }
+
+    private IEnumerator ClimbRoutine(Vector2 corner, Vector2 standFeet)
+    {
+        isClimbing = true;
+        isDashing = false;
+        bodyTypeBeforeClimb = rb.bodyType;
+        rb.linearVelocity = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        // tirmanma sprite'inin pivotu kenarin kosesinde: karakteri koseye koy
+        rb.position = corner;
+        transform.position = new Vector3(corner.x, corner.y, transform.position.z);
+
+        bool framesOk = climbFrames != null && climbFrames.Length > 0 && spriteRenderer != null;
+        if (framesOk)
+        {
+            // Kareleri dogrudan oynat: Animator bu sure boyunca durdurulur, boylece hicbir gecis araya giremez
+            if (ledgeDebugLog)
+            {
+                int missing = 0; foreach (var f in climbFrames) if (f == null) missing++;
+                Debug.Log($"[Tirmanma] basladi (kareler). Kose {corner}, {climbFrames.Length} kare, eksik {missing}, ilk kare '{(climbFrames[0] != null ? climbFrames[0].name : "YOK")}', " +
+                          $"renderer '{spriteRenderer.name}' acik {spriteRenderer.enabled}, olcek {transform.lossyScale}", this);
+            }
+            if (animator != null) animator.enabled = false;
+            float frameTime = 1f / climbFps;
+            for (int i = 0; i < climbFrames.Length; i++)
+            {
+                if (climbFrames[i] != null) spriteRenderer.sprite = climbFrames[i];
+                yield return new WaitForSeconds(frameTime);
+            }
+            if (animator != null) animator.enabled = true;
+            rb.position = standFeet;
+            transform.position = new Vector3(standFeet.x, standFeet.y, transform.position.z);
+            StopClimb(true);
+            yield break;
+        }
+
+        float duration = climbFallbackDuration;
+        int stateHash = Animator.StringToHash(climbStateName);
+        if (HasAnimator() && animator.HasState(0, stateHash))
+        {
+            animator.SetFloat(SpeedHash, 0f);
+            animator.SetFloat(VelocityYHash, 0f);
+            animator.Play(stateHash, 0, 0f);
+            foreach (var clip in animator.runtimeAnimatorController.animationClips)
+                if (clip != null && clip.name == "SkeletonClimb") { duration = clip.length; break; }
+        }
+        else
+            Debug.LogWarning($"{name}: Animator'da '{climbStateName}' state'i yok, tirmanma animasyonu oynamaz. Tools > FarToHell > Tirmanma Animasyonunu Ekle.", this);
+        if (ledgeDebugLog)
+            Debug.Log($"[Tirmanma] basladi. Kose {corner}, controller '{(animator != null && animator.runtimeAnimatorController != null ? animator.runtimeAnimatorController.name : "YOK")}', " +
+                      $"Climb state {(HasAnimator() && animator.HasState(0, stateHash) ? "VAR" : "YOK")}, sure {duration:0.00} sn", this);
+        yield return new WaitForSeconds(duration);
+
+        // son kare: karakter kenarin ustunde ayakta
+        rb.position = standFeet;
+        transform.position = new Vector3(standFeet.x, standFeet.y, transform.position.z);
+        StopClimb(true);
+    }
+
+    private void StopClimb(bool finished)
+    {
+        if (!isClimbing) return;
+        if (climbRoutine != null) { StopCoroutine(climbRoutine); climbRoutine = null; }
+        isClimbing = false;
+        if (animator != null && !animator.enabled && !IsDead) animator.enabled = true;
+        rb.bodyType = bodyTypeBeforeClimb;
+        rb.linearVelocity = Vector2.zero;
+        nextLedgeTime = Time.time + 0.25f;
+        if (finished)
+        {
+            isGrounded = true;
+            lastGroundedTime = Time.time;
+            PlayState(Animator.StringToHash("Idle"));
+        }
+    }
+
+    /// <summary>
+    /// Noktadaki tile tutunulabilir mi: tilemap'te kare (Grid) collider'li bir blok ya da
+    /// adi ledgeGrabTileNames listesinde olan bir tile (ornegin platforms_2, platforms_3).
+    /// </summary>
+    private bool IsBlockTile(Collider2D col, Vector2 point)
+    {
+        var tilemap = col.GetComponentInParent<Tilemap>();
+        if (tilemap == null) return false;                  // tilemap disindaki nesneler (platform prefablari vb.)
+        Vector3Int cell = tilemap.WorldToCell(point);
+        var tile = tilemap.GetTile(cell);
+        if (tile != null)
+        {
+            if (IsExtraGrabTile(tile)) return true;
+            var t = tile as Tile;
+            if (t == null || t.colliderType == Tile.ColliderType.Grid) return true;
+        }
+        // platform sprite'lari hucreden buyuk: nokta komsu hucreye tasmis olabilir, cevredeki listedeki tile'lara bak
+        if (ledgeGrabTileNames == null || ledgeGrabTileNames.Length == 0) return false;
+        for (int dx = -3; dx <= 3; dx++)
+            for (int dy = -3; dy <= 3; dy++)
+            {
+                var c = cell + new Vector3Int(dx, dy, 0);
+                var other = tilemap.GetTile(c);
+                // kenarin cevresinde (birkac hucre icinde) listedeki bir platform varsa bu kenar ona ait sayilir
+                if (other != null && IsExtraGrabTile(other)) return true;
+            }
+        return false;
+    }
+
+    private float nextLedgeLogTime;
+    /// <summary>Tutunma neden olmadi: ledgeDebugLog aciksa saniyede birkac kez Console'a yazar.</summary>
+    private bool LedgeReject(string why)
+    {
+        if (ledgeDebugLog && Time.time >= nextLedgeLogTime)
+        {
+            nextLedgeLogTime = Time.time + 0.3f;
+            Debug.Log("[Tirmanma] olmadi: " + why, this);
+        }
+        return false;
+    }
+
+    private string DescribeTileAt(Collider2D col, Vector2 point)
+    {
+        var tilemap = col.GetComponentInParent<Tilemap>();
+        if (tilemap == null) return "tilemap degil: " + col.name;
+        Vector3Int cell = tilemap.WorldToCell(point);
+        var tile = tilemap.GetTile(cell);
+        var near = new System.Text.StringBuilder();
+        for (int dx = -3; dx <= 3; dx++)
+            for (int dy = -3; dy <= 3; dy++)
+            {
+                var t = tilemap.GetTile(cell + new Vector3Int(dx, dy, 0));
+                if (t != null && near.ToString().IndexOf(t.name) < 0) near.Append(t.name).Append(' ');
+            }
+        return (tile == null ? "hucre bos" : "tile '" + tile.name + "'") + ", cevrede: " + near;
+    }
+
+    private bool IsExtraGrabTile(TileBase tile)
+    {
+        if (ledgeGrabTileNames == null) return false;
+        foreach (var n in ledgeGrabTileNames)
+            if (!string.IsNullOrEmpty(n) && tile.name == n) return true;
+        return false;
+    }
+
+    private bool TryGetBodyBounds(out Bounds b)
+    {
+        b = default;
+        bool any = false;
+        foreach (var c in bodyColliders)
+        {
+            if (c == null || !c.enabled) continue;
+            if (!any) { b = c.bounds; any = true; } else b.Encapsulate(c.bounds);
+        }
+        return any;
     }
 
     private void HandleJump()
@@ -309,9 +585,14 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
         if (!dashAction.WasPressedThisFrame()) return;
         if (isDashing || ControlsLocked || ActionLock || Time.time < nextDashTime) return;
         if (!isGrounded && !allowAirDash) return;
+        if (!isGrounded && airDashUsed) return;   // havada tek dash: yere degince yenilenir
+        dashInAir = !isGrounded;
+        if (dashInAir) airDashUsed = true;
 
         bool forward = horizontal != 0f;
         if (!stamina.TrySpend(forward ? dashStaminaCost : backstepStaminaCost)) return;
+        lastDashForward = forward;
+        isRunning = false;
         if (forward)
         {
             // Yon tusu basili: o yone yuvarlan
@@ -356,6 +637,9 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
 
     private void FixedUpdate()
     {
+        if (isClimbing)
+            return; // tirmanirken fizik durdurulur
+        HoldOnSlope();
         if (IsDead)
             rb.linearVelocity = new Vector2(Mathf.MoveTowards(rb.linearVelocity.x, 0f, 30f * Time.fixedDeltaTime), rb.linearVelocity.y);
         else if (isHurt)
@@ -363,12 +647,40 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
         else if (Time.time < pushUntil)
             rb.linearVelocity = new Vector2(pushVelocityX, Mathf.Min(rb.linearVelocity.y, 0f)); // dusmanin kafasindan kay
         else if (isDashing)
-            rb.linearVelocity = new Vector2(dashDirection * currentDashSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(dashDirection * currentDashSpeed, dashInAir ? 0f : rb.linearVelocity.y);   // havada dash duz gider, dusmez
         else if (MovementLocked)
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         else
-            rb.linearVelocity = new Vector2(horizontal * moveSpeed * SpeedMultiplier, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(horizontal * moveSpeed * SpeedMultiplier * (isRunning ? runSpeedMultiplier : 1f), rb.linearVelocity.y);
     }
+
+    /// <summary>
+    /// Surtunmesiz karakter rampada dururken asagi kayar. Yerde, yon tusu basili degilken ve egimli bir
+    /// yuzeyin ustundeyken yercekimini gecici kapatip karakteri yerinde tutar.
+    /// </summary>
+    private void HoldOnSlope()
+    {
+        bool hold = false;
+        if (isGrounded && horizontal == 0f && !isDashing && !isHurt && !IsDead && rb.linearVelocity.y <= 0.5f
+            && TryGetBodyBounds(out Bounds body))
+        {
+            RaycastHit2D g = Physics2D.Raycast(new Vector2(body.center.x, body.min.y + 0.1f), Vector2.down, 0.6f, groundLayer);
+            hold = g.collider != null && g.normal.y < 0.99f && g.normal.y > 0.4f;
+        }
+        if (hold)
+        {
+            if (!holdingSlope) { gravityBeforeSlope = rb.gravityScale; holdingSlope = true; }
+            rb.gravityScale = 0f;
+            rb.linearVelocity = Vector2.zero;
+        }
+        else if (holdingSlope)
+        {
+            rb.gravityScale = gravityBeforeSlope;
+            holdingSlope = false;
+        }
+    }
+    private bool holdingSlope;
+    private float gravityBeforeSlope = 1f;
 
     /// <summary>Dusmanin kafasina basinca EnemyBody cagirir: oyuncu yana dogru kayip duser.</summary>
     public void PushOffEnemyHead(float direction, float speed)
@@ -420,7 +732,28 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
                             (Time.time - lastGroundedTime < animGroundedGrace && rb.linearVelocity.y < 1f);
         animator.SetFloat(VelocityYHash, animGrounded ? 0f : rb.linearVelocity.y);
         animator.SetBool(IsGroundedHash, animGrounded);
+
+        // Kosu: Run state'i kodla acilip kapatilir (Walk/Idle uzerinden)
+        if (animator.HasState(0, RunStateHash))
+        {
+            var st = animator.GetCurrentAnimatorStateInfo(0);
+            bool wantRun = isRunning && animGrounded && horizontal != 0f && !isDashing && !ControlsLocked;
+            bool inRun = st.shortNameHash == RunStateHash;
+            if (wantRun && !inRun && (st.shortNameHash == WalkStateHash || st.shortNameHash == IdleStateHash))
+                animator.Play(RunStateHash, 0, 0f);
+            else if (!wantRun && inRun)
+            {
+                int next = !animGrounded ? (rb.linearVelocity.y > 0.1f ? JumpRiseStateHash : JumpFallStateHash)
+                         : (horizontal != 0f ? WalkStateHash : IdleStateHash);
+                animator.Play(next, 0, 0f);
+            }
+        }
     }
+    private static readonly int RunStateHash = Animator.StringToHash("Run");
+    private static readonly int WalkStateHash = Animator.StringToHash("Walk");
+    private static readonly int IdleStateHash = Animator.StringToHash("Idle");
+    private static readonly int JumpRiseStateHash = Animator.StringToHash("JumpRise");
+    private static readonly int JumpFallStateHash = Animator.StringToHash("JumpFall");
 
     private void PlayState(int stateHash)
     {

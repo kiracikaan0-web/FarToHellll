@@ -74,17 +74,22 @@ public class PlayerCombat : MonoBehaviour
 
         if (attackAction == null)
             attackAction = new InputAction("Attack", InputActionType.Button);
-        if (attackAction.bindings.Count == 0)
-        {
-            attackAction.AddBinding("<Mouse>/leftButton");
-            attackAction.AddBinding("<Keyboard>/j");
-            attackAction.AddBinding("<Gamepad>/buttonWest");
-        }
+        // Inspector'da girilmis tuslar korunur; eksik olanlar eklenir (sol fare tusu her zaman saldiri)
+        AddBindingIfMissing(attackAction, "<Mouse>/leftButton");
+        AddBindingIfMissing(attackAction, "<Keyboard>/j");
+        AddBindingIfMissing(attackAction, "<Gamepad>/buttonWest");
 
         // Kilic sesini artik bu script tetikliyor
         swingSound = GetComponent<SwordSwingSound>();
         if (swingSound == null) swingSound = gameObject.AddComponent<SwordSwingSound>();
         swingSound.PlayOnInput = false;
+    }
+
+    private static void AddBindingIfMissing(InputAction action, string path)
+    {
+        foreach (var b in action.bindings)
+            if (string.Equals(b.path, path, System.StringComparison.OrdinalIgnoreCase)) return;
+        action.AddBinding(path);
     }
 
     private void OnEnable() { attackAction.Enable(); }
@@ -104,7 +109,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (state == AttackState.None)
             {
-                if (Time.time >= nextAttackTime && !movement.IsDashing && !movement.IsHurt && !movement.IsDead && !movement.ActionLock &&
+                if (Time.time >= nextAttackTime && !movement.IsDashing && !movement.IsClimbing && !movement.IsHurt && !movement.IsDead && !movement.ActionLock &&
                     movement.Stamina.TrySpend(attackStaminaCost))
                     StartAttack(AttackState.Attack);
             }

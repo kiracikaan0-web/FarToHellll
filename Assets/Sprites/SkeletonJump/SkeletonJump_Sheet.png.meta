@@ -43,7 +43,7 @@ TextureImporter:
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: 1
-  maxTextureSize: 4096
+  maxTextureSize: 8192
   textureSettings:
     serializedVersion: 2
     filterMode: 2
@@ -59,7 +59,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  spritePivot: {x: 0.66667, y: 0.036}
   spritePixelsToUnits: 140
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -116,10 +116,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 600
+        width: 660
         height: 580
       alignment: 9
-      pivot: {x: 0.63333, y: 0.036}
+      pivot: {x: 0.66667, y: 0.036}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -136,12 +136,12 @@ TextureImporter:
       name: SkeletonJump_1
       rect:
         serializedVersion: 2
-        x: 600
+        x: 660
         y: 0
-        width: 600
+        width: 660
         height: 580
       alignment: 9
-      pivot: {x: 0.63333, y: 0.036}
+      pivot: {x: 0.66667, y: 0.036}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -158,12 +158,12 @@ TextureImporter:
       name: SkeletonJump_2
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 1320
         y: 0
-        width: 600
+        width: 660
         height: 580
       alignment: 9
-      pivot: {x: 0.63333, y: 0.036}
+      pivot: {x: 0.66667, y: 0.036}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -180,12 +180,12 @@ TextureImporter:
       name: SkeletonJump_3
       rect:
         serializedVersion: 2
-        x: 1800
+        x: 1980
         y: 0
-        width: 600
+        width: 660
         height: 580
       alignment: 9
-      pivot: {x: 0.63333, y: 0.036}
+      pivot: {x: 0.66667, y: 0.036}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []

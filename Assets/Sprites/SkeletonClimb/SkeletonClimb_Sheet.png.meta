@@ -1,0 +1,342 @@
+fileFormatVersion: 2
+guid: aa77db43b3fd9e249a7a6c8400d1b3eb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5448290243126224049
+    second: SkeletonClimb_Sheet_0
+  - first:
+      213: -8463832417484065580
+    second: SkeletonClimb_Sheet_1
+  - first:
+      213: -109711290501700582
+    second: SkeletonClimb_Sheet_2
+  - first:
+      213: 461646078372148205
+    second: SkeletonClimb_Sheet_3
+  - first:
+      213: -5488485918644308271
+    second: SkeletonClimb_Sheet_4
+  - first:
+      213: 2699827536583755315
+    second: SkeletonClimb_Sheet_5
+  - first:
+      213: 7261923649923660661
+    second: SkeletonClimb_Sheet_6
+  - first:
+      213: -3127901614196641855
+    second: SkeletonClimb_0
+  - first:
+      213: 9064841765188132673
+    second: SkeletonClimb_1
+  - first:
+      213: 5371683754170578374
+    second: SkeletonClimb_2
+  - first:
+      213: 1467309854659978503
+    second: SkeletonClimb_3
+  - first:
+      213: -195351865723586081
+    second: SkeletonClimb_4
+  - first:
+      213: -2728826535320713650
+    second: SkeletonClimb_5
+  - first:
+      213: -4691200242278080791
+    second: SkeletonClimb_6
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 140
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SkeletonClimb_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 824
+        height: 878
+      alignment: 9
+      pivot: {x: 0.59992, y: 0.40903}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cf2071ed067794d0800000000000000
+      internalID: -3127901614196641855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonClimb_1
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 0
+        width: 824
+        height: 878
+      alignment: 9
+      pivot: {x: 0.59992, y: 0.40903}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14fd92fce89cccd70800000000000000
+      internalID: 9064841765188132673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonClimb_2
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 0
+        width: 824
+        height: 878
+      alignment: 9
+      pivot: {x: 0.59992, y: 0.40903}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c5f21df9ed0c8a40800000000000000
+      internalID: 5371683754170578374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonClimb_3
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 0
+        width: 824
+        height: 878
+      alignment: 9
+      pivot: {x: 0.59992, y: 0.40903}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7052076e98eec5410800000000000000
+      internalID: 1467309854659978503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonClimb_4
+      rect:
+        serializedVersion: 2
+        x: 3296
+        y: 0
+        width: 824
+        height: 878
+      alignment: 9
+      pivot: {x: 0.59992, y: 0.40903}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd9f55d5388f94df0800000000000000
+      internalID: -195351865723586081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonClimb_5
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 0
+        width: 824
+        height: 878
+      alignment: 9
+      pivot: {x: 0.59992, y: 0.40903}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e468c8c59b2412ad0800000000000000
+      internalID: -2728826535320713650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkeletonClimb_6
+      rect:
+        serializedVersion: 2
+        x: 4944
+        y: 0
+        width: 824
+        height: 878
+      alignment: 9
+      pivot: {x: 0.59992, y: 0.40903}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eed9c41c3285eeb0800000000000000
+      internalID: -4691200242278080791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SkeletonClimb_0: -3127901614196641855
+      SkeletonClimb_1: 9064841765188132673
+      SkeletonClimb_2: 5371683754170578374
+      SkeletonClimb_3: 1467309854659978503
+      SkeletonClimb_4: -195351865723586081
+      SkeletonClimb_5: -2728826535320713650
+      SkeletonClimb_6: -4691200242278080791
+      SkeletonClimb_Sheet_0: -5448290243126224049
+      SkeletonClimb_Sheet_1: -8463832417484065580
+      SkeletonClimb_Sheet_2: -109711290501700582
+      SkeletonClimb_Sheet_3: 461646078372148205
+      SkeletonClimb_Sheet_4: -5488485918644308271
+      SkeletonClimb_Sheet_5: 2699827536583755315
+      SkeletonClimb_Sheet_6: 7261923649923660661
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
