@@ -14,7 +14,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Health))]
 public class DemonEnemy : MonoBehaviour
 {
-    private enum State { Patrol, Chase, Lunge, Whip, Stagger, Dead }
+    private enum State { Patrol, Chase, Lunge, Whip, Slam, Stagger, Dead }
 
     [Header("Hareket")]
     [SerializeField, Min(0f)] private float patrolSpeed = 1.6f;
@@ -40,6 +40,25 @@ public class DemonEnemy : MonoBehaviour
     [SerializeField] private Vector2 lungeDistance = new Vector2(5.5f, 11f);
     [Tooltip("Atilirken one egilme acisi")]
     [SerializeField, Range(0f, 25f)] private float lungeLean = 9f;
+
+    [Header("Yer yakma (geri ziplar, kirbaci yere vurur, alan 5 sn yanar)")]
+    [SerializeField] private bool slamEnabled = true;
+    [SerializeField] private DemonFireZone firePrefab;
+    [Tooltip("Oyuncu bu mesafedeyse (dunya birimi) bu saldiriyi kullanir")]
+    [SerializeField, Min(0f)] private float slamRange = 6.5f;
+    [Tooltip("Iki yer yakma arasi bekleme: her seferinde bu araliktan rastgele secilir (min, max sn)")]
+    [SerializeField] private Vector2 slamCooldownRange = new Vector2(4f, 10f);
+    [Tooltip("Hazir ve menzildeyken her denemede yer yakmayi secme ihtimali (0-1). Secmezse kirbac/atilma ile devam eder.")]
+    [SerializeField, Range(0f, 1f)] private float slamChance = 0.35f;
+    [Tooltip("Kac sn de bir zar atsin")]
+    [SerializeField, Min(0.1f)] private float slamRollInterval = 0.6f;
+    [Tooltip("Oyuncuyu ilk gordukten kac sn sonra ilk kez kullanabilir")]
+    [SerializeField, Min(0f)] private float slamFirstDelay = 3f;
+    [Tooltip("Geri zipliyorken yatay hiz")]
+    [SerializeField, Min(0f)] private float hopBackSpeed = 7f;
+    [Tooltip("Yanan alan, ileri yonde (baslangic, bitis), olcek 1 iken")]
+    [SerializeField] private Vector2 fireArea = new Vector2(0.8f, 4.4f);
+    [SerializeField, Min(0f)] private float slamRecovery = 0.35f;
 
     [Header("Kirbac")]
     [Tooltip("Kirbac oyuncunun MAKSIMUM caninin bu oranini goturur (0.25 = %25, 4 vurusta oldurur). 0 yaparsan asagidaki sabit hasar kullanilir.")]
@@ -83,6 +102,11 @@ public class DemonEnemy : MonoBehaviour
     private static readonly int IdleHash = Animator.StringToHash("Idle");
     private static readonly int WhipHash = Animator.StringToHash("Whip");
     private static readonly int WalkHash = Animator.StringToHash("Walk");
+    private static readonly int SlamHash = Animator.StringToHash("Slam");
+    // Yer yakma klibi: 30 kare, 24 fps. Geri zipla 0.09-0.41 sn, kirbac yere 21. karede (0.875 sn).
+    private const float SlamLength = 30f / 24f, SlamHopStart = 0.094f, SlamHopEnd = 0.41f, SlamImpact = 21f / 24f;
+    private bool fireDone;
+    private float nextSlamTime, nextSlamRoll;
 
     private Rigidbody2D rb;
     private Health health;
@@ -144,6 +168,7 @@ public class DemonEnemy : MonoBehaviour
             case State.Patrol: UpdatePatrol(playerAlive); break;
             case State.Chase: UpdateChase(playerAlive); break;
             case State.Lunge: UpdateLunge(); break;
+            case State.Slam: UpdateSlam(); break;
             case State.Whip: UpdateWhip(); break;
             case State.Stagger:
                 if (Time.time >= staggerEnd) state = playerAlive ? State.Chase : State.Patrol;
@@ -184,6 +209,12 @@ public class DemonEnemy : MonoBehaviour
         int dir = to.x >= 0f ? 1 : -1;
         Face(dir);
         bool inRange = Mathf.Abs(to.y) < verticalSight && dist <= whipRange;
+        if (slamEnabled && firePrefab != null && Time.time >= nextSlamTime && Time.time >= nextSlamRoll &&
+            Mathf.Abs(to.y) < verticalSight && dist <= slamRange && CanSeePlayer())
+        {
+            nextSlamRoll = Time.time + slamRollInterval;
+            if (Random.value < slamChance) { StartSlam(); return; }   // rastgele: bazen yakar, bazen kirbaclar
+        }
         if (inRange && Time.time >= nextWhipTime) { StartWhip(); return; }
         if (lungeEnabled && Time.time >= nextLungeTime && Mathf.Abs(to.y) < verticalSight &&
             dist >= lungeDistance.x && dist <= lungeDistance.y && GroundAhead(dir) && CanSeePlayer())
@@ -214,6 +245,40 @@ public class DemonEnemy : MonoBehaviour
             return;
         }
         moveX = lungeDir * lungeSpeed;
+    }
+
+    private void StartSlam()
+    {
+        state = State.Slam;
+        fireDone = false;
+        actionStart = Time.time;
+        actionEnd = actionStart + SlamLength + slamRecovery;
+        nextSlamTime = actionEnd + Random.Range(Mathf.Min(slamCooldownRange.x, slamCooldownRange.y), Mathf.Max(slamCooldownRange.x, slamCooldownRange.y));
+        nextWhipTime = Mathf.Max(nextWhipTime, actionEnd + 0.4f);
+        if (animator != null) { animator.speed = 1f; PlayState(SlamHash); }
+    }
+
+    private void UpdateSlam()
+    {
+        float t = Time.time - actionStart;
+        // geriye ziplarken arkaya dogru kay (arkada zemin varsa)
+        if (t >= SlamHopStart && t <= SlamHopEnd && GroundAhead(-facing))
+            moveX = -facing * hopBackSpeed * Mathf.Sin(Mathf.PI * (t - SlamHopStart) / (SlamHopEnd - SlamHopStart)) * 1.4f;
+        if (!fireDone && t >= SlamImpact) { fireDone = true; SpawnFire(); }
+        if (Time.time >= actionEnd) state = State.Chase;
+    }
+
+    private void SpawnFire()
+    {
+        if (firePrefab == null) return;
+        float k = ScaleK;
+        float near = Mathf.Min(fireArea.x, fireArea.y) * k, far = Mathf.Max(fireArea.x, fireArea.y) * k;
+        float x = transform.position.x + facing * (near + far) * 0.5f;
+        float y = transform.position.y;
+        var hit = Physics2D.Raycast(new Vector2(x, y + 1.5f), Vector2.down, 6f, groundLayer);
+        if (hit.collider != null) y = hit.point.y;
+        var fire = Instantiate(firePrefab, new Vector3(x, y, transform.position.z), Quaternion.identity);
+        fire.Init(far - near);
     }
 
     private void StartWhip()
@@ -267,6 +332,8 @@ public class DemonEnemy : MonoBehaviour
         if (state == State.Dead) return;
         if (state == State.Patrol) BeginAggro();
         lastSeenTime = Time.time;
+        // Yer yakma sirasinda sersemlemez (boss zirhi)
+        if (state == State.Slam) return;
         // Kirbac sasklamaya basladiysa vurus kesilmez
         bool committed = state == State.Whip && (Time.time - actionStart) * whipAnimSpeed >= WhipHitStart;
         if (committed || Time.time < staggerImmuneUntil) return;
@@ -311,6 +378,7 @@ public class DemonEnemy : MonoBehaviour
     {
         state = State.Chase;
         lastSeenTime = Time.time;
+        nextSlamTime = Mathf.Max(nextSlamTime, Time.time + slamFirstDelay * Random.Range(0.5f, 1.5f));
         nextWhipTime = Mathf.Max(nextWhipTime, Time.time + 0.4f);
     }
 

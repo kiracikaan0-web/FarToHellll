@@ -22,11 +22,19 @@ public static class DemonWhipSetup
     private const string WhipClipPath = "Assets/Sprites/Demon/Demon_WhipAttack.anim";
     private const string IdleClipPath = "Assets/Sprites/Demon/Demon_Idle.anim";
     private const string WalkClipPath = "Assets/Sprites/Demon/Demon_Walk.anim";
+    private const string SlamSheetPath = "Assets/Sprites/Demon/Demon_Slam_Sheet.png";
+    private const string SlamClipPath = "Assets/Sprites/Demon/Demon_Slam.anim";
+    private const string FireSheetPath = "Assets/Sprites/Demon/Demon_Fire_Sheet.png";
+    private const string FirePrefabPath = "Assets/Prefabs/Enemies/DemonFire.prefab";
     private const string ControllerPath = "Assets/Animations/Enemies/Demon.controller";
     private const string PrefabPath = "Assets/Prefabs/Enemies/Demon.prefab";
     private const int FrameW = 747, FrameH = 535;
     private const float Fps = 20f, WalkFps = 20f;
     private static readonly Vector2 Pivot = new Vector2(0.6881f, 0.0262f);   // ayaklarin ortasi
+    private const int SlamW = 640, SlamH = 595, FireW = 640, FireH = 300;
+    private const float SlamFps = 24f;
+    private static readonly Vector2 SlamPivot = new Vector2(0.6453f, 0.0235f);
+    private static readonly Vector2 FirePivot = new Vector2(0.5f, 0.02f);
 
     [MenuItem("Tools/FarToHell/Dusman Ekle: Seytan Kiz")]
     public static void AddDemon()
@@ -49,7 +57,7 @@ public static class DemonWhipSetup
         if (controller == null) return;
 
         GameObject prefab = rebuild ? BuildPrefab(idleSprite, controller, ground) : AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
-        if (!rebuild) ApplyMobility();
+        ApplyPrefabSettings();
 
         int tilemaps = EnsureTilemapCollision(ground);
 
@@ -74,8 +82,34 @@ public static class DemonWhipSetup
     {
         var controller = BuildAnimations(out _);
         if (controller == null) return;
-        ApplyMobility();
-        EditorUtility.DisplayDialog("Seytan Kiz", "Animasyonlar guncellendi (Idle, Walk, Whip).\nBoss daha hareketli: devriye 1.6, kovalama 3.2 hiz; uzaktaysan ustune atilip kirbaclar.\nSahnedeki seytan kizlar Play'de yeni animasyonlari kullanir.", "Tamam");
+        ApplyPrefabSettings();
+        EditorUtility.DisplayDialog("Seytan Kiz", "Animasyonlar guncellendi (Idle, Walk, Whip, Slam).\n" +
+            "Yeni saldiri: yakindaysan geri ziplar, kirbaci yere vurur; vurdugu yer 5 sn yanar ve icinde durani yakar.\n" +
+            "Sahnedeki seytan kizlar Play'de yeni animasyonlari kullanir.", "Tamam");
+    }
+
+    /// <summary>Yanan alan prefabi: alev kareleri + tetikleyici collider + DemonFireZone.</summary>
+    private static void BuildFirePrefab()
+    {
+        var sprites = SliceSheet(FireSheetPath, "Demon_Fire_", FireW, FireH, FirePivot);
+        if (sprites == null) return;
+        var go = new GameObject("DemonFire");
+        var sr = go.AddComponent<SpriteRenderer>();
+        sr.sprite = sprites[0];
+        sr.sortingOrder = 3;   // tilemap ve karakterlerin onunde
+        var box = go.AddComponent<BoxCollider2D>();
+        box.isTrigger = true;
+        float w = sprites[0].bounds.size.x, h = sprites[0].bounds.size.y;
+        box.size = new Vector2(w * 0.9f, h * 0.5f);
+        box.offset = new Vector2(0f, h * 0.25f);
+        var zone = go.AddComponent<DemonFireZone>();
+        var so = new SerializedObject(zone);
+        var arr = so.FindProperty("frames");
+        arr.arraySize = sprites.Length;
+        for (int i = 0; i < sprites.Length; i++) arr.GetArrayElementAtIndex(i).objectReferenceValue = sprites[i];
+        so.ApplyModifiedPropertiesWithoutUndo();
+        PrefabUtility.SaveAsPrefabAsset(go, FirePrefabPath);
+        Object.DestroyImmediate(go);
     }
 
     /// <summary>Sheet'leri boler, klipleri ve controller'i olusturur/gunceller (controller yerinde guncellenir, prefab baglantisi kopmaz).</summary>
@@ -89,15 +123,18 @@ public static class DemonWhipSetup
         var idle = BuildClip(IdleClipPath, new[] { sprites[0] }, true, Fps);
         var walkSprites = SliceSheet(WalkSheetPath, "Demon_Walk_");
         var walk = walkSprites != null ? BuildClip(WalkClipPath, walkSprites, true, WalkFps) : null;
+        var slamSprites = SliceSheet(SlamSheetPath, "Demon_Slam_", SlamW, SlamH, SlamPivot);
+        var slam = slamSprites != null ? BuildClip(SlamClipPath, slamSprites, false, SlamFps) : null;
         UIBuildUtil.EnsureFolder("Assets", "Animations");
         UIBuildUtil.EnsureFolder("Assets/Animations", "Enemies");
         UIBuildUtil.EnsureFolder("Assets", "Prefabs");
         UIBuildUtil.EnsureFolder("Assets/Prefabs", "Enemies");
-        return BuildController(idle, whip, walk);
+        BuildFirePrefab();
+        return BuildController(idle, whip, walk, slam);
     }
 
-    /// <summary>Mevcut prefabi yeni hareketli ayarlara getirir (hiz, adim boyu). Diger ayarlara dokunmaz.</summary>
-    private static void ApplyMobility()
+    /// <summary>Mevcut prefabi yeni ayarlara getirir (hiz, adim boyu, ates prefabi). Diger ayarlara dokunmaz.</summary>
+    private static void ApplyPrefabSettings()
     {
         var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
         var enemy = prefab != null ? prefab.GetComponent<DemonEnemy>() : null;
@@ -106,17 +143,21 @@ public static class DemonWhipSetup
         so.FindProperty("patrolSpeed").floatValue = 1.6f;
         so.FindProperty("chaseSpeed").floatValue = 3.2f;
         so.FindProperty("walkStrideLength").floatValue = 1.07f;
+        var fire = AssetDatabase.LoadAssetAtPath<GameObject>(FirePrefabPath);
+        if (fire != null) so.FindProperty("firePrefab").objectReferenceValue = fire.GetComponent<DemonFireZone>();
         so.ApplyModifiedPropertiesWithoutUndo();
         PrefabUtility.SavePrefabAsset(prefab);
     }
 
-    private static Sprite[] SliceSheet(string path, string prefix)
+    private static Sprite[] SliceSheet(string path, string prefix) => SliceSheet(path, prefix, FrameW, FrameH, Pivot);
+
+    private static Sprite[] SliceSheet(string path, string prefix, int frameW, int frameH, Vector2 pivot)
     {
         AssetDatabase.Refresh();
         var imp = AssetImporter.GetAtPath(path) as TextureImporter;
         if (imp == null) { EditorUtility.DisplayDialog("Seytan Kiz", "Sheet bulunamadi: " + path, "Tamam"); return null; }
         imp.GetSourceTextureWidthAndHeight(out int w, out int h);
-        int frames = Mathf.Max(1, w / FrameW);
+        int frames = Mathf.Max(1, w / frameW);
 #pragma warning disable 0618
         imp.textureType = TextureImporterType.Sprite;
         imp.spriteImportMode = SpriteImportMode.Multiple;
@@ -131,9 +172,9 @@ public static class DemonWhipSetup
             meta[i] = new SpriteMetaData
             {
                 name = prefix + i,
-                rect = new Rect(i * FrameW, 0, FrameW, FrameH),
+                rect = new Rect(i * frameW, 0, frameW, frameH),
                 alignment = (int)SpriteAlignment.Custom,
-                pivot = Pivot
+                pivot = pivot
             };
         imp.spritesheet = meta;
 #pragma warning restore 0618
@@ -159,7 +200,7 @@ public static class DemonWhipSetup
         return clip;
     }
 
-    private static AnimatorController BuildController(AnimationClip idle, AnimationClip whip, AnimationClip walk)
+    private static AnimatorController BuildController(AnimationClip idle, AnimationClip whip, AnimationClip walk, AnimationClip slam)
     {
         var controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(ControllerPath);
         if (controller == null) controller = AnimatorController.CreateAnimatorControllerAtPath(ControllerPath);
@@ -175,6 +216,16 @@ public static class DemonWhipSetup
         var sWhip = Get("Whip", new Vector3(250, 150));
         sWhip.motion = whip;
         if (walk != null) Get("Walk", new Vector3(500, 0)).motion = walk;
+        if (slam != null)
+        {
+            var sSlam = Get("Slam", new Vector3(500, 150));
+            sSlam.motion = slam;
+            if (sSlam.transitions.Length == 0)
+            {
+                var ts = sSlam.AddTransition(sIdle);
+                ts.hasExitTime = true; ts.exitTime = 1f; ts.hasFixedDuration = true; ts.duration = 0f;
+            }
+        }
         sm.defaultState = sIdle;
         if (sWhip.transitions.Length == 0)
         {
