@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86a81a365004de4e9e6bf2a81bd147e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 70
+  maxHealth: 630
   invulnerableAfterHit: 0.15
   flashColor: {r: 1, g: 0.35, b: 0.35, a: 1}
   flashDuration: 0.12
@@ -269,6 +269,25 @@ MonoBehaviour:
   lungeCooldown: 2.2
   lungeDistance: {x: 5.5, y: 11}
   lungeLean: 9
+  slamEnabled: 1
+  firePrefab: {fileID: 1807030229230404484, guid: 1c85f4ee32ba92242946eddf1e6afac9, type: 3}
+  slamRange: 6.5
+  slamCooldownRange: {x: 4, y: 10}
+  slamChance: 0.35
+  slamRollInterval: 0.6
+  slamFirstDelay: 3
+  hopBackSpeed: 28
+  fireArea: {x: 0.6, y: 7.4}
+  slamRecovery: 0.35
+  spinEnabled: 1
+  spinTriggerRange: 3.5
+  spinRadius: 3
+  spinDamagePercent: 0.1
+  spinHitInterval: 0.3
+  spinDriftSpeed: 2.2
+  spinCooldownRange: {x: 4, y: 8}
+  spinChance: 0.4
+  spinRecovery: 0.3
   whipDamagePercent: 0.25
   whipDamage: 18
   whipKnockback: 10

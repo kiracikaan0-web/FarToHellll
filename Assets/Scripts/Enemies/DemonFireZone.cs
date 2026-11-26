@@ -42,7 +42,8 @@ public class DemonFireZone : MonoBehaviour
     public void Init(float width)
     {
         baseScale = Mathf.Max(0.1f, width / NativeWidth);
-        transform.localScale = new Vector3(baseScale, baseScale * 0.15f, 1f);
+        heightScale = Mathf.Min(baseScale, maxHeightScale);   // genis ates cok uzun olmasin
+        transform.localScale = new Vector3(baseScale, heightScale * 0.15f, 1f);
     }
 
     private float Age => Time.time - born;
@@ -59,12 +60,14 @@ public class DemonFireZone : MonoBehaviour
         sr.color = new Color(1f, 1f, 1f, Mathf.Clamp01(a));
         // alevler cikarken yerden boy atsin, sonerken yere insin (pivot altta)
         float grow = Mathf.SmoothStep(0.15f, 1f, Mathf.Clamp01(a));
-        transform.localScale = new Vector3(baseScale, baseScale * grow, 1f);
+        transform.localScale = new Vector3(baseScale, heightScale * grow, 1f);
 
         if (Age > lifetime + fadeOut) Destroy(gameObject);
     }
 
-    private float baseScale = 1f;
+    private float baseScale = 1f, heightScale = 1f;
+    [Tooltip("Ates genislese de yuksekligi en fazla bu olcege cikar (1 = 2.1 birim)")]
+    [SerializeField, Min(0.1f)] private float maxHeightScale = 0.9f;
 
     private void OnTriggerStay2D(Collider2D other)
     {

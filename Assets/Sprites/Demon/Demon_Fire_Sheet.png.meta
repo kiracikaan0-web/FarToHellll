@@ -317,6 +317,42 @@ TextureImporter:
   - first:
       213: 7545473088699109433
     second: Demon_Fire_Sheet_104
+  - first:
+      213: -1516661526816424061
+    second: Demon_Fire_0
+  - first:
+      213: -2749146566390703547
+    second: Demon_Fire_1
+  - first:
+      213: 5024380714615625270
+    second: Demon_Fire_2
+  - first:
+      213: 4672753201329653584
+    second: Demon_Fire_3
+  - first:
+      213: -5199645199306396221
+    second: Demon_Fire_4
+  - first:
+      213: 7026994883186389733
+    second: Demon_Fire_5
+  - first:
+      213: 3352248982516122910
+    second: Demon_Fire_6
+  - first:
+      213: -8121607206651788158
+    second: Demon_Fire_7
+  - first:
+      213: -6425484382683598867
+    second: Demon_Fire_8
+  - first:
+      213: 3749755174779334873
+    second: Demon_Fire_9
+  - first:
+      213: -8127240831607815594
+    second: Demon_Fire_10
+  - first:
+      213: 7047168610185658733
+    second: Demon_Fire_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -363,7 +399,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 140
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -386,10 +422,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -427,2311 +463,265 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_0
+      name: Demon_Fire_0
       rect:
         serializedVersion: 2
-        x: 921
-        y: 274
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 13a7010cc40bc6f60800000000000000
-      internalID: 8028986079381060145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 1762
-        y: 280
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a85dab030289913e0800000000000000
-      internalID: -2082466088658217590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 2274
-        y: 277
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: da50893506614e820800000000000000
-      internalID: 2946504659182290349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 2392
-        y: 254
-        width: 41
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5616b0759bc79300800000000000000
-      internalID: 258899346298639967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 4280
-        y: 276
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7468e8ccb30efad30800000000000000
-      internalID: 4445017904677553735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 5602
-        y: 280
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79465709223a1e0a0800000000000000
-      internalID: -6854017789033356137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 6114
-        y: 277
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0697a7e0a2e0e5070800000000000000
-      internalID: 8096924753853053280
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 6260
-        y: 276
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0bdacd3eb45b1ba10800000000000000
-      internalID: 1923517853413977520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 6519
-        y: 279
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79b33b8aaa67ded90800000000000000
-      internalID: -7066861764927603817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 7177
-        y: 279
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf470ca5ff8f31420800000000000000
-      internalID: 2599695185545819387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 270
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad64e6bd93a2f8b70800000000000000
-      internalID: 8903381416317699802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 501
-        y: 264
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0ea8de1e5dbc26190800000000000000
-      internalID: -7970584271013442848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 1005
-        y: 268
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ddb33465590c97030800000000000000
-      internalID: 3493034733632437213
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 2676
-        y: 264
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ab2928cae8ba5a970800000000000000
-      internalID: 8765600879014482618
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 3294
-        y: 267
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 326d678e045eb2850800000000000000
-      internalID: 6353423766276986403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 3565
-        y: 268
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 654874423df2321a0800000000000000
-      internalID: -6835567225525009322
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 3662
-        y: 268
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6ba7298b63839c1e0800000000000000
-      internalID: -2177147137180927306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_17
-      rect:
-        serializedVersion: 2
-        x: 4341
-        y: 264
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d53fea95bbe8c3410800000000000000
-      internalID: 1458197314675864413
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_18
-      rect:
-        serializedVersion: 2
-        x: 6125
-        y: 268
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 920e4f0abc858ed20800000000000000
-      internalID: 3307991557905637417
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_19
-      rect:
-        serializedVersion: 2
-        x: 7134
-        y: 267
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 50abd85102a397f90800000000000000
-      internalID: -6955464240022046203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_20
-      rect:
-        serializedVersion: 2
-        x: 7502
-        y: 268
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0ab0e71ff5abe9d00800000000000000
-      internalID: 981426690049575840
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_21
-      rect:
-        serializedVersion: 2
-        x: 511
-        y: 259
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7cd7f2f70405ace30800000000000000
-      internalID: 4524517013589032391
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_22
-      rect:
-        serializedVersion: 2
-        x: 894
-        y: 258
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c95c4c7c298900ac0800000000000000
-      internalID: -3890942321863899748
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_23
-      rect:
-        serializedVersion: 2
-        x: 1189
-        y: 258
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4151267a702411950800000000000000
-      internalID: 6417983544620094740
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_24
-      rect:
-        serializedVersion: 2
-        x: 1791
-        y: 259
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b907bbb9b8bf3a900800000000000000
-      internalID: 694675344576966811
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_25
-      rect:
-        serializedVersion: 2
-        x: 3071
-        y: 259
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6598908fe3c7a7bc0800000000000000
-      internalID: -3784575926960289450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_26
-      rect:
-        serializedVersion: 2
-        x: 3454
-        y: 258
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 34532062e16dabe30800000000000000
-      internalID: 4520160600994755907
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_27
-      rect:
-        serializedVersion: 2
-        x: 3643
-        y: 252
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c7701f900f7844340800000000000000
-      internalID: 4847148563986188156
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_28
-      rect:
-        serializedVersion: 2
-        x: 3749
-        y: 258
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b73ecbe78355652f0800000000000000
-      internalID: -984505767401036933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_29
-      rect:
-        serializedVersion: 2
-        x: 4952
-        y: 254
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: db3065cbe2dc06c20800000000000000
-      internalID: 3197781336044995517
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_30
-      rect:
-        serializedVersion: 2
-        x: 5614
-        y: 252
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f9259aef6c3075f50800000000000000
-      internalID: 6869963909787898527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_31
-      rect:
-        serializedVersion: 2
-        x: 5631
-        y: 259
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cd588dde0ee06c470800000000000000
-      internalID: 8414429313014203868
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_32
-      rect:
-        serializedVersion: 2
-        x: 5873
-        y: 256
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1621ce24d6f465a60800000000000000
-      internalID: 7662399146710274657
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_33
-      rect:
-        serializedVersion: 2
-        x: 6014
-        y: 258
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2988a48c5ce3cc9e0800000000000000
-      internalID: -1599834748433561454
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_34
-      rect:
-        serializedVersion: 2
-        x: 6309
-        y: 258
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 882bb6f407e297820800000000000000
-      internalID: 2916413293602779784
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_35
-      rect:
-        serializedVersion: 2
-        x: 6531
-        y: 255
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5c7c64b988d25cbe0800000000000000
-      internalID: -1457708839640578107
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_36
-      rect:
-        serializedVersion: 2
-        x: 7512
-        y: 254
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b208b63800f09d730800000000000000
-      internalID: 4024264236911525931
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_37
-      rect:
-        serializedVersion: 2
-        x: 282
-        y: 250
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 42c6ab0d039006a50800000000000000
-      internalID: 6512215166442695716
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_38
-      rect:
-        serializedVersion: 2
-        x: 702
-        y: 251
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 910077ad8f0ee1f20800000000000000
-      internalID: 3395398528505675801
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_39
-      rect:
-        serializedVersion: 2
-        x: 1779
-        y: 248
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7366bbc1f1e9a3990800000000000000
-      internalID: -7405432780794141129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_40
-      rect:
-        serializedVersion: 2
-        x: 4542
-        y: 251
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 080f649ce2fe5a680800000000000000
-      internalID: -8744320117245546368
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_41
-      rect:
-        serializedVersion: 2
-        x: 5619
-        y: 248
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e0770e9b146425db0800000000000000
-      internalID: -4804700604345583858
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_42
-      rect:
-        serializedVersion: 2
-        x: 7289
-        y: 246
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 29532774387a0f7b0800000000000000
-      internalID: -5192466188076960366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_43
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 239
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 93af265ca012c3ac0800000000000000
-      internalID: -3874185249300481479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_44
-      rect:
-        serializedVersion: 2
-        x: 721
-        y: 239
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ccf2272a25e4eefe0800000000000000
-      internalID: -1157901937367961652
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_45
-      rect:
-        serializedVersion: 2
-        x: 1427
-        y: 237
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf3940e671f100850800000000000000
-      internalID: 6341102460828161019
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_46
-      rect:
-        serializedVersion: 2
-        x: 1544
-        y: 237
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d588f3ed8e413e160800000000000000
-      internalID: 7053504431786002525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_47
-      rect:
-        serializedVersion: 2
-        x: 2041
-        y: 240
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 157fede9105b6f940800000000000000
-      internalID: 5329646227604567889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_48
-      rect:
-        serializedVersion: 2
-        x: 2629
-        y: 239
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e70c4d429ea05a740800000000000000
-      internalID: 5162544544311722110
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_49
-      rect:
-        serializedVersion: 2
-        x: 3682
-        y: 243
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1dc3338eeaefe3be0800000000000000
-      internalID: -1495477999066989359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_50
-      rect:
-        serializedVersion: 2
-        x: 3987
-        y: 237
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a4b76945357e2bfd0800000000000000
-      internalID: -2327543712309675190
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_51
-      rect:
-        serializedVersion: 2
-        x: 4104
-        y: 237
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 897ddc8c0524b45d0800000000000000
-      internalID: -3077293005643851880
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_52
-      rect:
-        serializedVersion: 2
-        x: 4561
-        y: 239
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e5f13e7b7bbd9fc10800000000000000
-      internalID: 2087941484373548894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_53
-      rect:
-        serializedVersion: 2
-        x: 5189
-        y: 239
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 13fff61f7e923e230800000000000000
-      internalID: 3666820597774548785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_54
-      rect:
-        serializedVersion: 2
-        x: 5762
+        x: 0
         y: 0
-        width: 637
-        height: 247
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd62d73b1775e51e0800000000000000
-      internalID: -2207230621510719781
+      spriteID: 38ffa91806cb3fae0800000000000000
+      internalID: -1516661526816424061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_55
+      name: Demon_Fire_1
       rect:
         serializedVersion: 2
-        x: 6547
-        y: 237
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aa447a16b9083fea0800000000000000
-      internalID: -5840182886922763094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_56
-      rect:
-        serializedVersion: 2
-        x: 6664
-        y: 237
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 125b717486c3ca170800000000000000
-      internalID: 8190988240847090977
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_57
-      rect:
-        serializedVersion: 2
-        x: 7522
-        y: 243
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f2bd7dba083bb0fe0800000000000000
-      internalID: -1221685508680721617
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_58
-      rect:
-        serializedVersion: 2
-        x: 1132
-        y: 232
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ca1be694fffcc6130800000000000000
-      internalID: 3561450100698821036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_59
-      rect:
-        serializedVersion: 2
-        x: 1157
-        y: 235
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0e74cfefc8eb13910800000000000000
-      internalID: 1815441637589665760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_60
-      rect:
-        serializedVersion: 2
-        x: 1209
-        y: 231
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 94eec65e6061bc230800000000000000
-      internalID: 3660043341043396169
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_61
-      rect:
-        serializedVersion: 2
-        x: 1635
-        y: 230
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4cfc37312ab9ea6c0800000000000000
-      internalID: -4130192687838801980
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_62
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 228
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a409751270cc46840800000000000000
-      internalID: 5216518599398101066
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_63
-      rect:
-        serializedVersion: 2
-        x: 3769
-        y: 231
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5adccb6376026bb70800000000000000
-      internalID: 8914348140098538917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_64
-      rect:
-        serializedVersion: 2
-        x: 3842
+        x: 640
         y: 0
-        width: 637
-        height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cce9f4a55aae57640800000000000000
-      internalID: 5077222150835773132
+      spriteID: 54a1cc273c119d9d0800000000000000
+      internalID: -2749146566390703547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_65
+      name: Demon_Fire_2
       rect:
         serializedVersion: 2
-        x: 4969
-        y: 228
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 50dfbe3d53cfe7940800000000000000
-      internalID: 5295947519953206533
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_66
-      rect:
-        serializedVersion: 2
-        x: 4972
-        y: 232
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8209959f8ac72b380800000000000000
-      internalID: -8956959643706748888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_67
-      rect:
-        serializedVersion: 2
-        x: 5229
-        y: 232
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 553b57c9dc9462090800000000000000
-      internalID: -8059673335690841259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_68
-      rect:
-        serializedVersion: 2
-        x: 5475
-        y: 230
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5f10bb0d03dd45420800000000000000
-      internalID: 2617960485139186165
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_69
-      rect:
-        serializedVersion: 2
-        x: 2649
-        y: 220
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d276d7c36106485a0800000000000000
-      internalID: -6519980711905237203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_70
-      rect:
-        serializedVersion: 2
-        x: 3017
-        y: 220
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 65807d56e522ef150800000000000000
-      internalID: 5908197549987530838
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_71
-      rect:
-        serializedVersion: 2
-        x: 5122
+        x: 1280
         y: 0
-        width: 637
-        height: 226
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7fb48b242cfd9b9d0800000000000000
-      internalID: -2757927271351694345
+      spriteID: 636dcfeb3af2ab540800000000000000
+      internalID: 5024380714615625270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_72
+      name: Demon_Fire_3
       rect:
         serializedVersion: 2
-        x: 6489
-        y: 220
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5c9d70d99014675a0800000000000000
-      internalID: -6523955500654536251
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_73
-      rect:
-        serializedVersion: 2
-        x: 6654
-        y: 222
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e74ee0a0b8b538d30800000000000000
-      internalID: 4432487110990029950
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_74
-      rect:
-        serializedVersion: 2
-        x: 6857
-        y: 220
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1b1be654e66275970800000000000000
-      internalID: 8743499456616247729
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_75
-      rect:
-        serializedVersion: 2
-        x: 7328
-        y: 226
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b6ef2abbaec540d40800000000000000
-      internalID: 5549662804067417707
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_76
-      rect:
-        serializedVersion: 2
-        x: 520
-        y: 211
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79f3447f9955d55a0800000000000000
-      internalID: -6530969764850548841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_77
-      rect:
-        serializedVersion: 2
-        x: 1399
-        y: 216
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 90877e44157ae6220800000000000000
-      internalID: 2481104412217931785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_78
-      rect:
-        serializedVersion: 2
-        x: 3202
+        x: 1920
         y: 0
-        width: 637
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e7ce456d21039070800000000000000
-      internalID: 8111828648309213160
+      spriteID: 057c2508744f8d040800000000000000
+      internalID: 4672753201329653584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_79
+      name: Demon_Fire_4
       rect:
         serializedVersion: 2
-        x: 4482
+        x: 2560
         y: 0
-        width: 637
-        height: 219
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 541647bb774425120800000000000000
-      internalID: 2401056832378659141
+      spriteID: 3cde6497d3627d7b0800000000000000
+      internalID: -5199645199306396221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_80
+      name: Demon_Fire_5
       rect:
         serializedVersion: 2
-        x: 5038
-        y: 198
-        width: 10
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 78503f44d1637d720800000000000000
-      internalID: 2870822786810709383
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_81
-      rect:
-        serializedVersion: 2
-        x: 6402
+        x: 3200
         y: 0
-        width: 637
-        height: 219
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8f5a241a2a363c0c0800000000000000
-      internalID: -4556688847827458568
+      spriteID: 5e2ffca9d96e48160800000000000000
+      internalID: 7026994883186389733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_82
+      name: Demon_Fire_6
       rect:
         serializedVersion: 2
-        x: 7549
-        y: 217
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: df1235becaf96cff0800000000000000
-      internalID: -16149983617932803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_83
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 203
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 11d4338fc6e342310800000000000000
-      internalID: 1379296023623716113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_84
-      rect:
-        serializedVersion: 2
-        x: 1132
-        y: 200
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 59828ac1ecc639a70800000000000000
-      internalID: 8832522926703519893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_85
-      rect:
-        serializedVersion: 2
-        x: 2354
-        y: 205
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 732ac4250a30eb710800000000000000
-      internalID: 1710808895557771831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_86
-      rect:
-        serializedVersion: 2
-        x: 2562
+        x: 3840
         y: 0
-        width: 637
-        height: 213
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 965acd9b593fcf810800000000000000
-      internalID: 1800581775435277673
+      spriteID: e15c98940b4958e20800000000000000
+      internalID: 3352248982516122910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_87
+      name: Demon_Fire_7
       rect:
         serializedVersion: 2
-        x: 77
-        y: 191
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dd8ab405c4cea4d90800000000000000
-      internalID: -7112612848969471779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_88
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 190
-        width: 6
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6373888d56e8ae9d0800000000000000
-      internalID: -2744224454853249226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_89
-      rect:
-        serializedVersion: 2
-        x: 372
-        y: 197
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: da8ac7bcdbf49d9d0800000000000000
-      internalID: -2749078420951619411
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_90
-      rect:
-        serializedVersion: 2
-        x: 753
-        y: 193
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3d5d4604c10d0fac0800000000000000
-      internalID: -3823327263879539245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_91
-      rect:
-        serializedVersion: 2
-        x: 253
-        y: 187
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fe7d2c4bc37044d90800000000000000
-      internalID: -7114553554026440721
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_92
-      rect:
-        serializedVersion: 2
-        x: 485
-        y: 185
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3158ef0996c5a1520800000000000000
-      internalID: 2673550937271731475
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_93
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 187
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e7a6e9ada9429a8d0800000000000000
-      internalID: -2834694242941638018
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_94
-      rect:
-        serializedVersion: 2
-        x: 985
-        y: 182
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9f3b166c7b3f92dd0800000000000000
-      internalID: -2510207346649484295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_95
-      rect:
-        serializedVersion: 2
-        x: 1710
-        y: 181
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 877ffc1e05ba1f4a0800000000000000
-      internalID: -6561274818227865736
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_96
-      rect:
-        serializedVersion: 2
-        x: 1757
-        y: 183
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 088371b8e0dfa7830800000000000000
-      internalID: 4069843452187588736
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_97
-      rect:
-        serializedVersion: 2
-        x: 1922
+        x: 4480
         y: 0
-        width: 637
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 46944516333c07fa0800000000000000
-      internalID: -5804925294236907164
+      spriteID: 284844296414a4f80800000000000000
+      internalID: -8121607206651788158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_98
+      name: Demon_Fire_8
       rect:
         serializedVersion: 2
-        x: 2444
-        y: 188
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d39395b1504275990800000000000000
-      internalID: -7397404258580481731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_99
-      rect:
-        serializedVersion: 2
-        x: 7042
+        x: 5120
         y: 0
-        width: 637
-        height: 193
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9a52628ce9878fc0800000000000000
-      internalID: -3492671337109759329
+      spriteID: defe2546ff714d6a0800000000000000
+      internalID: -6425484382683598867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_100
+      name: Demon_Fire_9
       rect:
         serializedVersion: 2
-        x: 7557
-        y: 188
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: de3a810b3d9cd8f50800000000000000
-      internalID: 6885381316349043693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_101
-      rect:
-        serializedVersion: 2
-        x: 7564
-        y: 188
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4497a49198a449c80800000000000000
-      internalID: -8316940659151177404
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Demon_Fire_Sheet_102
-      rect:
-        serializedVersion: 2
-        x: 2
+        x: 5760
         y: 0
-        width: 637
-        height: 186
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ed9dc72967abbbe0800000000000000
-      internalID: -1460389584070402588
+      spriteID: 9d0b763e67ec90430800000000000000
+      internalID: 3749755174779334873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_103
+      name: Demon_Fire_10
       rect:
         serializedVersion: 2
-        x: 642
+        x: 6400
         y: 0
-        width: 637
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d8ac91133fce4b60800000000000000
-      internalID: 7732345428487481552
+      spriteID: 65247fb068d363f80800000000000000
+      internalID: -8127240831607815594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Demon_Fire_Sheet_104
+      name: Demon_Fire_11
       rect:
         serializedVersion: 2
-        x: 1282
+        x: 7040
         y: 0
-        width: 637
-        height: 183
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 640
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9301e2aebc7e6b860800000000000000
-      internalID: 7545473088699109433
+      spriteID: d61466273829cc160800000000000000
+      internalID: 7047168610185658733
       vertices: []
       indices: 
       edges: []
@@ -2750,6 +740,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Demon_Fire_0: -1516661526816424061
+      Demon_Fire_1: -2749146566390703547
+      Demon_Fire_10: -8127240831607815594
+      Demon_Fire_11: 7047168610185658733
+      Demon_Fire_2: 5024380714615625270
+      Demon_Fire_3: 4672753201329653584
+      Demon_Fire_4: -5199645199306396221
+      Demon_Fire_5: 7026994883186389733
+      Demon_Fire_6: 3352248982516122910
+      Demon_Fire_7: -8121607206651788158
+      Demon_Fire_8: -6425484382683598867
+      Demon_Fire_9: 3749755174779334873
       Demon_Fire_Sheet_0: 8028986079381060145
       Demon_Fire_Sheet_1: -2082466088658217590
       Demon_Fire_Sheet_10: 8903381416317699802

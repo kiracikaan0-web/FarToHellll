@@ -14,7 +14,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Health))]
 public class DemonEnemy : MonoBehaviour
 {
-    private enum State { Patrol, Chase, Lunge, Whip, Slam, Stagger, Dead }
+    private enum State { Patrol, Chase, Lunge, Whip, Slam, Spin, Stagger, Dead }
 
     [Header("Hareket")]
     [SerializeField, Min(0f)] private float patrolSpeed = 1.6f;
@@ -55,10 +55,26 @@ public class DemonEnemy : MonoBehaviour
     [Tooltip("Oyuncuyu ilk gordukten kac sn sonra ilk kez kullanabilir")]
     [SerializeField, Min(0f)] private float slamFirstDelay = 3f;
     [Tooltip("Geri zipliyorken yatay hiz")]
-    [SerializeField, Min(0f)] private float hopBackSpeed = 7f;
+    [SerializeField, Min(0f)] private float hopBackSpeed = 28f;
     [Tooltip("Yanan alan, ileri yonde (baslangic, bitis), olcek 1 iken")]
-    [SerializeField] private Vector2 fireArea = new Vector2(0.8f, 4.4f);
+    [SerializeField] private Vector2 fireArea = new Vector2(0.6f, 7.4f);
     [SerializeField, Min(0f)] private float slamRecovery = 0.35f;
+
+    [Header("Donme (kirbacla etrafinda doner, yakindaki herkesi vurur)")]
+    [SerializeField] private bool spinEnabled = true;
+    [Tooltip("Oyuncu bu mesafedeyse (yakin) kullanir")]
+    [SerializeField, Min(0f)] private float spinTriggerRange = 3.5f;
+    [Tooltip("Donerken vurus yaricapi, olcek 1 iken (kirbacin ulastigi yer)")]
+    [SerializeField, Min(0f)] private float spinRadius = 3f;
+    [Tooltip("Her vurus oyuncunun maksimum caninin bu orani")]
+    [SerializeField, Range(0f, 1f)] private float spinDamagePercent = 0.1f;
+    [Tooltip("Donerken kac sn de bir vurabilir")]
+    [SerializeField, Min(0.05f)] private float spinHitInterval = 0.3f;
+    [Tooltip("Donerken oyuncuya dogru kayma hizi")]
+    [SerializeField, Min(0f)] private float spinDriftSpeed = 2.2f;
+    [SerializeField] private Vector2 spinCooldownRange = new Vector2(4f, 8f);
+    [SerializeField, Range(0f, 1f)] private float spinChance = 0.4f;
+    [SerializeField, Min(0f)] private float spinRecovery = 0.3f;
 
     [Header("Kirbac")]
     [Tooltip("Kirbac oyuncunun MAKSIMUM caninin bu oranini goturur (0.25 = %25, 4 vurusta oldurur). 0 yaparsan asagidaki sabit hasar kullanilir.")]
@@ -103,6 +119,10 @@ public class DemonEnemy : MonoBehaviour
     private static readonly int WhipHash = Animator.StringToHash("Whip");
     private static readonly int WalkHash = Animator.StringToHash("Walk");
     private static readonly int SlamHash = Animator.StringToHash("Slam");
+    private static readonly int SpinHash = Animator.StringToHash("Spin");
+    // Donme klibi: 56 kare, 24 fps (4 tur, ~2.3 sn). Kirbac 0.29-2.2 sn arasi acik (vurur).
+    private const float SpinLength = 56f / 24f, SpinHitStart = 0.29f, SpinHitEnd = 2.2f;
+    private float nextSpinTime, nextSpinRoll, nextSpinHit;
     // Yer yakma klibi: 30 kare, 24 fps. Geri zipla 0.09-0.41 sn, kirbac yere 21. karede (0.875 sn).
     private const float SlamLength = 30f / 24f, SlamHopStart = 0.094f, SlamHopEnd = 0.41f, SlamImpact = 21f / 24f;
     private bool fireDone;
@@ -169,6 +189,7 @@ public class DemonEnemy : MonoBehaviour
             case State.Chase: UpdateChase(playerAlive); break;
             case State.Lunge: UpdateLunge(); break;
             case State.Slam: UpdateSlam(); break;
+            case State.Spin: UpdateSpin(); break;
             case State.Whip: UpdateWhip(); break;
             case State.Stagger:
                 if (Time.time >= staggerEnd) state = playerAlive ? State.Chase : State.Patrol;
@@ -209,6 +230,11 @@ public class DemonEnemy : MonoBehaviour
         int dir = to.x >= 0f ? 1 : -1;
         Face(dir);
         bool inRange = Mathf.Abs(to.y) < verticalSight && dist <= whipRange;
+        if (spinEnabled && Time.time >= nextSpinTime && Time.time >= nextSpinRoll && Mathf.Abs(to.y) < verticalSight && dist <= spinTriggerRange)
+        {
+            nextSpinRoll = Time.time + 0.5f;
+            if (Random.value < spinChance) { StartSpin(); return; }   // rastgele: yakindaysan bazen doner
+        }
         if (slamEnabled && firePrefab != null && Time.time >= nextSlamTime && Time.time >= nextSlamRoll &&
             Mathf.Abs(to.y) < verticalSight && dist <= slamRange && CanSeePlayer())
         {
@@ -245,6 +271,48 @@ public class DemonEnemy : MonoBehaviour
             return;
         }
         moveX = lungeDir * lungeSpeed;
+    }
+
+    private void StartSpin()
+    {
+        state = State.Spin;
+        actionStart = Time.time;
+        actionEnd = actionStart + SpinLength + spinRecovery;
+        nextSpinTime = actionEnd + Random.Range(Mathf.Min(spinCooldownRange.x, spinCooldownRange.y), Mathf.Max(spinCooldownRange.x, spinCooldownRange.y));
+        nextSpinHit = 0f;
+        nextWhipTime = Mathf.Max(nextWhipTime, actionEnd + 0.3f);
+        if (animator != null) { animator.speed = 1f; PlayState(SpinHash); }
+    }
+
+    private void UpdateSpin()
+    {
+        float t = Time.time - actionStart;
+        bool active = t >= SpinHitStart && t <= SpinHitEnd;
+        if (active && player != null)
+        {
+            // kasirga gibi oyuncuya dogru kay (onde zemin varsa)
+            int dir = player.position.x >= transform.position.x ? 1 : -1;
+            if (Mathf.Abs(player.position.x - transform.position.x) > 0.6f && GroundAhead(dir)) moveX = dir * spinDriftSpeed;
+            if (Time.time >= nextSpinHit && SpinHit()) nextSpinHit = Time.time + spinHitInterval;
+        }
+        if (Time.time >= actionEnd) state = State.Chase;
+    }
+
+    private bool SpinHit()
+    {
+        float r = spinRadius * ScaleK;
+        Vector2 c = (Vector2)transform.position + Vector2.up * 1.2f * ScaleK;
+        foreach (var col in Physics2D.OverlapCircleAll(c, r))
+        {
+            var target = col.GetComponentInParent<PlayerMovement>();
+            if (target == null) continue;
+            if (Mathf.Abs(target.transform.position.y - transform.position.y) > 2.2f * ScaleK) return false;   // kirbac yerden alcakta doner: ustunden ziplanabilir
+            var h = target.GetComponent<Health>();
+            if (h == null) return false;
+            int dmg = Mathf.Max(1, Mathf.CeilToInt(h.Max * spinDamagePercent));
+            return h.TakeDamage(new DamageInfo(dmg, transform.position, whipKnockback));
+        }
+        return false;
     }
 
     private void StartSlam()
@@ -332,8 +400,8 @@ public class DemonEnemy : MonoBehaviour
         if (state == State.Dead) return;
         if (state == State.Patrol) BeginAggro();
         lastSeenTime = Time.time;
-        // Yer yakma sirasinda sersemlemez (boss zirhi)
-        if (state == State.Slam) return;
+        // Yer yakma ve donme sirasinda sersemlemez (boss zirhi)
+        if (state == State.Slam || state == State.Spin) return;
         // Kirbac sasklamaya basladiysa vurus kesilmez
         bool committed = state == State.Whip && (Time.time - actionStart) * whipAnimSpeed >= WhipHitStart;
         if (committed || Time.time < staggerImmuneUntil) return;
@@ -379,6 +447,7 @@ public class DemonEnemy : MonoBehaviour
         state = State.Chase;
         lastSeenTime = Time.time;
         nextSlamTime = Mathf.Max(nextSlamTime, Time.time + slamFirstDelay * Random.Range(0.5f, 1.5f));
+        nextSpinTime = Mathf.Max(nextSpinTime, Time.time + Random.Range(1f, 3f));
         nextWhipTime = Mathf.Max(nextWhipTime, Time.time + 0.4f);
     }
 

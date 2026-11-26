@@ -26,6 +26,10 @@ public static class DemonWhipSetup
     private const string SlamClipPath = "Assets/Sprites/Demon/Demon_Slam.anim";
     private const string FireSheetPath = "Assets/Sprites/Demon/Demon_Fire_Sheet.png";
     private const string FirePrefabPath = "Assets/Prefabs/Enemies/DemonFire.prefab";
+    private const string SpinSheetPath = "Assets/Sprites/Demon/Demon_Spin_Sheet.png";
+    private const string SpinClipPath = "Assets/Sprites/Demon/Demon_Spin.anim";
+    private const int SpinW = 885, SpinH = 538;
+    private static readonly Vector2 SpinPivot = new Vector2(0.4927f, 0.0260f);
     private const string ControllerPath = "Assets/Animations/Enemies/Demon.controller";
     private const string PrefabPath = "Assets/Prefabs/Enemies/Demon.prefab";
     private const int FrameW = 747, FrameH = 535;
@@ -77,13 +81,94 @@ public static class DemonWhipSetup
             "Baska yerlere koymak icin prefabi Project penceresinden sahneye surukle.", "Tamam");
     }
 
+    /// <summary>
+    /// Derlemeden sonra kendiliginden: Demon prefabi var ama Slam animasyonu / ates prefabi eksikse kurulumu sessizce yapar.
+    /// Boylece yeni saldiri icin menu komutunu calistirmayi unutmak saldiriyi bozmaz.
+    /// </summary>
+    [InitializeOnLoadMethod]
+    private static void AutoUpdateOnLoad()
+    {
+        EditorApplication.delayCall += () =>
+        {
+            if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || EditorApplication.isUpdating) return;
+            ApplySlamTuningOnce();
+            ApplyOnce("FarToHell.DemonSpinChance.v1", so => so.FindProperty("spinChance").floatValue = 0.4f,
+                "Donme saldirisi ihtimali %40 yapildi.");
+            ApplyOnce("FarToHell.DemonHopBack.v3", so => so.FindProperty("hopBackSpeed").floatValue = 28f,
+                "Yakma saldirisindaki geri ziplama mesafesi iki katina cikarildi (hiz 28).");
+            if (!EditorPrefs.GetBool("FarToHell.DemonSpinAnim.v2", false) && AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath) != null)
+            {
+                if (BuildAnimations(out _) != null)
+                {
+                    EditorPrefs.SetBool("FarToHell.DemonSpinAnim.v2", true);
+                    Debug.Log("[Seytan Kiz] Donme animasyonu yenilendi: 4 tur, iki kat uzun.");
+                }
+            }
+            if (!NeedsUpdate()) return;
+            var controller = BuildAnimations(out _);
+            if (controller == null) return;
+            ApplyPrefabSettings();
+            Debug.Log("[Seytan Kiz] Saldirilar otomatik kuruldu (Slam + Spin animasyonlari, DemonFire prefabi).");
+        };
+    }
+
+    /// <summary>
+    /// Bir kez: mevcut prefabda yanan alani buyutur (0.6..7.4) ve geri ziplama hizini iki katina (14) cikarir.
+    /// Sonra Inspector'dan degistirdiklerin korunur.
+    /// </summary>
+    private static void ApplySlamTuningOnce()
+    {
+        const string key = "FarToHell.DemonSlamTuning.v2";
+        if (EditorPrefs.GetBool(key, false)) return;
+        var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
+        var enemy = prefab != null ? prefab.GetComponent<DemonEnemy>() : null;
+        if (enemy == null) return;
+        var so = new SerializedObject(enemy);
+        so.FindProperty("hopBackSpeed").floatValue = 14f;
+        so.FindProperty("fireArea").vector2Value = new Vector2(0.6f, 7.4f);
+        so.ApplyModifiedPropertiesWithoutUndo();
+        PrefabUtility.SavePrefabAsset(prefab);
+        EditorPrefs.SetBool(key, true);
+        Debug.Log("[Seytan Kiz] Yanan alan buyutuldu (0.6 - 7.4 birim) ve geri ziplama mesafesi iki katina cikarildi.");
+    }
+
+    /// <summary>Prefabdaki DemonEnemy ayarina bir kez dokunur (sonra Inspector'daki degisiklikler korunur).</summary>
+    private static void ApplyOnce(string key, System.Action<SerializedObject> change, string log)
+    {
+        if (EditorPrefs.GetBool(key, false)) return;
+        var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
+        var enemy = prefab != null ? prefab.GetComponent<DemonEnemy>() : null;
+        if (enemy == null) return;
+        var so = new SerializedObject(enemy);
+        change(so);
+        so.ApplyModifiedPropertiesWithoutUndo();
+        PrefabUtility.SavePrefabAsset(prefab);
+        EditorPrefs.SetBool(key, true);
+        Debug.Log("[Seytan Kiz] " + log);
+    }
+
+    private static bool NeedsUpdate()
+    {
+        var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
+        var enemy = prefab != null ? prefab.GetComponent<DemonEnemy>() : null;
+        if (enemy == null) return false;                                      // boss hic kurulmamis: menuden kurulur
+        if (AssetDatabase.LoadAssetAtPath<Texture2D>(SlamSheetPath) == null) return false;
+        var prop = new SerializedObject(enemy).FindProperty("firePrefab");
+        if (prop == null || prop.objectReferenceValue == null) return true;
+        var controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(ControllerPath);
+        if (controller == null) return true;
+        var names = controller.layers[0].stateMachine.states.Select(s => s.state.name).ToList();
+        if (!names.Contains("Slam")) return true;
+        return AssetDatabase.LoadAssetAtPath<Texture2D>(SpinSheetPath) != null && !names.Contains("Spin");
+    }
+
     [MenuItem("Tools/FarToHell/Seytan Kiz: Animasyonlari Guncelle")]
     public static void UpdateAnimations()
     {
         var controller = BuildAnimations(out _);
         if (controller == null) return;
         ApplyPrefabSettings();
-        EditorUtility.DisplayDialog("Seytan Kiz", "Animasyonlar guncellendi (Idle, Walk, Whip, Slam).\n" +
+        EditorUtility.DisplayDialog("Seytan Kiz", "Animasyonlar guncellendi (Idle, Walk, Whip, Slam, Spin).\n" +
             "Yeni saldiri: yakindaysan geri ziplar, kirbaci yere vurur; vurdugu yer 5 sn yanar ve icinde durani yakar.\n" +
             "Sahnedeki seytan kizlar Play'de yeni animasyonlari kullanir.", "Tamam");
     }
@@ -125,12 +210,14 @@ public static class DemonWhipSetup
         var walk = walkSprites != null ? BuildClip(WalkClipPath, walkSprites, true, WalkFps) : null;
         var slamSprites = SliceSheet(SlamSheetPath, "Demon_Slam_", SlamW, SlamH, SlamPivot);
         var slam = slamSprites != null ? BuildClip(SlamClipPath, slamSprites, false, SlamFps) : null;
+        var spinSprites = SliceSheet(SpinSheetPath, "Demon_Spin_", SpinW, SpinH, SpinPivot);
+        var spin = spinSprites != null ? BuildClip(SpinClipPath, spinSprites, false, SlamFps) : null;
         UIBuildUtil.EnsureFolder("Assets", "Animations");
         UIBuildUtil.EnsureFolder("Assets/Animations", "Enemies");
         UIBuildUtil.EnsureFolder("Assets", "Prefabs");
         UIBuildUtil.EnsureFolder("Assets/Prefabs", "Enemies");
         BuildFirePrefab();
-        return BuildController(idle, whip, walk, slam);
+        return BuildController(idle, whip, walk, slam, spin);
     }
 
     /// <summary>Mevcut prefabi yeni ayarlara getirir (hiz, adim boyu, ates prefabi). Diger ayarlara dokunmaz.</summary>
@@ -157,7 +244,9 @@ public static class DemonWhipSetup
         var imp = AssetImporter.GetAtPath(path) as TextureImporter;
         if (imp == null) { EditorUtility.DisplayDialog("Seytan Kiz", "Sheet bulunamadi: " + path, "Tamam"); return null; }
         imp.GetSourceTextureWidthAndHeight(out int w, out int h);
-        int frames = Mathf.Max(1, w / frameW);
+        // Izgara: soldan saga, ustten asagi (genis sheet'ler 16384 px sinirini asmasin diye satirlara bolunur)
+        int cols = Mathf.Max(1, w / frameW), rows = Mathf.Max(1, h / frameH);
+        int frames = cols * rows;
 #pragma warning disable 0618
         imp.textureType = TextureImporterType.Sprite;
         imp.spriteImportMode = SpriteImportMode.Multiple;
@@ -172,7 +261,7 @@ public static class DemonWhipSetup
             meta[i] = new SpriteMetaData
             {
                 name = prefix + i,
-                rect = new Rect(i * frameW, 0, frameW, frameH),
+                rect = new Rect((i % cols) * frameW, h - (i / cols + 1) * frameH, frameW, frameH),
                 alignment = (int)SpriteAlignment.Custom,
                 pivot = pivot
             };
@@ -200,7 +289,7 @@ public static class DemonWhipSetup
         return clip;
     }
 
-    private static AnimatorController BuildController(AnimationClip idle, AnimationClip whip, AnimationClip walk, AnimationClip slam)
+    private static AnimatorController BuildController(AnimationClip idle, AnimationClip whip, AnimationClip walk, AnimationClip slam, AnimationClip spin)
     {
         var controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(ControllerPath);
         if (controller == null) controller = AnimatorController.CreateAnimatorControllerAtPath(ControllerPath);
@@ -224,6 +313,16 @@ public static class DemonWhipSetup
             {
                 var ts = sSlam.AddTransition(sIdle);
                 ts.hasExitTime = true; ts.exitTime = 1f; ts.hasFixedDuration = true; ts.duration = 0f;
+            }
+        }
+        if (spin != null)
+        {
+            var sSpin = Get("Spin", new Vector3(750, 150));
+            sSpin.motion = spin;
+            if (sSpin.transitions.Length == 0)
+            {
+                var tp = sSpin.AddTransition(sIdle);
+                tp.hasExitTime = true; tp.exitTime = 1f; tp.hasFixedDuration = true; tp.duration = 0f;
             }
         }
         sm.defaultState = sIdle;
@@ -263,7 +362,7 @@ public static class DemonWhipSetup
 
         var health = root.AddComponent<Health>();
         var hso = new SerializedObject(health);
-        hso.FindProperty("maxHealth").intValue = 70;
+        hso.FindProperty("maxHealth").intValue = 630;
         hso.FindProperty("invulnerableAfterHit").floatValue = 0.15f;
         hso.ApplyModifiedPropertiesWithoutUndo();
 
