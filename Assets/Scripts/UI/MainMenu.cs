@@ -59,6 +59,7 @@ public class MainMenu : MonoBehaviour
         }
         busy = true;
         Checkpoint.ClearProgress(); // yeni oyun: kontrol noktalari sifirdan
+        Inventory.Clear();          // yeni oyun: canta bos
         StartCoroutine(LoadGame());
     }
 

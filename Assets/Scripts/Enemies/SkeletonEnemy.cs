@@ -13,6 +13,7 @@ using UnityEngine;
 ///
 /// Sahnede secince: sari = gorme mesafesi, kirmizi kutu = pence alani, mavi = kemigin ciktigi nokta,
 /// yesil cizgi = devriye alani.
+/// Olcek: dusman buyutulurse (localScale) pence alani, kemik cikis noktasi ve mesafeler de onunla buyur.
 /// Kurulum: Tools > FarToHell > Dusman Ekle: Skeleton2
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D), typeof(Health))]
@@ -220,8 +221,9 @@ public class SkeletonEnemy : MonoBehaviour
         int dir = toPlayer.x >= 0f ? 1 : -1;
         Face(dir);
 
-        bool sameHeight = Mathf.Abs(toPlayer.y) < verticalSight;
-        bool inClawRange = sameHeight && dist <= clawRange;
+        float k = ScaleK;
+        bool sameHeight = Mathf.Abs(toPlayer.y) < verticalSight * k;
+        bool inClawRange = sameHeight && dist <= clawRange * k;
 
         // Yakindaysa pence (pence hazirsa)
         if (inClawRange && Time.time >= nextClawTime)
@@ -238,7 +240,7 @@ public class SkeletonEnemy : MonoBehaviour
         }
 
         // Pence menzilinin biraz icine kadar yaklas
-        if (dist > clawRange * 0.8f && GroundAhead(dir))
+        if (dist > clawRange * 0.8f * k && GroundAhead(dir))
             moveX = dir * chaseSpeed;
     }
 
@@ -298,9 +300,10 @@ public class SkeletonEnemy : MonoBehaviour
         if (player != null)
         {
             float dist = Mathf.Abs(player.position.x - transform.position.x);
-            offset.x = Mathf.Clamp(dist - 1.2f, 1f, throwOffset.x);
+            offset.x = Mathf.Clamp(dist / ScaleK - 1.2f, 1f, throwOffset.x);
         }
         var bone = Instantiate(bonePrefab, WorldPoint(offset), Quaternion.identity);
+        bone.transform.localScale = bone.transform.localScale * ScaleK;
         bone.Launch(new Vector2(facing, 0f), boneSpeed, boneDamage, gameObject);
     }
 
@@ -381,14 +384,14 @@ public class SkeletonEnemy : MonoBehaviour
         float near = Mathf.Min(clawReach.x, clawReach.y), far = Mathf.Max(clawReach.x, clawReach.y);
         float bottom = Mathf.Min(clawHeight.x, clawHeight.y), top = Mathf.Max(clawHeight.x, clawHeight.y);
         center = WorldPoint(new Vector2((near + far) * 0.5f, (bottom + top) * 0.5f));
-        size = new Vector2(far - near, top - bottom);
+        size = new Vector2(far - near, top - bottom) * ScaleK;
     }
 
     private bool CanSeePlayer()
     {
         if (player == null) return false;
         Vector2 to = player.position - transform.position;
-        if (Mathf.Abs(to.y) > verticalSight) return false;
+        if (Mathf.Abs(to.y) > verticalSight * ScaleK) return false;
         bool inFront = Mathf.Sign(to.x) == facing;
         float range = inFront ? sightRange : backSightRange;
         if (Mathf.Abs(to.x) > range) return false;
@@ -398,14 +401,14 @@ public class SkeletonEnemy : MonoBehaviour
     private bool HasLineOfSight()
     {
         if (player == null) return false;
-        Vector2 eye = (Vector2)transform.position + Vector2.up * 2.2f;
-        Vector2 target = (Vector2)player.position + Vector2.up * 1.5f;
+        Vector2 eye = (Vector2)transform.position + Vector2.up * 2.2f * ScaleK;
+        Vector2 target = (Vector2)player.position + Vector2.up * 1.5f * Mathf.Abs(player.lossyScale.y);
         return !Physics2D.Linecast(eye, target, groundLayer);
     }
 
     private bool GroundAhead(int dir)
     {
-        Vector2 origin = (Vector2)transform.position + new Vector2(dir * ledgeCheckForward, 0.5f);
+        Vector2 origin = (Vector2)transform.position + new Vector2(dir * ledgeCheckForward * ScaleK, 0.5f);
         return Physics2D.Raycast(origin, Vector2.down, 1.5f, groundLayer);
     }
 
@@ -423,8 +426,11 @@ public class SkeletonEnemy : MonoBehaviour
     private Vector2 WorldPoint(Vector2 forwardUp)
     {
         int f = Application.isPlaying ? facing : (transform.localScale.x >= 0f ? -1 : 1);
-        return (Vector2)transform.position + new Vector2(forwardUp.x * f, forwardUp.y);
+        return (Vector2)transform.position + new Vector2(forwardUp.x * f, forwardUp.y) * ScaleK;
     }
+
+    /// <summary>Dusmanin boyut carpani (olcek 1 = tasarlandigi boy).</summary>
+    private float ScaleK => Mathf.Abs(transform.lossyScale.y);
 
     private void PlayState(int hash)
     {
