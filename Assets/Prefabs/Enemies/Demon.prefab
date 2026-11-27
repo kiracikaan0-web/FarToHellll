@@ -390,6 +390,24 @@ MonoBehaviour:
   hopBackSpeed: 28
   fireArea: {x: 0.6, y: 7.4}
   slamRecovery: 0.35
+  grappleEnabled: 1
+  grappleDistance: {x: 20, y: 40}
+  grappleMaxHeight: 8
+  grappleCooldownRange: {x: 4, y: 7}
+  grappleChance: 0.6
+  grappleRollInterval: 0.5
+  grappleFirstDelay: 1
+  grappleWhipSpeed: 70
+  grappleHitRadius: 0.7
+  grappleDamagePercent: 0.1
+  wrapTime: 0.4
+  pullSpeed: 32
+  pullStopDistance: 2.6
+  pullMaxTime: 1.6
+  unwrapTime: 0.25
+  grappleMissRecovery: 0.5
+  grappleWhipWidth: {x: 0.075, y: 0.02}
+  grappleWhipColor: {r: 0.055, g: 0.04, b: 0.047, a: 1}
   whipDamagePercent: 0.25
   whipDamage: 18
   whipKnockback: 10
