@@ -62,12 +62,14 @@ public class DemonEnemy : MonoBehaviour
 
     [Header("Kirbacla sarip cekme (uzaktaki oyuncuya kirbaci atar, sarar ve kendine ceker)")]
     [SerializeField] private bool grappleEnabled = true;
-    [Tooltip("Oyuncu bu mesafeler arasindaysa kullanir (min, max), dunya birimi. Min 20: oyuncu 20 birim ve daha uzaktaysa.")]
-    [SerializeField] private Vector2 grappleDistance = new Vector2(20f, 40f);
+    [Tooltip("Oyuncu bu mesafeler arasindaysa kullanir (min, max), dunya birimi. Min 30: oyuncu 30 birim ve daha uzaktaysa.")]
+    [SerializeField] private Vector2 grappleDistance = new Vector2(30f, 50f);
     [Tooltip("Oyuncu bundan yuksekte/alcakta ise kullanmaz")]
     [SerializeField, Min(0f)] private float grappleMaxHeight = 8f;
-    [Tooltip("Iki kullanim arasi bekleme: bu araliktan rastgele (min, max sn)")]
-    [SerializeField] private Vector2 grappleCooldownRange = new Vector2(4f, 7f);
+    [Tooltip("Iki kullanim arasi bekleme (yakalasa da yakalamasa da): bu araliktan rastgele (min, max sn)")]
+    [SerializeField] private Vector2 grappleCooldownRange = new Vector2(15f, 20f);
+    [Tooltip("Iskalarsa bir sonraki denemeye kadar bekleme: bu araliktan rastgele (min, max sn). Iskalayinca tekrar tekrar atmasin diye uzun.")]
+    [SerializeField] private Vector2 grappleMissCooldownRange = new Vector2(15f, 20f);
     [Tooltip("Hazir ve menzildeyken her denemede secme ihtimali (0-1)")]
     [SerializeField, Range(0f, 1f)] private float grappleChance = 0.6f;
     [SerializeField, Min(0.1f)] private float grappleRollInterval = 0.5f;
@@ -172,6 +174,7 @@ public class DemonEnemy : MonoBehaviour
     private static readonly int YankHash = Animator.StringToHash("Yank");
     private const float YankJerk = 0.12f;
     private bool yanking;
+    private bool grappleThrown;   // bu saldirida kirbac elden cikti mi (tek atis)
     private float yankStart;
     // Yank karelerinde elin yeri (sprite sola bakarken, ayak noktasina gore, birim)
     private static readonly Vector2[] YankHand = { new Vector2(-0.658f, 0.916f), new Vector2(-0.675f, 0.961f), new Vector2(-0.479f, 1.221f), new Vector2(-0.356f, 1.293f), new Vector2(-0.337f, 1.299f), new Vector2(-0.351f, 1.297f), new Vector2(-0.376f, 1.286f), new Vector2(-0.399f, 1.274f), new Vector2(-0.409f, 1.266f), new Vector2(-0.333f, 1.313f), new Vector2(-0.316f, 1.316f), new Vector2(-0.319f, 1.314f), new Vector2(-0.327f, 1.309f), new Vector2(-0.339f, 1.303f), new Vector2(-0.351f, 1.296f), new Vector2(-0.360f, 1.291f) };
@@ -278,7 +281,7 @@ public class DemonEnemy : MonoBehaviour
         Vector2 to = player.position - transform.position;
         float dist = Mathf.Abs(to.x);
         if (CanSeePlayer()) lastSeenTime = Time.time;
-        // kirbacla cekme 20+ birimde kullanildigi icin o mesafede de takibi birakmaz
+        // kirbacla cekme 30+ birimde kullanildigi icin o mesafede de takibi birakmaz
         float lose = grappleEnabled ? Mathf.Max(loseRange, grappleDistance.y + 2f) : loseRange;
         if (dist > lose || Time.time - lastSeenTime > loseTime)
         {
@@ -422,6 +425,7 @@ public class DemonEnemy : MonoBehaviour
         state = State.Grapple;
         actionStart = Time.time;
         whipPhase = WhipPhase.None;
+        grappleThrown = false;
         nextGrappleTime = Time.time + Random.Range(Mathf.Min(grappleCooldownRange.x, grappleCooldownRange.y), Mathf.Max(grappleCooldownRange.x, grappleCooldownRange.y));
         nextLungeTime = Mathf.Max(nextLungeTime, Time.time + 1.5f);
         if (animator != null) { animator.speed = 1f; PlayState(GrappleHash); }
@@ -430,6 +434,8 @@ public class DemonEnemy : MonoBehaviour
     private void UpdateGrapple()
     {
         float t = Time.time - actionStart;
+        // kirbac bir kez atildiysa (iskalayip geri toplandiysa) ayni saldiride tekrar ATILMAZ: saldiri biter
+        if (whipPhase == WhipPhase.None && grappleThrown) { EndGrapple(); return; }
         if (whipPhase == WhipPhase.None)
         {
             if (player != null) { float px = player.position.x - transform.position.x; if (Mathf.Abs(px) > 0.1f) Face(px > 0f ? 1 : -1); }
@@ -439,6 +445,7 @@ public class DemonEnemy : MonoBehaviour
                 grappleTarget = player != null ? PlayerAimPoint() : (Vector2)transform.position + Vector2.right * facing * 8f;
                 whipPhase = WhipPhase.Out;
                 whipLen = 0f;
+                grappleThrown = true;
                 whipPhaseStart = Time.time;
             }
             else if (t > 3f) EndGrapple();
@@ -458,7 +465,11 @@ public class DemonEnemy : MonoBehaviour
             whipLen = Mathf.Min(maxLen, whipLen + grappleWhipSpeed * Time.deltaTime);
             lastWhipDir = dir;
             if (WhipTouchesPlayer(hand + dir * prev, hand + dir * whipLen)) { BeginWrap(); return; }
-            if (whipLen >= maxLen - 0.001f) BeginRetract(grappleMissRecovery * 0.7f, grappleMissRecovery);
+            if (whipLen >= maxLen - 0.001f) {
+                BeginRetract(grappleMissRecovery * 0.7f, grappleMissRecovery);
+                // iskaladi: hemen tekrar denemesin, uzun sure bekler
+                nextGrappleTime = Mathf.Max(nextGrappleTime, Time.time + Random.Range(Mathf.Min(grappleMissCooldownRange.x, grappleMissCooldownRange.y), Mathf.Max(grappleMissCooldownRange.x, grappleMissCooldownRange.y)));
+            }
             return;
         }
         // iskaladi: kirbac geri toplanir, sonra toparlanir
