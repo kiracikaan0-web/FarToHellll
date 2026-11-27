@@ -122,7 +122,7 @@ MonoBehaviour:
   clawAnimSpeed: 0.75
   clawRecovery: 0.45
   bonePrefab: {fileID: 4008794457381442898, guid: 11df78c2ef6e7c5499b41fb33be3382e, type: 3}
-  boneDamage: 12
+  boneDamage: 10
   boneSpeed: 9
   throwInterval: 4
   throwFirstDelay: 0

@@ -10,10 +10,8 @@ public class BackgroundMusic : MonoBehaviour
 {
     private static BackgroundMusic instance;
 
-    // Resources klasorundeki varsayilan parca:
-    // "Audio/HellPolyphonic" (cok sesli ambiyans), "Audio/HellAmbient" (sakin/urkutucu),
-    // "Audio/HellRiff" (yavaslatilmis gallop riff), "Audio/HellGallop" (tam metal parca),
-    // "Audio/HellTheme" (karanlik/saskin)
+    // Resources klasorundeki varsayilan parca: "Audio/HellPolyphonic" (cok sesli ambiyans).
+    // Kullanilmayan diger parcalar projeden silindi (git gecmisinde duruyor).
     private const string DefaultTrack = "Audio/HellPolyphonic";
 
     [SerializeField] private AudioClip musicClip;
