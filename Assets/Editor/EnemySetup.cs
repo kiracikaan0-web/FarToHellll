@@ -186,10 +186,8 @@ public static class EnemySetup
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         // Govde collider'i (kol haric): sprite olculerinden hesaplandi
-        var cap = root.AddComponent<CapsuleCollider2D>();
-        cap.direction = CapsuleDirection2D.Vertical;
-        cap.size = new Vector2(1.9f, 3.4f);
-        cap.offset = new Vector2(-0.3f, 1.75f);
+        // Govde: ortada kapsul (fizik) + tum govdeyi saran trigger cokgen (kilic hasari)
+        EnemyColliderShapes.ApplySkeleton2(root);
 
         var health = root.AddComponent<Health>();
         var hso = new SerializedObject(health);

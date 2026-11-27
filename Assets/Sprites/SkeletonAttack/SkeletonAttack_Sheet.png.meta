@@ -59,7 +59,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0.62105, y: 0.10784}
+  spritePivot: {x: 0.63889, y: 0.16416}
   spritePixelsToUnits: 140
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -116,10 +116,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 950
-        height: 750
+        width: 1440
+        height: 980
       alignment: 9
-      pivot: {x: 0.62105, y: 0.10784}
+      pivot: {x: 0.63889, y: 0.16416}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -136,12 +136,12 @@ TextureImporter:
       name: SkeletonAttack_1
       rect:
         serializedVersion: 2
-        x: 950
+        x: 1440
         y: 0
-        width: 950
-        height: 750
+        width: 1440
+        height: 980
       alignment: 9
-      pivot: {x: 0.62105, y: 0.10784}
+      pivot: {x: 0.63889, y: 0.16416}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -158,12 +158,12 @@ TextureImporter:
       name: SkeletonAttack_2
       rect:
         serializedVersion: 2
-        x: 1900
+        x: 2880
         y: 0
-        width: 950
-        height: 750
+        width: 1440
+        height: 980
       alignment: 9
-      pivot: {x: 0.62105, y: 0.10784}
+      pivot: {x: 0.63889, y: 0.16416}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -180,12 +180,12 @@ TextureImporter:
       name: SkeletonAttack_3
       rect:
         serializedVersion: 2
-        x: 2850
+        x: 4320
         y: 0
-        width: 950
-        height: 750
+        width: 1440
+        height: 980
       alignment: 9
-      pivot: {x: 0.62105, y: 0.10784}
+      pivot: {x: 0.63889, y: 0.16416}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []

@@ -40,9 +40,11 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField, Min(0f)] private float knockback = 4f;
     [Tooltip("Saldiri basladiktan kac sn sonra vurus gerceklesir (kilicin indigi kare).")]
     [SerializeField] private float hitDelay = 0.17f;
-    [Tooltip("Vurus alaninin merkezi, karakterin ayagina gore (x: one dogru, y: yukari).")]
-    [SerializeField] private Vector2 attackOffset = new Vector2(1.3f, 1.6f);
-    [SerializeField] private float attackRadius = 1.1f;
+    [Tooltip("Kilicin vurus alani, ileri yonde (baslangic, bitis), karakter olcegi 1 iken. Saldiri karelerinden olculdu: " +
+             "kilic ucu ~4.8 birim one uzaniyor (1.5x kilic). Karakterin Scale'i ile birlikte buyur.")]
+    [SerializeField] private Vector2 attackReach = new Vector2(0.1f, 4.8f);
+    [Tooltip("Kilicin vurus alani, yukari yonde (alt, ust), karakter olcegi 1 iken")]
+    [SerializeField] private Vector2 attackHeight = new Vector2(0f, 4.3f);
     [Tooltip("Hangi katmanlardaki objeler vurulabilir. Dusmanlara 'Enemy' katmani verip sadece onu secmen onerilir.")]
     [SerializeField] private LayerMask hitLayers = ~0;
 
@@ -167,13 +169,13 @@ public class PlayerCombat : MonoBehaviour
 
     private void DoHit()
     {
-        Vector2 center = GetAttackCenter();
+        GetAttackBox(out Vector2 center, out Vector2 size);
         var filter = new ContactFilter2D();
         filter.SetLayerMask(hitLayers);
-        filter.useTriggers = true;
+        filter.useTriggers = true;   // dusmanlarin tum govdeyi saran hasar alani trigger
 
         hitThisSwing.Clear();
-        Physics2D.OverlapCircle(center, attackRadius, filter, hitBuffer);
+        Physics2D.OverlapBox(center, size, 0f, filter, hitBuffer);
         foreach (Collider2D col in hitBuffer)
         {
             if (col == null || col.transform.IsChildOf(transform)) continue; // kendimize vurmayalim
@@ -189,10 +191,15 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    private Vector2 GetAttackCenter()
+    /// <summary>Kilicin ulastigi alan: karakterin onunde, kilic ucuna kadar; karakterin olcegiyle buyur.</summary>
+    private void GetAttackBox(out Vector2 center, out Vector2 size)
     {
         int facing = movement != null ? movement.FacingDirection : 1;
-        return (Vector2)transform.position + new Vector2(attackOffset.x * facing, attackOffset.y);
+        float k = Mathf.Abs(transform.lossyScale.y);
+        float near = Mathf.Min(attackReach.x, attackReach.y) * k, far = Mathf.Max(attackReach.x, attackReach.y) * k;
+        float bottom = Mathf.Min(attackHeight.x, attackHeight.y) * k, top = Mathf.Max(attackHeight.x, attackHeight.y) * k;
+        center = (Vector2)transform.position + new Vector2((near + far) * 0.5f * facing, (bottom + top) * 0.5f);
+        size = new Vector2(far - near, top - bottom);
     }
 
     private void PlayState(int stateHash)
@@ -205,6 +212,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (movement == null) movement = GetComponent<PlayerMovement>();
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(GetAttackCenter(), attackRadius);
+        GetAttackBox(out Vector2 c, out Vector2 s);
+        Gizmos.DrawWireCube(c, s);
     }
 }

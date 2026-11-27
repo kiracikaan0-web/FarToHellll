@@ -73,7 +73,7 @@ TextureImporter:
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: 1
-  maxTextureSize: 2048
+  maxTextureSize: 8192
   textureSettings:
     serializedVersion: 2
     filterMode: 1
@@ -89,7 +89,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  spritePivot: {x: 0.65003, y: 0.38595}
   spritePixelsToUnits: 140
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -126,7 +126,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -139,7 +139,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -159,10 +159,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 824
-        height: 878
+        width: 942
+        height: 845
       alignment: 9
-      pivot: {x: 0.59992, y: 0.40903}
+      pivot: {x: 0.65003, y: 0.38595}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -179,12 +179,12 @@ TextureImporter:
       name: SkeletonClimb_1
       rect:
         serializedVersion: 2
-        x: 824
+        x: 942
         y: 0
-        width: 824
-        height: 878
+        width: 942
+        height: 845
       alignment: 9
-      pivot: {x: 0.59992, y: 0.40903}
+      pivot: {x: 0.65003, y: 0.38595}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -201,12 +201,12 @@ TextureImporter:
       name: SkeletonClimb_2
       rect:
         serializedVersion: 2
-        x: 1648
+        x: 1884
         y: 0
-        width: 824
-        height: 878
+        width: 942
+        height: 845
       alignment: 9
-      pivot: {x: 0.59992, y: 0.40903}
+      pivot: {x: 0.65003, y: 0.38595}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -223,12 +223,12 @@ TextureImporter:
       name: SkeletonClimb_3
       rect:
         serializedVersion: 2
-        x: 2472
+        x: 2826
         y: 0
-        width: 824
-        height: 878
+        width: 942
+        height: 845
       alignment: 9
-      pivot: {x: 0.59992, y: 0.40903}
+      pivot: {x: 0.65003, y: 0.38595}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -245,12 +245,12 @@ TextureImporter:
       name: SkeletonClimb_4
       rect:
         serializedVersion: 2
-        x: 3296
+        x: 3768
         y: 0
-        width: 824
-        height: 878
+        width: 942
+        height: 845
       alignment: 9
-      pivot: {x: 0.59992, y: 0.40903}
+      pivot: {x: 0.65003, y: 0.38595}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -267,12 +267,12 @@ TextureImporter:
       name: SkeletonClimb_5
       rect:
         serializedVersion: 2
-        x: 4120
+        x: 4710
         y: 0
-        width: 824
-        height: 878
+        width: 942
+        height: 845
       alignment: 9
-      pivot: {x: 0.59992, y: 0.40903}
+      pivot: {x: 0.65003, y: 0.38595}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: SkeletonClimb_6
       rect:
         serializedVersion: 2
-        x: 4944
+        x: 5652
         y: 0
-        width: 824
-        height: 878
+        width: 942
+        height: 845
       alignment: 9
-      pivot: {x: 0.59992, y: 0.40903}
+      pivot: {x: 0.65003, y: 0.38595}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

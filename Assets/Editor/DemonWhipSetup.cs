@@ -26,10 +26,6 @@ public static class DemonWhipSetup
     private const string SlamClipPath = "Assets/Sprites/Demon/Demon_Slam.anim";
     private const string FireSheetPath = "Assets/Sprites/Demon/Demon_Fire_Sheet.png";
     private const string FirePrefabPath = "Assets/Prefabs/Enemies/DemonFire.prefab";
-    private const string SpinSheetPath = "Assets/Sprites/Demon/Demon_Spin_Sheet.png";
-    private const string SpinClipPath = "Assets/Sprites/Demon/Demon_Spin.anim";
-    private const int SpinW = 885, SpinH = 538;
-    private static readonly Vector2 SpinPivot = new Vector2(0.4927f, 0.0260f);
     private const string ControllerPath = "Assets/Animations/Enemies/Demon.controller";
     private const string PrefabPath = "Assets/Prefabs/Enemies/Demon.prefab";
     private const int FrameW = 747, FrameH = 535;
@@ -92,23 +88,14 @@ public static class DemonWhipSetup
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || EditorApplication.isUpdating) return;
             ApplySlamTuningOnce();
-            ApplyOnce("FarToHell.DemonSpinChance.v1", so => so.FindProperty("spinChance").floatValue = 0.4f,
-                "Donme saldirisi ihtimali %40 yapildi.");
             ApplyOnce("FarToHell.DemonHopBack.v3", so => so.FindProperty("hopBackSpeed").floatValue = 28f,
                 "Yakma saldirisindaki geri ziplama mesafesi iki katina cikarildi (hiz 28).");
-            if (!EditorPrefs.GetBool("FarToHell.DemonSpinAnim.v2", false) && AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath) != null)
-            {
-                if (BuildAnimations(out _) != null)
-                {
-                    EditorPrefs.SetBool("FarToHell.DemonSpinAnim.v2", true);
-                    Debug.Log("[Seytan Kiz] Donme animasyonu yenilendi: 4 tur, iki kat uzun.");
-                }
-            }
+            RemoveSpinState();
             if (!NeedsUpdate()) return;
             var controller = BuildAnimations(out _);
             if (controller == null) return;
             ApplyPrefabSettings();
-            Debug.Log("[Seytan Kiz] Saldirilar otomatik kuruldu (Slam + Spin animasyonlari, DemonFire prefabi).");
+            Debug.Log("[Seytan Kiz] Saldirilar otomatik kuruldu (Slam animasyonu, DemonFire prefabi).");
         };
     }
 
@@ -147,6 +134,20 @@ public static class DemonWhipSetup
         Debug.Log("[Seytan Kiz] " + log);
     }
 
+    /// <summary>Donme saldirisi kaldirildi: controller'da kalmis "Spin" state'ini siler.</summary>
+    private static void RemoveSpinState()
+    {
+        var controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(ControllerPath);
+        if (controller == null) return;
+        var sm = controller.layers[0].stateMachine;
+        var st = sm.states.Select(s => s.state).FirstOrDefault(s => s.name == "Spin");
+        if (st == null) return;
+        sm.RemoveState(st);
+        EditorUtility.SetDirty(controller);
+        AssetDatabase.SaveAssets();
+        Debug.Log("[Seytan Kiz] Donme animasyonu controller'dan silindi.");
+    }
+
     private static bool NeedsUpdate()
     {
         var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
@@ -159,7 +160,7 @@ public static class DemonWhipSetup
         if (controller == null) return true;
         var names = controller.layers[0].stateMachine.states.Select(s => s.state.name).ToList();
         if (!names.Contains("Slam")) return true;
-        return AssetDatabase.LoadAssetAtPath<Texture2D>(SpinSheetPath) != null && !names.Contains("Spin");
+        return false;
     }
 
     [MenuItem("Tools/FarToHell/Seytan Kiz: Animasyonlari Guncelle")]
@@ -168,7 +169,7 @@ public static class DemonWhipSetup
         var controller = BuildAnimations(out _);
         if (controller == null) return;
         ApplyPrefabSettings();
-        EditorUtility.DisplayDialog("Seytan Kiz", "Animasyonlar guncellendi (Idle, Walk, Whip, Slam, Spin).\n" +
+        EditorUtility.DisplayDialog("Seytan Kiz", "Animasyonlar guncellendi (Idle, Walk, Whip, Slam).\n" +
             "Yeni saldiri: yakindaysan geri ziplar, kirbaci yere vurur; vurdugu yer 5 sn yanar ve icinde durani yakar.\n" +
             "Sahnedeki seytan kizlar Play'de yeni animasyonlari kullanir.", "Tamam");
     }
@@ -210,14 +211,12 @@ public static class DemonWhipSetup
         var walk = walkSprites != null ? BuildClip(WalkClipPath, walkSprites, true, WalkFps) : null;
         var slamSprites = SliceSheet(SlamSheetPath, "Demon_Slam_", SlamW, SlamH, SlamPivot);
         var slam = slamSprites != null ? BuildClip(SlamClipPath, slamSprites, false, SlamFps) : null;
-        var spinSprites = SliceSheet(SpinSheetPath, "Demon_Spin_", SpinW, SpinH, SpinPivot);
-        var spin = spinSprites != null ? BuildClip(SpinClipPath, spinSprites, false, SlamFps) : null;
         UIBuildUtil.EnsureFolder("Assets", "Animations");
         UIBuildUtil.EnsureFolder("Assets/Animations", "Enemies");
         UIBuildUtil.EnsureFolder("Assets", "Prefabs");
         UIBuildUtil.EnsureFolder("Assets/Prefabs", "Enemies");
         BuildFirePrefab();
-        return BuildController(idle, whip, walk, slam, spin);
+        return BuildController(idle, whip, walk, slam);
     }
 
     /// <summary>Mevcut prefabi yeni ayarlara getirir (hiz, adim boyu, ates prefabi). Diger ayarlara dokunmaz.</summary>
@@ -289,7 +288,7 @@ public static class DemonWhipSetup
         return clip;
     }
 
-    private static AnimatorController BuildController(AnimationClip idle, AnimationClip whip, AnimationClip walk, AnimationClip slam, AnimationClip spin)
+    private static AnimatorController BuildController(AnimationClip idle, AnimationClip whip, AnimationClip walk, AnimationClip slam)
     {
         var controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(ControllerPath);
         if (controller == null) controller = AnimatorController.CreateAnimatorControllerAtPath(ControllerPath);
@@ -313,16 +312,6 @@ public static class DemonWhipSetup
             {
                 var ts = sSlam.AddTransition(sIdle);
                 ts.hasExitTime = true; ts.exitTime = 1f; ts.hasFixedDuration = true; ts.duration = 0f;
-            }
-        }
-        if (spin != null)
-        {
-            var sSpin = Get("Spin", new Vector3(750, 150));
-            sSpin.motion = spin;
-            if (sSpin.transitions.Length == 0)
-            {
-                var tp = sSpin.AddTransition(sIdle);
-                tp.hasExitTime = true; tp.exitTime = 1f; tp.hasFixedDuration = true; tp.duration = 0f;
             }
         }
         sm.defaultState = sIdle;
@@ -355,10 +344,8 @@ public static class DemonWhipSetup
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         // Govde (kirbac haric): ayaklardan basa kadar
-        var cap = root.AddComponent<CapsuleCollider2D>();
-        cap.direction = CapsuleDirection2D.Vertical;
-        cap.size = new Vector2(1.2f, 3.3f);
-        cap.offset = new Vector2(0f, 1.65f);
+        // Govde: ortada kapsul (fizik) + tum govdeyi saran trigger cokgen (kilic hasari)
+        EnemyColliderShapes.ApplyDemon(root);
 
         var health = root.AddComponent<Health>();
         var hso = new SerializedObject(health);

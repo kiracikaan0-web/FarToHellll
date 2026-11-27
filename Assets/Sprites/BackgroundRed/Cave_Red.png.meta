@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 5764201b0e1335246906b4a771df17e2
+guid: 1c99dd9b389bcea459213ebac13b8b82
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 469153003981551320
-    second: BG_Gray_3_Near_0
+      213: -1371956038578329613
+    second: Cave_Red_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -115,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BG_Gray_3_Near_0
+      name: Cave_Red_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2560
-        height: 446
+        width: 347
+        height: 173
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8d6b0a3eb24c28600800000000000000
-      internalID: 469153003981551320
+      spriteID: 3f726197045d5fce0800000000000000
+      internalID: -1371956038578329613
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BG_Gray_3_Near_0: 469153003981551320
+      Cave_Red_0: -1371956038578329613
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

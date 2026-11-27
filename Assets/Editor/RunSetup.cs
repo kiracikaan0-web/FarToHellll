@@ -13,9 +13,9 @@ public static class RunSetup
     private const string SheetPath = "Assets/Sprites/SkeletonRun/SkeletonRun_Sheet.png";
     private const string ClipPath = "Assets/Sprites/SkeletonRun/SkeletonRun.anim";
     private const string ControllerPath = "Assets/Animations/Player/Player.controller";
-    private const int FrameW = 740, FrameH = 580;
+    private const int FrameW = 920, FrameH = 680;   // kilic 1.5x buyutuldu: kareler genisledi
     private const float Fps = 14f;
-    private static readonly Vector2 Pivot = new Vector2(0.7027f, 0.036f);   // ayak hizasi, yurume ile ayni
+    private static readonly Vector2 Pivot = new Vector2(0.76087f, 0.03071f);   // ayak hizasi, yurume ile ayni
 
     [MenuItem("Tools/FarToHell/Kosuyu Kur")]
     public static void Run()

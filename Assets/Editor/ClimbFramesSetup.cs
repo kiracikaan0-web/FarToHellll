@@ -18,8 +18,8 @@ public static class ClimbFramesSetup
     private const string ControllerPath = "Assets/Animations/Player/Player.controller";
 
     // sheet: 7 kare, her biri 824x878, pivot kenarin kosesinde
-    private const int Frames = 7, FrameW = 824, FrameH = 878;
-    private static readonly Vector2 Pivot = new Vector2(0.59992f, 0.40903f);
+    private const int Frames = 7, FrameW = 942, FrameH = 845;   // kilic 1.5x buyutuldu
+    private static readonly Vector2 Pivot = new Vector2(0.65003f, 0.38595f);
 
     [MenuItem("Tools/FarToHell/Tirmanma Karelerini Bagla")]
     public static void Run()

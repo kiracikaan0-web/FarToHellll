@@ -77,7 +77,8 @@ public class EnemyHealthBar : MonoBehaviour
     private void LateUpdate()
     {
         if (root == null) return;
-        root.position = (Vector2)transform.position + offset;
+        // dusman buyutulunce bar da kafanin ustune cikar
+        root.position = (Vector2)transform.position + offset * Mathf.Abs(transform.lossyScale.y);
 
         float hp = health.Normalized;
         if (hp > shownChip) shownChip = hp;

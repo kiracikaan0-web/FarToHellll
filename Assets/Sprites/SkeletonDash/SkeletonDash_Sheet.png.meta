@@ -71,7 +71,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0.60764, y: 0.09885}
+  spritePivot: {x: 0.60983, y: 0.08439}
   spritePixelsToUnits: 140
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -128,10 +128,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 785
-        height: 607
+        width: 956
+        height: 711
       alignment: 9
-      pivot: {x: 0.60764, y: 0.09885}
+      pivot: {x: 0.60983, y: 0.08439}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -148,12 +148,12 @@ TextureImporter:
       name: SkeletonDash_1
       rect:
         serializedVersion: 2
-        x: 785
+        x: 956
         y: 0
-        width: 785
-        height: 607
+        width: 956
+        height: 711
       alignment: 9
-      pivot: {x: 0.60764, y: 0.09885}
+      pivot: {x: 0.60983, y: 0.08439}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -170,12 +170,12 @@ TextureImporter:
       name: SkeletonDash_2
       rect:
         serializedVersion: 2
-        x: 1570
+        x: 1912
         y: 0
-        width: 785
-        height: 607
+        width: 956
+        height: 711
       alignment: 9
-      pivot: {x: 0.60764, y: 0.09885}
+      pivot: {x: 0.60983, y: 0.08439}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: SkeletonDash_3
       rect:
         serializedVersion: 2
-        x: 2355
+        x: 2868
         y: 0
-        width: 785
-        height: 607
+        width: 956
+        height: 711
       alignment: 9
-      pivot: {x: 0.60764, y: 0.09885}
+      pivot: {x: 0.60983, y: 0.08439}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -214,12 +214,12 @@ TextureImporter:
       name: SkeletonDash_4
       rect:
         serializedVersion: 2
-        x: 3140
+        x: 3824
         y: 0
-        width: 785
-        height: 607
+        width: 956
+        height: 711
       alignment: 9
-      pivot: {x: 0.60764, y: 0.09885}
+      pivot: {x: 0.60983, y: 0.08439}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: SkeletonDash_5
       rect:
         serializedVersion: 2
-        x: 3925
+        x: 4780
         y: 0
-        width: 785
-        height: 607
+        width: 956
+        height: 711
       alignment: 9
-      pivot: {x: 0.60764, y: 0.09885}
+      pivot: {x: 0.60983, y: 0.08439}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -258,12 +258,12 @@ TextureImporter:
       name: SkeletonDash_6
       rect:
         serializedVersion: 2
-        x: 4710
+        x: 5736
         y: 0
-        width: 785
-        height: 607
+        width: 956
+        height: 711
       alignment: 9
-      pivot: {x: 0.60764, y: 0.09885}
+      pivot: {x: 0.60983, y: 0.08439}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
@@ -280,12 +280,12 @@ TextureImporter:
       name: SkeletonDash_7
       rect:
         serializedVersion: 2
-        x: 5495
+        x: 6692
         y: 0
-        width: 785
-        height: 607
+        width: 956
+        height: 711
       alignment: 9
-      pivot: {x: 0.60764, y: 0.09885}
+      pivot: {x: 0.60983, y: 0.08439}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
