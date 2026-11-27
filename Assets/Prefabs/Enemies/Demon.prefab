@@ -369,7 +369,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   ledgeCheckForward: 1
-  sightRange: 10
+  sightRange: 50
   backSightRange: 2.5
   verticalSight: 3.5
   loseRange: 15

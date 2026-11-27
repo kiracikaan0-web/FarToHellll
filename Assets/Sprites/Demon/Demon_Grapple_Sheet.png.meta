@@ -1,0 +1,732 @@
+fileFormatVersion: 2
+guid: 9ba3bc80354a95743a8b49828f1dc690
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1816809128112520956
+    second: Demon_Grapple_Sheet_0
+  - first:
+      213: -8471065943297209518
+    second: Demon_Grapple_Sheet_1
+  - first:
+      213: 928938171562121805
+    second: Demon_Grapple_Sheet_2
+  - first:
+      213: 4284534981770463219
+    second: Demon_Grapple_Sheet_3
+  - first:
+      213: 6451093827966105117
+    second: Demon_Grapple_Sheet_4
+  - first:
+      213: 3929242796753230632
+    second: Demon_Grapple_Sheet_5
+  - first:
+      213: -5018687419422217991
+    second: Demon_Grapple_Sheet_6
+  - first:
+      213: -7155618055850903385
+    second: Demon_Grapple_Sheet_7
+  - first:
+      213: 3202439824980435327
+    second: Demon_Grapple_Sheet_8
+  - first:
+      213: -3249449270566715426
+    second: Demon_Grapple_Sheet_9
+  - first:
+      213: 7438172376413362551
+    second: Demon_Grapple_Sheet_10
+  - first:
+      213: -3281535906401120715
+    second: Demon_Grapple_Sheet_11
+  - first:
+      213: -6771282228993957807
+    second: Demon_Grapple_Sheet_12
+  - first:
+      213: 2216530490352063370
+    second: Demon_Grapple_Sheet_13
+  - first:
+      213: -4903151005619028088
+    second: Demon_Grapple_Sheet_14
+  - first:
+      213: 2277028239165091748
+    second: Demon_Grapple_Sheet_15
+  - first:
+      213: -2657889767129257297
+    second: Demon_Grapple_Sheet_16
+  - first:
+      213: -2522115301534710900
+    second: Demon_Grapple_Sheet_17
+  - first:
+      213: -7785554822438915517
+    second: Demon_Grapple_Sheet_18
+  - first:
+      213: -1022694473993917261
+    second: Demon_Grapple_Sheet_19
+  - first:
+      213: -6181824726282006215
+    second: Demon_Grapple_0
+  - first:
+      213: -8555036224563724999
+    second: Demon_Grapple_1
+  - first:
+      213: -7385627364314541638
+    second: Demon_Grapple_2
+  - first:
+      213: 6352874411998363694
+    second: Demon_Grapple_3
+  - first:
+      213: 8095363210873829185
+    second: Demon_Grapple_4
+  - first:
+      213: -4964047760677581332
+    second: Demon_Grapple_5
+  - first:
+      213: 1224265468960208426
+    second: Demon_Grapple_6
+  - first:
+      213: 9133264411087726329
+    second: Demon_Grapple_7
+  - first:
+      213: -3812739447520257637
+    second: Demon_Grapple_8
+  - first:
+      213: 5029947042124465275
+    second: Demon_Grapple_9
+  - first:
+      213: -7968337246647516912
+    second: Demon_Grapple_10
+  - first:
+      213: -2887266156460057217
+    second: Demon_Grapple_11
+  - first:
+      213: -2369165979188879584
+    second: Demon_Grapple_12
+  - first:
+      213: -4443853299718554221
+    second: Demon_Grapple_13
+  - first:
+      213: -6325936030966075073
+    second: Demon_Grapple_14
+  - first:
+      213: 2821063504417839438
+    second: Demon_Grapple_15
+  - first:
+      213: 5016205486729363020
+    second: Demon_Grapple_16
+  - first:
+      213: -2216303267025872116
+    second: Demon_Grapple_17
+  - first:
+      213: 4289271891277204998
+    second: Demon_Grapple_18
+  - first:
+      213: -6750198633261661926
+    second: Demon_Grapple_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 140
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Demon_Grapple_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9311c360a2fb53aa0800000000000000
+      internalID: -6181824726282006215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_1
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93db74a51e7664980800000000000000
+      internalID: -8555036224563724999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_2
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab190aafa0bf08990800000000000000
+      internalID: -7385627364314541638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_3
+      rect:
+        serializedVersion: 2
+        x: 2241
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e20c4d56e91f92850800000000000000
+      internalID: 6352874411998363694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_4
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14776eff2f1885070800000000000000
+      internalID: 8095363210873829185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_5
+      rect:
+        serializedVersion: 2
+        x: 3735
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ced4db0ccd82c1bb0800000000000000
+      internalID: -4964047760677581332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_6
+      rect:
+        serializedVersion: 2
+        x: 4482
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a26762425f67df010800000000000000
+      internalID: 1224265468960208426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_7
+      rect:
+        serializedVersion: 2
+        x: 5229
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f6e99e779fdfbe70800000000000000
+      internalID: 9133264411087726329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_8
+      rect:
+        serializedVersion: 2
+        x: 5976
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b999f695cad661bc0800000000000000
+      internalID: -3812739447520257637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_9
+      rect:
+        serializedVersion: 2
+        x: 6723
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b740bdc5f26fdc540800000000000000
+      internalID: 5029947042124465275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_10
+      rect:
+        serializedVersion: 2
+        x: 7470
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0118f030e77ca6190800000000000000
+      internalID: -7968337246647516912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_11
+      rect:
+        serializedVersion: 2
+        x: 8217
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7dd0346abe5ee7d0800000000000000
+      internalID: -2887266156460057217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_12
+      rect:
+        serializedVersion: 2
+        x: 8964
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f918428180f1fd0800000000000000
+      internalID: -2369165979188879584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_13
+      rect:
+        serializedVersion: 2
+        x: 9711
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39df35ce7f24452c0800000000000000
+      internalID: -4443853299718554221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_14
+      rect:
+        serializedVersion: 2
+        x: 10458
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f313c6232b2c538a0800000000000000
+      internalID: -6325936030966075073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_15
+      rect:
+        serializedVersion: 2
+        x: 11205
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e49d4a58f4e662720800000000000000
+      internalID: 2821063504417839438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_16
+      rect:
+        serializedVersion: 2
+        x: 11952
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4e7edc20542d9540800000000000000
+      internalID: 5016205486729363020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_17
+      rect:
+        serializedVersion: 2
+        x: 12699
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0b926ecbeb1e31e0800000000000000
+      internalID: -2216303267025872116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_18
+      rect:
+        serializedVersion: 2
+        x: 13446
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60e45a04f0e868b30800000000000000
+      internalID: 4289271891277204998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Grapple_19
+      rect:
+        serializedVersion: 2
+        x: 14193
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a118c1d6b1a7252a0800000000000000
+      internalID: -6750198633261661926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Demon_Grapple_0: -6181824726282006215
+      Demon_Grapple_1: -8555036224563724999
+      Demon_Grapple_10: -7968337246647516912
+      Demon_Grapple_11: -2887266156460057217
+      Demon_Grapple_12: -2369165979188879584
+      Demon_Grapple_13: -4443853299718554221
+      Demon_Grapple_14: -6325936030966075073
+      Demon_Grapple_15: 2821063504417839438
+      Demon_Grapple_16: 5016205486729363020
+      Demon_Grapple_17: -2216303267025872116
+      Demon_Grapple_18: 4289271891277204998
+      Demon_Grapple_19: -6750198633261661926
+      Demon_Grapple_2: -7385627364314541638
+      Demon_Grapple_3: 6352874411998363694
+      Demon_Grapple_4: 8095363210873829185
+      Demon_Grapple_5: -4964047760677581332
+      Demon_Grapple_6: 1224265468960208426
+      Demon_Grapple_7: 9133264411087726329
+      Demon_Grapple_8: -3812739447520257637
+      Demon_Grapple_9: 5029947042124465275
+      Demon_Grapple_Sheet_0: -1816809128112520956
+      Demon_Grapple_Sheet_1: -8471065943297209518
+      Demon_Grapple_Sheet_10: 7438172376413362551
+      Demon_Grapple_Sheet_11: -3281535906401120715
+      Demon_Grapple_Sheet_12: -6771282228993957807
+      Demon_Grapple_Sheet_13: 2216530490352063370
+      Demon_Grapple_Sheet_14: -4903151005619028088
+      Demon_Grapple_Sheet_15: 2277028239165091748
+      Demon_Grapple_Sheet_16: -2657889767129257297
+      Demon_Grapple_Sheet_17: -2522115301534710900
+      Demon_Grapple_Sheet_18: -7785554822438915517
+      Demon_Grapple_Sheet_19: -1022694473993917261
+      Demon_Grapple_Sheet_2: 928938171562121805
+      Demon_Grapple_Sheet_3: 4284534981770463219
+      Demon_Grapple_Sheet_4: 6451093827966105117
+      Demon_Grapple_Sheet_5: 3929242796753230632
+      Demon_Grapple_Sheet_6: -5018687419422217991
+      Demon_Grapple_Sheet_7: -7155618055850903385
+      Demon_Grapple_Sheet_8: 3202439824980435327
+      Demon_Grapple_Sheet_9: -3249449270566715426
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

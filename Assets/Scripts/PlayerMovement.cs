@@ -171,7 +171,38 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
     public bool IsDead => health != null && health.IsDead;
     public bool IsHurt => isHurt;
     /// <summary>Saldiri, sersemleme, tirmanma ya da olum yuzunden kontrol kilitli mi?</summary>
-    public bool ControlsLocked => MovementLocked || isHurt || IsDead || isClimbing;
+    public bool ControlsLocked => MovementLocked || isHurt || IsDead || isClimbing || isGrabbed;
+
+    // ---- Dusman tarafindan yakalanma (boss'un kirbaci sarip ceker) ----
+    private bool isGrabbed;
+    private Vector2 grabVelocity;
+    private float grabGravity = 1f;
+    /// <summary>Kirbacla sarilmis: kontrol yok, hizi yakalayan verir, yercekimi kapali.</summary>
+    public bool IsGrabbed => isGrabbed;
+
+    public void BeginGrab()
+    {
+        if (isGrabbed || IsDead) return;
+        StopClimb(false);
+        isDashing = false;
+        isRunning = false;
+        grabGravity = holdingSlope ? gravityBeforeSlope : rb.gravityScale;
+        holdingSlope = false;
+        isGrabbed = true;
+        rb.gravityScale = 0f;
+        grabVelocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
+    }
+
+    public void SetGrabVelocity(Vector2 v) { if (isGrabbed) grabVelocity = v; }
+
+    public void EndGrab(Vector2 releaseVelocity)
+    {
+        if (!isGrabbed) return;
+        isGrabbed = false;
+        rb.gravityScale = grabGravity;
+        rb.linearVelocity = releaseVelocity;
+    }
     /// <summary>Health bunu sorar: dash sirasinda hasar alinmaz.</summary>
     public bool BlocksDamage => IsInvulnerable;
     public PlayerStamina Stamina => stamina;
@@ -286,6 +317,7 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
 
     private void OnDied()
     {
+        EndGrab(Vector2.zero);
         StopClimb(false);
         isRunning = false;
         isDashing = false;
@@ -639,6 +671,7 @@ public class PlayerMovement : MonoBehaviour, IDamageBlocker
     {
         if (isClimbing)
             return; // tirmanirken fizik durdurulur
+        if (isGrabbed) { rb.linearVelocity = grabVelocity; return; }   // kirbacla cekiliyor
         HoldOnSlope();
         if (IsDead)
             rb.linearVelocity = new Vector2(Mathf.MoveTowards(rb.linearVelocity.x, 0f, 30f * Time.fixedDeltaTime), rb.linearVelocity.y);

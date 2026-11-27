@@ -111,7 +111,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (state == AttackState.None)
             {
-                if (Time.time >= nextAttackTime && !movement.IsDashing && !movement.IsClimbing && !movement.IsHurt && !movement.IsDead && !movement.ActionLock &&
+                if (Time.time >= nextAttackTime && !movement.IsDashing && !movement.IsClimbing && !movement.IsHurt && !movement.IsDead && !movement.ActionLock && !movement.IsGrabbed &&
                     movement.Stamina.TrySpend(attackStaminaCost))
                     StartAttack(AttackState.Attack);
             }
@@ -179,6 +179,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D col in hitBuffer)
         {
             if (col == null || col.transform.IsChildOf(transform)) continue; // kendimize vurmayalim
+            if (col.name == EnemyBody.HandAreaName) continue;                // dusmanin eli-dirsegi kilictan hasar almaz
             // Birden fazla collider'i olan dusmana tek vurusta iki kez hasar vermeyelim
             GameObject target = col.attachedRigidbody != null ? col.attachedRigidbody.gameObject : col.gameObject;
             if (!hitThisSwing.Add(target)) continue;

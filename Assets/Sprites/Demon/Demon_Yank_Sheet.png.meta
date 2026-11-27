@@ -1,0 +1,612 @@
+fileFormatVersion: 2
+guid: e0a40bb885200d84b99b36c8b1021bbc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5491624460223117557
+    second: Demon_Yank_Sheet_0
+  - first:
+      213: 5577335431862668319
+    second: Demon_Yank_Sheet_1
+  - first:
+      213: -6897111234454959796
+    second: Demon_Yank_Sheet_2
+  - first:
+      213: -1445943082900057205
+    second: Demon_Yank_Sheet_3
+  - first:
+      213: 2576240587086894572
+    second: Demon_Yank_Sheet_4
+  - first:
+      213: -3483419973956026127
+    second: Demon_Yank_Sheet_5
+  - first:
+      213: 7968040355887577815
+    second: Demon_Yank_Sheet_6
+  - first:
+      213: 3723292042205204009
+    second: Demon_Yank_Sheet_7
+  - first:
+      213: 7652455492491038946
+    second: Demon_Yank_Sheet_8
+  - first:
+      213: -3989988072477222368
+    second: Demon_Yank_Sheet_9
+  - first:
+      213: 377969628014217835
+    second: Demon_Yank_Sheet_10
+  - first:
+      213: 6191346689960494101
+    second: Demon_Yank_Sheet_11
+  - first:
+      213: 5620390082175138239
+    second: Demon_Yank_Sheet_12
+  - first:
+      213: 2371885254776529245
+    second: Demon_Yank_Sheet_13
+  - first:
+      213: 1407784002474796155
+    second: Demon_Yank_Sheet_14
+  - first:
+      213: -2552102546995021376
+    second: Demon_Yank_Sheet_15
+  - first:
+      213: 8486031310463351732
+    second: Demon_Yank_0
+  - first:
+      213: -1113735215480954536
+    second: Demon_Yank_1
+  - first:
+      213: 4203466012206449612
+    second: Demon_Yank_2
+  - first:
+      213: 8750763402008268223
+    second: Demon_Yank_3
+  - first:
+      213: -7576192432324536648
+    second: Demon_Yank_4
+  - first:
+      213: 1178503060879283247
+    second: Demon_Yank_5
+  - first:
+      213: 6449073929353458206
+    second: Demon_Yank_6
+  - first:
+      213: 5253851388441940959
+    second: Demon_Yank_7
+  - first:
+      213: -6682906095556742484
+    second: Demon_Yank_8
+  - first:
+      213: 7447278161648322215
+    second: Demon_Yank_9
+  - first:
+      213: -5767374986041074373
+    second: Demon_Yank_10
+  - first:
+      213: -5783114848245572113
+    second: Demon_Yank_11
+  - first:
+      213: -2440583796979586050
+    second: Demon_Yank_12
+  - first:
+      213: -6922128429052803985
+    second: Demon_Yank_13
+  - first:
+      213: -6276488737171586071
+    second: Demon_Yank_14
+  - first:
+      213: 6356649421845294965
+    second: Demon_Yank_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 140
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Demon_Yank_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bbb205148074c570800000000000000
+      internalID: 8486031310463351732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_1
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8512a6be8b73b80f0800000000000000
+      internalID: -1113735215480954536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_2
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc34ef23116b55a30800000000000000
+      internalID: 4203466012206449612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_3
+      rect:
+        serializedVersion: 2
+        x: 2241
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbd013a53f4f07970800000000000000
+      internalID: 8750763402008268223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_4
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b61b498f15fbd690800000000000000
+      internalID: -7576192432324536648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_5
+      rect:
+        serializedVersion: 2
+        x: 3735
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f249b663a42ea5010800000000000000
+      internalID: 1178503060879283247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_6
+      rect:
+        serializedVersion: 2
+        x: 4482
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e127851f196bf7950800000000000000
+      internalID: 6449073929353458206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_7
+      rect:
+        serializedVersion: 2
+        x: 5229
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd356ce600e69e840800000000000000
+      internalID: 5253851388441940959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_8
+      rect:
+        serializedVersion: 2
+        x: 5976
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca23c0b405c8143a0800000000000000
+      internalID: -6682906095556742484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_9
+      rect:
+        serializedVersion: 2
+        x: 6723
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a68298d70c0a5760800000000000000
+      internalID: 7447278161648322215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_10
+      rect:
+        serializedVersion: 2
+        x: 7470
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d5c8ec10b26ffa0800000000000000
+      internalID: -5767374986041074373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_11
+      rect:
+        serializedVersion: 2
+        x: 8217
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fed190f8faf3ebfa0800000000000000
+      internalID: -5783114848245572113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_12
+      rect:
+        serializedVersion: 2
+        x: 8964
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efb2578a7fd412ed0800000000000000
+      internalID: -2440583796979586050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_13
+      rect:
+        serializedVersion: 2
+        x: 9711
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f64cca86ed8afef90800000000000000
+      internalID: -6922128429052803985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_14
+      rect:
+        serializedVersion: 2
+        x: 10458
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e3c5207fbe65e8a0800000000000000
+      internalID: -6276488737171586071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_Yank_15
+      rect:
+        serializedVersion: 2
+        x: 11205
+        y: 0
+        width: 747
+        height: 535
+      alignment: 9
+      pivot: {x: 0.6881, y: 0.0262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57fe7ce58fa573850800000000000000
+      internalID: 6356649421845294965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Demon_Yank_0: 8486031310463351732
+      Demon_Yank_1: -1113735215480954536
+      Demon_Yank_10: -5767374986041074373
+      Demon_Yank_11: -5783114848245572113
+      Demon_Yank_12: -2440583796979586050
+      Demon_Yank_13: -6922128429052803985
+      Demon_Yank_14: -6276488737171586071
+      Demon_Yank_15: 6356649421845294965
+      Demon_Yank_2: 4203466012206449612
+      Demon_Yank_3: 8750763402008268223
+      Demon_Yank_4: -7576192432324536648
+      Demon_Yank_5: 1178503060879283247
+      Demon_Yank_6: 6449073929353458206
+      Demon_Yank_7: 5253851388441940959
+      Demon_Yank_8: -6682906095556742484
+      Demon_Yank_9: 7447278161648322215
+      Demon_Yank_Sheet_0: 5491624460223117557
+      Demon_Yank_Sheet_1: 5577335431862668319
+      Demon_Yank_Sheet_10: 377969628014217835
+      Demon_Yank_Sheet_11: 6191346689960494101
+      Demon_Yank_Sheet_12: 5620390082175138239
+      Demon_Yank_Sheet_13: 2371885254776529245
+      Demon_Yank_Sheet_14: 1407784002474796155
+      Demon_Yank_Sheet_15: -2552102546995021376
+      Demon_Yank_Sheet_2: -6897111234454959796
+      Demon_Yank_Sheet_3: -1445943082900057205
+      Demon_Yank_Sheet_4: 2576240587086894572
+      Demon_Yank_Sheet_5: -3483419973956026127
+      Demon_Yank_Sheet_6: 7968040355887577815
+      Demon_Yank_Sheet_7: 3723292042205204009
+      Demon_Yank_Sheet_8: 7652455492491038946
+      Demon_Yank_Sheet_9: -3989988072477222368
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

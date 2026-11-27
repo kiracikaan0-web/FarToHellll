@@ -18,6 +18,10 @@ public class EnemyBody : MonoBehaviour
     /// <summary>Bu isimde bir alt obje (trigger collider) varsa temas hasari SADECE ona degince verilir
     /// (boss'ta kirbacli kol bu alanin disinda). Yoksa govde ve tum hasar alani temas sayilir.</summary>
     public const string ContactAreaName = "ContactArea";
+
+    /// <summary>Bu isimdeki alt obje (trigger) kilictan hasar ALMAZ ama oyuncu degince temas hasari verir
+    /// (Skeleton2'nin elinden dirsegine kadar olan kismi).</summary>
+    public const string HandAreaName = "HandArea";
     [Tooltip("Kafaya basan oyuncunun yana kayma hizi")]
     [SerializeField, Min(0f)] private float headSlideSpeed = 7f;
     [Tooltip("Oyuncunun ayagi dusmanin tepesinden bu kadar asagidaysa hala 'kafada' sayilir")]

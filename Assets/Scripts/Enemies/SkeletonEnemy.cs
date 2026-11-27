@@ -33,7 +33,10 @@ public class SkeletonEnemy : MonoBehaviour
     [SerializeField, Min(0f)] private float ledgeCheckForward = 1.2f;
 
     [Header("Algilama")]
-    [Tooltip("Onundeki oyuncuyu bu mesafeden fark eder")]
+    [Tooltip("Acik: oyuncuyu 360 derece (onde, arkada, yukarida, asagida) Sight Range mesafesinden fark eder ve kemigi her yone atar. " +
+             "Kapali: sadece onunu gorur (Back Sight Range ve Vertical Sight gecerli olur).")]
+    [SerializeField] private bool see360 = true;
+    [Tooltip("Oyuncuyu bu mesafeden fark eder (360 derece aciksa her yonde)")]
     [SerializeField, Min(0f)] private float sightRange = 9f;
     [Tooltip("Arkasindaki oyuncuyu ancak bu kadar yakinsa fark eder")]
     [SerializeField, Min(0f)] private float backSightRange = 2.5f;
@@ -65,10 +68,12 @@ public class SkeletonEnemy : MonoBehaviour
     [SerializeField, Min(0f)] private float boneSpeed = 9f;
     [Tooltip("Oyuncuyu fark ettigi surece kac sn'de bir kemik firlatsin")]
     [SerializeField, Min(0.5f)] private float throwInterval = 4f;
-    [Tooltip("Oyuncuyu ilk fark ettikten kac sn sonra ilk kemigi atsin")]
-    [SerializeField, Min(0f)] private float throwFirstDelay = 1.5f;
-    [Tooltip("Oyuncu bundan uzaktaysa atmaz (gormedigi yere atmasin)")]
-    [SerializeField, Min(0f)] private float throwMaxRange = 14f;
+    [Tooltip("Oyuncuyu ilk fark ettikten kac sn sonra ilk kemigi atsin (0: gorur gormez)")]
+    [SerializeField, Min(0f)] private float throwFirstDelay = 0f;
+    [Tooltip("Kemik firlatma mesafesi: oyuncu bundan yakinsa kemik atar, uzaktaysa atmaz (yatay, dunya birimi)")]
+    [SerializeField, Min(0f)] private float throwMaxRange = 22f;
+    [Tooltip("Oyuncu bundan yakinsa kemik atmaz; yaklasip pence ile vurur (yatay, dunya birimi)")]
+    [SerializeField, Min(0f)] private float throwMinRange = 14f;
     [Tooltip("Kemigin ciktigi nokta (x: ileri, y: yukari). Animasyonda kemigin elden ciktigi yer. Oyuncu daha yakindaysa kemik onun hemen onunden cikar.")]
     [SerializeField] private Vector2 throwOffset = new Vector2(5.8f, 1.75f);
     [SerializeField, Range(0.3f, 2f)] private float throwAnimSpeed = 0.85f;
@@ -85,7 +90,10 @@ public class SkeletonEnemy : MonoBehaviour
     [Header("Olum")]
     [SerializeField, Min(0f)] private float deathFadeTime = 1.2f;
 
-    [Header("Yurume (yuruyus animasyonu gelene kadar)")]
+    [Header("Yurume")]
+    [Tooltip("Yurume animasyonunun bir tam dongusunde (2 adim) alinan yol, olcek 1 iken (birim). " +
+             "Kucultursen bacaklar daha hizli adim atar, buyutursen daha yavas.")]
+    [SerializeField, Min(0.05f)] private float walkStrideLength = 0.79f;
     [Tooltip("Yurume animasyonu yokken hafif yukari asagi sallanma")]
     [SerializeField, Min(0f)] private float walkBobAmount = 0.08f;
     [SerializeField, Min(0f)] private float walkBobSpeed = 7f;
@@ -98,12 +106,16 @@ public class SkeletonEnemy : MonoBehaviour
     private static readonly int IdleHash = Animator.StringToHash("Idle");
     private static readonly int AttackHash = Animator.StringToHash("Attack");
     private static readonly int ThrowHash = Animator.StringToHash("Throw");
+    private static readonly int WalkHash = Animator.StringToHash("Walk");
+    private bool walkAnimOn;
 
     private Rigidbody2D rb;
     private Health health;
     private Animator animator;
     private SpriteRenderer sr;
     private Transform player;
+    private Collider2D playerCollider;
+    private Collider2D handArea;
     private Health playerHealth;
 
     private State state = State.Patrol;
@@ -134,6 +146,8 @@ public class SkeletonEnemy : MonoBehaviour
         facing = transform.localScale.x >= 0f ? -1 : 1;
         // Kafada durulmasin + dash ile icinden gecilebilsin (eski prefablarda yoksa ekle)
         if (GetComponent<EnemyBody>() == null) gameObject.AddComponent<EnemyBody>();
+        var hand = transform.Find(EnemyBody.HandAreaName);
+        if (hand != null) handArea = hand.GetComponent<Collider2D>();
     }
 
     private void OnEnable()
@@ -180,6 +194,9 @@ public class SkeletonEnemy : MonoBehaviour
         }
 
         UpdateWalkBob();
+
+        // El-dirsek alani bekleme pozundaki kola gore cizildi: pence/atis animasyonunda kol baska yerde, o sirada kapali
+        if (handArea != null) handArea.enabled = state != State.Attack && state != State.Throw;
     }
 
     private void UpdatePatrol(bool playerAlive)
@@ -210,8 +227,9 @@ public class SkeletonEnemy : MonoBehaviour
 
         Vector2 toPlayer = player.position - transform.position;
         float dist = Mathf.Abs(toPlayer.x);
+        float fullDist = toPlayer.magnitude;   // 360 derece: yukarida/asagida/arkada olsa da gercek uzaklik
         if (CanSeePlayer()) lastSeenTime = Time.time;
-        if (dist > loseRange || Time.time - lastSeenTime > loseTime)
+        if ((see360 ? fullDist : dist) > loseRange || Time.time - lastSeenTime > loseTime)
         {
             state = State.Patrol;
             startX = transform.position.x; // kaldigi yerde devriyeye baslasin
@@ -231,9 +249,11 @@ public class SkeletonEnemy : MonoBehaviour
             StartAction(State.Attack);
             return;
         }
-        // Kemik: menzilden bagimsiz, sureyle. Oyuncu pence menzilindeyse bekler (pence oncelikli).
-        if (!inClawRange && sameHeight && Time.time >= nextThrowTime && bonePrefab != null &&
-            dist <= throwMaxRange && HasLineOfSight())
+        // Kemik: sadece uzaktayken (throwMinRange..throwMaxRange), oyuncunun oldugu noktaya nisan alarak.
+        // Daha yakindaysa kemik atmaz, yaklasip pence ile vurur. Yukarida/asagida/arkada olsa da (360 derece) atar.
+        float throwDist = see360 ? fullDist : dist;
+        if (!inClawRange && Time.time >= nextThrowTime && bonePrefab != null &&
+            throwDist > throwMinRange && throwDist <= throwMaxRange && HasLineOfSight())
         {
             StartAction(State.Throw);
             return;
@@ -295,6 +315,12 @@ public class SkeletonEnemy : MonoBehaviour
     private void DoThrow()
     {
         if (bonePrefab == null) return;
+        // Atis animasyonu sirasinda oyuncu arkaya gectiyse once ona don (kemik her yone atilabilir)
+        if (player != null)
+        {
+            float px = player.position.x - transform.position.x;
+            if (Mathf.Abs(px) > 0.05f) Face(px > 0f ? 1 : -1);
+        }
         // Oyuncu kemigin normal cikis noktasindan yakindaysa kemik onun hemen onunden ciksin (arkasindan degil)
         Vector2 offset = throwOffset;
         if (player != null)
@@ -302,9 +328,17 @@ public class SkeletonEnemy : MonoBehaviour
             float dist = Mathf.Abs(player.position.x - transform.position.x);
             offset.x = Mathf.Clamp(dist / ScaleK - 1.2f, 1f, throwOffset.x);
         }
-        var bone = Instantiate(bonePrefab, WorldPoint(offset), Quaternion.identity);
+        Vector2 spawn = WorldPoint(offset);
+        var bone = Instantiate(bonePrefab, spawn, Quaternion.identity);
         bone.transform.localScale = bone.transform.localScale * ScaleK;
-        bone.Launch(new Vector2(facing, 0f), boneSpeed, boneDamage, gameObject);
+        // Oyuncunun govdesinin ortasina nisan al (kemik firlatildigi andaki yerine gider)
+        Vector2 dir = new Vector2(facing, 0f);
+        if (player != null)
+        {
+            Vector2 aim = PlayerAimPoint() - spawn;
+            if (aim.sqrMagnitude > 0.01f) dir = aim.normalized;   // her aciya: yukari, asagi, capraz
+        }
+        bone.Launch(dir, boneSpeed, boneDamage, gameObject);
     }
 
     // ---------------- Fizik ----------------
@@ -391,11 +425,20 @@ public class SkeletonEnemy : MonoBehaviour
     {
         if (player == null) return false;
         Vector2 to = player.position - transform.position;
+        // 360 derece: onde, arkada, yukarida, asagida fark etmez; sightRange yaricapli daire icinde ve arada duvar yoksa gorur
+        if (see360) return to.magnitude <= sightRange && HasLineOfSight();
         if (Mathf.Abs(to.y) > verticalSight * ScaleK) return false;
         bool inFront = Mathf.Sign(to.x) == facing;
         float range = inFront ? sightRange : backSightRange;
         if (Mathf.Abs(to.x) > range) return false;
         return HasLineOfSight();
+    }
+
+    private Vector2 PlayerAimPoint()
+    {
+        if (playerCollider == null && player != null) playerCollider = player.GetComponent<Collider2D>();
+        if (playerCollider != null) return playerCollider.bounds.center;
+        return (Vector2)player.position + Vector2.up * 1.5f * Mathf.Abs(player.lossyScale.y);
     }
 
     private bool HasLineOfSight()
@@ -440,9 +483,27 @@ public class SkeletonEnemy : MonoBehaviour
 
     private void UpdateWalkBob()
     {
+        bool walking = Mathf.Abs(moveX) > 0.01f && (state == State.Patrol || state == State.Chase);
+        // 20 karelik yurume animasyonu varsa onu oynat: adim hizi yurume hiziyla eslesir (ayak kaymaz)
+        if (animator != null && animator.runtimeAnimatorController != null && animator.HasState(0, WalkHash))
+        {
+            if (visual != null && visual != transform) { visual.localPosition = Vector3.zero; visual.localRotation = Quaternion.identity; }
+            if (state != State.Patrol && state != State.Chase) { walkAnimOn = false; return; }   // saldiri/sersemleme kendi animasyonunu oynatir
+            if (walking)
+            {
+                if (!walkAnimOn) { animator.Play(WalkHash, 0, 0f); walkAnimOn = true; }
+                animator.speed = Mathf.Abs(moveX) / Mathf.Max(0.01f, walkStrideLength * ScaleK);
+            }
+            else if (walkAnimOn)
+            {
+                walkAnimOn = false;
+                animator.speed = 1f;
+                PlayState(IdleHash);
+            }
+            return;
+        }
         // Yurume animasyonu yok: yururken gorseli hafifce zipla/sallanarak hareket hissi ver
         if (visual == null || visual == transform) return;
-        bool walking = Mathf.Abs(moveX) > 0.01f;
         float s = Mathf.Sin(Time.time * walkBobSpeed);
         visual.localPosition = new Vector3(0f, walking ? Mathf.Abs(s) * walkBobAmount : 0f, 0f);
         visual.localRotation = Quaternion.Euler(0f, 0f, walking ? s * 2.5f : 0f);

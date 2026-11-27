@@ -100,17 +100,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonEnemy
   patrolSpeed: 1.2
-  chaseSpeed: 2.4
+  chaseSpeed: 5
   patrolDistance: 3
   patrolWait: 1.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   ledgeCheckForward: 1.2
-  sightRange: 9
+  sightRange: 50
   backSightRange: 2.5
   verticalSight: 3.5
-  loseRange: 14
+  loseRange: 56
   loseTime: 2.5
   clawDamage: 20
   clawKnockback: 9
@@ -124,8 +124,9 @@ MonoBehaviour:
   boneDamage: 12
   boneSpeed: 9
   throwInterval: 4
-  throwFirstDelay: 1.5
-  throwMaxRange: 14
+  throwFirstDelay: 0
+  throwMaxRange: 50
+  throwMinRange: 14
   throwOffset: {x: 5.8, y: 1.75}
   throwAnimSpeed: 0.85
   throwRecovery: 0.4
@@ -133,6 +134,7 @@ MonoBehaviour:
   staggerImmunity: 1
   knockbackMultiplier: 1
   deathFadeTime: 1.2
+  walkStrideLength: 0.79
   walkBobAmount: 0.08
   walkBobSpeed: 7
 --- !u!114 &6961136720610287107
@@ -242,24 +244,8 @@ PolygonCollider2D:
       - {x: -0.687, y: 1.158}
       - {x: -1.116, y: 1.101}
       - {x: -1.344, y: 1.444}
-      - {x: -1.716, y: 1.33}
-      - {x: -1.801, y: 1.187}
-      - {x: -2.03, y: 1.187}
-      - {x: -2.258, y: 1.473}
-      - {x: -2.516, y: 1.644}
-      - {x: -3.173, y: 1.701}
-      - {x: -3.23, y: 1.93}
-      - {x: -3.487, y: 1.901}
-      - {x: -3.516, y: 2.044}
-      - {x: -3.744, y: 2.187}
-      - {x: -3.687, y: 2.444}
-      - {x: -3.487, y: 2.53}
-      - {x: -3.087, y: 2.53}
-      - {x: -2.858, y: 2.415}
-      - {x: -2.744, y: 2.244}
-      - {x: -2.601, y: 2.244}
-      - {x: -2.573, y: 2.044}
-      - {x: -2.173, y: 1.815}
+      - {x: -1.45, y: 1.55}
+      - {x: -1.48, y: 1.82}
       - {x: -1.944, y: 1.844}
       - {x: -2.258, y: 2.473}
       - {x: -2.258, y: 3.015}

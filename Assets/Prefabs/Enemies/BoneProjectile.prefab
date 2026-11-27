@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff83baaf3e90234580765d9959bf431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyProjectile
-  lifetime: 3
+  lifetime: 7
   spinSpeed: 720
   knockback: 6
   blockLayers:
